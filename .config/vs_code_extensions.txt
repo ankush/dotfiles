@@ -1,0 +1,11 @@
+acidic9.p5js-snippets
+CoenraadS.bracket-pair-colorizer
+dcasella.i3
+HookyQR.beautify
+ms-python.python
+ms-vscode.cpptools
+ritwickdey.LiveServer
+tomoki1207.pdf
+vscode-icons-team.vscode-icons
+yzhang.markdown-all-in-one
+zhuangtongfa.material-theme
