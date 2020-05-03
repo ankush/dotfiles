@@ -24,6 +24,9 @@
     79,
     ],
     "editor.multiCursorModifier": "ctrlCmd",
-    "editor.columnSelection": true,
+    "editor.columnSelection": false,
     "editor.codeLens": false,
+    "files.associations": {
+        "config": "i3"
+    },
 }

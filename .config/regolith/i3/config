@@ -328,6 +328,9 @@ bindsym $mod+i bar mode toggle
 floating_maximum_size -1 x -1
 for_window [class="Gnome-control-center"] floating enable
 
+# screenshot with flameshot
+bindsym $mod+Print exec flameshot gui -d 2000
+
 ###############################################################################
 # Window Resize and Gaps
 ###############################################################################
