@@ -256,8 +256,8 @@ bindsym $mod+$alt+q [con_id="__focused__"] exec --no-startup-id kill -9 $(xdotoo
 bindsym $mod+Shift+c reload
 
 ## Session // Refresh Session // <><Shift> r ##
-set_from_resource $i3-wm.program.refresh_ui i3-wm.program.refresh_ui /usr/bin/regolith-look refresh
-bindsym $mod+Shift+r exec --no-startup-id $i3-wm.program.refresh_ui
+# set_from_resource $i3-wm.program.refresh_ui i3-wm.program.refresh_ui /usr/bin/regolith-look refresh
+# bindsym $mod+Shift+r exec --no-startup-id $i3-wm.program.refresh_ui
 
 ## Session // Restart i3 // <><Ctrl> r ##
 bindsym $mod+Ctrl+r restart
@@ -267,12 +267,12 @@ set_from_resource $i3-wm.program.logout i3-wm.program.logout /usr/bin/gnome-sess
 bindsym $mod+Shift+e exec $i3-wm.program.logout
 
 ## Session // Reboot // <><Shift> b ##
-set_from_resource $i3-wm.program.reboot i3-wm.program.reboot /usr/bin/gnome-session-quit --reboot
-bindsym $mod+Shift+b exec $i3-wm.program.reboot
+# set_from_resource $i3-wm.program.reboot i3-wm.program.reboot /usr/bin/gnome-session-quit --reboot
+# bindsym $mod+Shift+b exec $i3-wm.program.reboot
 
 ## Session // Power Down // <><Shift> p ##
-set_from_resource $i3-wm.program.shutdown i3-wm.program.shutdown /usr/bin/gnome-session-quit --power-off
-bindsym $mod+Shift+p exec $i3-wm.program.shutdown
+# set_from_resource $i3-wm.program.shutdown i3-wm.program.shutdown /usr/bin/gnome-session-quit --power-off
+# bindsym $mod+Shift+p exec $i3-wm.program.shutdown
 
 ## Session // Lock Screen // <> Escape ##
 set_from_resource $i3-wm.program.lock i3-wm.program.lock dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
@@ -291,16 +291,16 @@ set_from_resource $i3-wm.program.settings i3-wm.program.settings gnome-control-c
 bindsym $mod+c exec $i3-wm.program.settings
 
 ## Modify // Display Settings // <> d ##
-set_from_resource $i3-wm.program.display i3-wm.program.display gnome-control-center display
-bindsym $mod+d exec $i3-wm.program.display
+# set_from_resource $i3-wm.program.display i3-wm.program.display gnome-control-center display
+# bindsym $mod+d exec $i3-wm.program.display
 
 ## Modify // Wifi Settings // <> w ##
-set_from_resource $i3-wm.program.wifi i3-wm.program.wifi gnome-control-center wifi
-bindsym $mod+w exec $i3-wm.program.wifi
+# set_from_resource $i3-wm.program.wifi i3-wm.program.wifi gnome-control-center wifi
+# bindsym $mod+w exec $i3-wm.program.wifi
 
 ## Modify // Bluetooth Settings // <> b ##
-set_from_resource $i3-wm.program.bluetooth i3-wm.program.bluetooth gnome-control-center bluetooth
-bindsym $mod+b exec $i3-wm.program.bluetooth
+# set_from_resource $i3-wm.program.bluetooth i3-wm.program.bluetooth gnome-control-center bluetooth
+# bindsym $mod+b exec $i3-wm.program.bluetooth
 
 ## Launch // File Browser // <><Shift> n ##
 set_from_resource $i3-wm.program.files i3-wm.program.files /usr/bin/nautilus --new-window

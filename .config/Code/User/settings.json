@@ -2,7 +2,6 @@
     "workbench.colorTheme": "One Dark Pro",
     "workbench.iconTheme": "vscode-icons",
     "editor.fontFamily": "Jetbrains mono",
-    "terminal.integrated.inheritEnv": false,
     "editor.minimap.enabled": false,
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
@@ -29,4 +28,5 @@
     "files.associations": {
         "config": "i3"
     },
+    "markdown.extension.toc.githubCompatibility": true,
 }
