@@ -386,7 +386,7 @@ default_floating_border pixel $i3-wm.floatingwindow.border.size
 
 # Specify the distance between windows in pixels. (i3-gaps)
 gaps inner 4
-gaps outer 4
+gaps outer 0 
 
 # Only enable gaps on a workspace when there is at least one container
 # set_from_resource $i3-wm.gaps.smart i3-wm.gaps.smart on
@@ -510,8 +510,8 @@ set_from_resource $i3-wm.program.notifications i3-wm.program.notifications /usr/
 exec --no-startup-id $i3-wm.program.notifications
 
 # Launch first time user experience script
-set_from_resource $i3-wm.program.ftui i3-wm.program.ftui /usr/bin/regolith-ftue
-exec --no-startup-id $i3-wm.program.ftui
+#set_from_resource $i3-wm.program.ftui i3-wm.program.ftui /usr/bin/regolith-ftue
+#exec --no-startup-id $i3-wm.program.ftui
 
 # Hide the mouse pointer if unused for a duration
 set_from_resource $i3-wm.program.unclutter i3-wm.program.unclutter /usr/bin/regolith-ftue /usr/bin/unclutter -b

@@ -134,3 +134,4 @@ alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 # safe rm and move
 alias rm="rm -i"
 alias mv="mv -i"
+alias cp="cp -i"
