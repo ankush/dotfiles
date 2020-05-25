@@ -29,4 +29,12 @@
         "config": "i3"
     },
     "markdown.extension.toc.githubCompatibility": true,
+    "liveServer.settings.donotVerifyTags": true,
+    "files.insertFinalNewline": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "python.pythonPath": "/home/s4m/miniconda3/bin/python",
+    "git.suggestSmartCommit": false,
+    // "editor.scrollBeyondLastLine": false
 }
