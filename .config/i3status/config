@@ -1,0 +1,35 @@
+general {
+    output_format ="i3bar"
+    colors = true
+    interval = 10
+}
+
+order += "cpu_usage"
+order += "memory"
+order += "ethernet enp2s0"
+order += "tztime local"
+
+
+cpu_usage {
+        format = "CPU: %usage "
+}
+
+
+memory {
+        format = " R: %used/%available "
+        threshold_degraded = "15%"
+        threshold_critical = "5%"
+        format_degraded = " Memory LOW: %free "
+}
+
+ethernet enp2s0 {
+        format_up = "E: %ip"
+        format_down = "E: down"
+}
+
+
+tztime local {
+        # format = "%Y-%m-%d %H:%M:%S"
+        format = " %d/%m/%Y · %I:%M %P "
+}
+
