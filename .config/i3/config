@@ -31,10 +31,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 
-
-
-
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -229,13 +225,12 @@ client.focused_inactive #002b36  #073642     #839496   #073642    #000000
 client.unfocused        #002b36  #073642     #839496   #073642    #000000
 client.urgent           #002b36  #dc322f     #fdf6e3   #002b36    #FF0000
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# primary bar
 bar {
         # i3bar_command i3bar
         status_command i3status
-        position top
-        tray_output primary
+        position bottom
+        output HDMI-A-0
 
         # disable scrolling
         bindsym button4 nop
@@ -246,6 +241,24 @@ bar {
         focused_workspace  #000000   #00FFFF     #000000
     }
 }
+
+# secondary bar
+bar {
+        # i3bar_command i3bar
+        status_command i3status
+        position top
+        output DisplayPort-0
+
+        # disable scrolling
+        bindsym button4 nop
+        bindsym button5 nop
+
+        colors {
+#                          border    background  text
+        focused_workspace  #000000   #00FFFF     #000000
+    }
+}
+
 
 # Delay, interval
 exec_always --no-startup-id xset r rate 250 60
