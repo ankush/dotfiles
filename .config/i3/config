@@ -47,8 +47,12 @@ bindsym $mod+Return exec i3-sensible-terminal
 ## Session // Exit App // <><Shift> q ##
 bindsym $mod+Shift+q [con_id="__focused__"] kill
 
-# start dmenu (a program launcher)
-bindsym $mod+space exec dmenu_run
+# start rofi
+bindsym $mod+space exec  "rofi -show drun -show-icons"
+
+# list known windows
+bindsym Mod1+Tab exec "rofi -show window -show-icons"
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
