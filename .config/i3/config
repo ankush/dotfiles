@@ -109,10 +109,10 @@ bindsym $mod+a focus parent
 ###############################################################################
 
 set $ws1 "1: Web"
-set $ws2 "2: Virt"
-set $ws3 "3: Code"
-set $ws4 "4: Player"
-set $ws5 "5"
+set $ws2 "2: Code"
+set $ws3 "3: Work"
+set $ws4 "4: Virt"
+set $ws5 "5:"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -164,11 +164,10 @@ bindsym $mod+Shift+d exec ".screenlayout/disable-top-monitor.sh"
 ###############################################################################
 # Default assignments
 ###############################################################################
-
-assign [class="VirtualBox Machine"] $ws2
 assign [class="Firefox"] $ws1
-assign [class="google-chrome"] $ws1
-assign [class="Code"] $ws3
+assign [class="Code"] $ws2
+assign [class="Google-chrome"] $ws3
+assign [class="VirtualBox Manager"] $ws4
 
 
 # resize window (you can also use the mouse for that)
@@ -199,8 +198,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Disable titlebar
-default_border pixel 1
-default_floating_border pixel 1
+default_border pixel 2
+default_floating_border pixel 2
+
 
 # Enable popup during fullscreen
 popup_during_fullscreen smart
@@ -211,53 +211,50 @@ focus_follows_mouse no
 
 
 # Specify the distance between windows in pixels. (i3-gaps)
-gaps inner 4
+gaps inner 2
 gaps outer 0
+
+smart_gaps 1
+hide_edge_borders smart
 
 
 ###############################################################################
 # i3 Colors and Fonts
 ###############################################################################
 
-# Create variables from Xresources for i3's look.
-set $focused.color.border "#002b36"
-set $focused.color.background "#586e75"
-set $focused.color.text "#fdf6e3"
-set $focused.color.indicator "#FF0000"
-set $focused.color.child_border "#00FFFF"
-
-set $focused_inactive.color.border "#002b36"
-set $focused_inactive.color.background "#073642"
-set $focused_inactive.color.text "#839496"
-set $focused_inactive.color.indicator "#073642"
-set $focused_inactive.color.child_border "#000000"
-
-set $unfocused.color.border "#002b36"
-set $unfocused.color.background "#073642"
-set $unfocused.color.text "#839496"
-set $unfocused.color.indicator "#073642"
-set $unfocused.color.child_border "#000000"
-
-set $urgent.color.border "#002b36"
-set $urgent.color.background "#dc322f"
-set $urgent.color.text "#fdf6e3"
-set $urgent.color.indicator "#002b36"
-set $urgent.color.child_border "#FF0000"
-
-
 # Window Border color
-# class                 border                             background                         text                               indicator                          child_border
-client.focused          $focused.color.border              $focused.color.background          $focused.color.text                $focused.color.indicator           $focused.color.child_border
-client.focused_inactive $focused_inactive.color.border     $focused_inactive.color.background $focused_inactive.color.text       $focused_inactive.color.indicator  $focused_inactive.color.child_border
-client.unfocused        $unfocused.color.border            $unfocused.color.background        $unfocused.color.text              $unfocused.color.indicator         $unfocused.color.child_border
-client.urgent           $urgent.color.border               $urgent.color.background           $urgent.color.text                 $urgent.color.indicator            $urgent.color.child_border
+# class                 border   background  text      indicator  child_border
+client.focused          #002b36  #586e75     #fdf6e3   #FF0000    #00FFFF
+client.focused_inactive #002b36  #073642     #839496   #073642    #000000
+client.unfocused        #002b36  #073642     #839496   #073642    #000000
+client.urgent           #002b36  #dc322f     #fdf6e3   #002b36    #FF0000
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        # i3bar_command i3bar
         status_command i3status
+        position top
+        tray_output primary
+
+        # disable scrolling
+        bindsym button4 nop
+        bindsym button5 nop
+
+        colors {
+#                          border    background  text
+        focused_workspace  #000000   #00FFFF     #000000
+    }
 }
 
-exec --no-startup-id compton -b
+# Delay, interval
+exec_always --no-startup-id xset r rate 250 60
+
+# map capslock to escape
+exec_always --no-startup-id xmodmap -e "clear lock"
+exec_always --no-startup-id "keysym Caps_Lock = Escape"
+
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id ".screenlayout/dual-monitor.sh"
+exec --no-startup-id .screenlayout/dual-monitor.sh
+exec --no-startup-id unclutter
+exec --no-startup-id compton -b
