@@ -48,7 +48,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q [con_id="__focused__"] kill
 
 # start rofi
-bindsym $mod+space exec  "rofi -show drun -show-icons"
+bindsym $mod+space exec  "rofi -show drun -show-icons -lines 5"
 
 # list known windows
 bindsym Mod1+Tab exec "rofi -show window -show-icons"
@@ -252,6 +252,8 @@ bar {
         status_command i3status
         position top
         output DisplayPort-0
+        tray_output none
+
 
         # disable scrolling
         bindsym button4 nop
@@ -271,7 +273,7 @@ exec_always --no-startup-id xset r rate 250 60
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id "keysym Caps_Lock = Escape"
 
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id .screenlayout/dual-monitor.sh
-exec --no-startup-id unclutter
 exec --no-startup-id compton -b
+exec --no-startup-id unclutter
+exec --no-startup-id .screenlayout/dual-monitor.sh
+exec --no-startup-id nitrogen --restore
