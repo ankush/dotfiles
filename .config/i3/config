@@ -31,7 +31,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 
-# Use pactl to adjust volume in PulseAudio.
+# Use pactl to adjust volume in PulseAudio.p
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
@@ -49,6 +49,9 @@ bindsym $mod+Shift+q [con_id="__focused__"] kill
 
 # start rofi
 bindsym $mod+space exec  "rofi -show drun -show-icons -lines 5"
+
+# Rofi-TODO
+bindsym $mod+p exec rofi -modi TODO:.config/rofi/rofi-todo.sh -show TODO
 
 # list known windows
 bindsym Mod1+Tab exec "rofi -show window -show-icons"
