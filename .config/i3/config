@@ -272,11 +272,10 @@ bar {
 # Delay, interval
 exec_always --no-startup-id xset r rate 250 60
 
-# map capslock to escape
-exec_always --no-startup-id xmodmap -e "clear lock"
-exec_always --no-startup-id "keysym Caps_Lock = Escape"
+# map capslock to super
+exec_always --no-startup-id "setxkbmap -option caps:super"
 
 exec --no-startup-id compton -b
 exec --no-startup-id unclutter
-exec --no-startup-id .screenlayout/dual-monitor.sh
+exec --no-startup-id .screenlayout/disable-top-monitor.sh
 exec --no-startup-id nitrogen --restore
