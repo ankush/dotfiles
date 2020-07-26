@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "One Dark Pro",
     "workbench.iconTheme": "vscode-icons",
     "editor.fontFamily": "Jetbrains mono",
     "editor.minimap.enabled": false,
@@ -20,11 +19,10 @@
     "workbench.sideBar.location": "right",
     "bracketPairColorizer.showBracketsInRuler": true,
     "editor.rulers": [
-    79,
+        79,
     ],
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.columnSelection": false,
-    "editor.codeLens": false,
     "files.associations": {
         "config": "i3"
     },
@@ -36,5 +34,31 @@
     },
     "python.pythonPath": "/home/s4m/miniconda3/bin/python",
     "git.suggestSmartCommit": false,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdflatex",
+            "tools": [
+                "pdflatex",
+            ]
+        },
+    ],
+    "C_Cpp.default.cppStandard": "c++11",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "editor.suggest.maxVisibleSuggestions": 8,
+    "workbench.tree.indent": 4,
+    "workbench.tree.renderIndentGuides": "always",
+    "breadcrumbs.enabled": false,
+    "search.exclude": {
+        "**/practice": true
+    },
+    "workbench.colorTheme": "Dracula",
+    "C_Cpp.vcpkg.enabled": false,
+    "python.experiments.enabled": false,
+    "python.testing.pytestEnabled": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "keyboard.dispatch": "keyCode",
+    "python.formatting.provider": "black",
+    "git.untrackedChanges": "separate",
     // "editor.scrollBeyondLastLine": false
 }
