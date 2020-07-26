@@ -6,7 +6,7 @@ general {
 
 order += "cpu_usage"
 order += "memory"
-order += "ethernet enp2s0"
+order += "ethernet enp1s0"
 order += "tztime local"
 
 
@@ -22,7 +22,7 @@ memory {
         format_degraded = " Memory LOW: %free "
 }
 
-ethernet enp2s0 {
+ethernet enp1s0 {
         format_up = "E: %ip"
         format_down = "E: down"
 }

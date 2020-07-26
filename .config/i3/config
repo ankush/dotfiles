@@ -32,7 +32,6 @@ exec --no-startup-id nm-applet
 
 
 # Use pactl to adjust volume in PulseAudio.p
-set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
@@ -237,7 +236,7 @@ bar {
         # i3bar_command i3bar
         status_command i3status
         position bottom
-        output HDMI-A-0
+        # output primary
 
         # disable scrolling
         bindsym button4 nop
@@ -250,32 +249,34 @@ bar {
 }
 
 # secondary bar
-bar {
-        # i3bar_command i3bar
-        status_command i3status
-        position top
-        output DisplayPort-0
-        tray_output none
+# bar {
+#         # i3bar_command i3bar
+#         status_command i3status
+#         position top
+#         output DisplayPort-0
+#         tray_output none
 
 
-        # disable scrolling
-        bindsym button4 nop
-        bindsym button5 nop
+#         # disable scrolling
+#         bindsym button4 nop
+#         bindsym button5 nop
 
-        colors {
-#                          border    background  text
-        focused_workspace  #000000   #00FFFF     #000000
-    }
-}
+#         colors {
+# #                          border    background  text
+#         focused_workspace  #000000   #00FFFF     #000000
+#     }
+# }
 
 
 # Delay, interval
 exec_always --no-startup-id xset r rate 250 60
 
 # map capslock to super
-exec_always --no-startup-id "setxkbmap -option caps:super"
+exec_always --no-startup-id "setxkbmap -option caps:escape"
 
-exec --no-startup-id compton -b
+# exec --no-startup-id compton -b
 exec --no-startup-id unclutter
-exec --no-startup-id .screenlayout/disable-top-monitor.sh
+exec --no-startup-id .screenlayout/internal-graphics.sh
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id safeeyes
+exec --no-startup-id redshit-gtk
