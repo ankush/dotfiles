@@ -19,7 +19,7 @@ import qualified Data.Map        as M
 myTerminal      = "gnome-terminal"
 
 -- Whether focus follows the mouse pointer.
-myFocusFollowsMouse = True
+myFocusFollowsMouse = False
 
 -- Whether clicking on a window to focus also passes the click to the window
 myClickJustFocuses = False
