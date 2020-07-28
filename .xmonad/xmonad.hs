@@ -5,6 +5,8 @@ import Data.Monoid
 import Graphics.X11.ExtraTypes.XF86
 import System.Exit
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.SetWMName
 import XMonad.Layout.NoBorders
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
@@ -42,7 +44,7 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+myWorkspaces    = ["1: WWW","2: Code","3: Work","4: VM","5","6","7","8","9"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -247,7 +249,8 @@ myStartupHook = do
   spawnOnce "unclutter"
   spawnOnce "safeeyes"
   spawnOnce "volumeicon &"
-  spawnOnce "trayer --edge bottom --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --transparent true --alpha 0 --tint 0x292d3e --height 22 &"
+  spawnOnce "nm-applet &"
+  spawnOnce "trayer --edge bottom --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --transparent true --alpha 0 --tint 0x000000 --height 22 &"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -256,7 +259,17 @@ myStartupHook = do
 --
 main = do
   xmproc <- spawnPipe "xmobar -x 0 ~/.xmonad/xmobar.config"
-  xmonad $ docks defaults
+  xmonad $ docks defaults {
+      logHook = dynamicLogWithPP $ xmobarPP {
+            ppOutput = hPutStrLn xmproc
+          , ppTitle = xmobarColor "#FFB6B0" "" . shorten 50
+          , ppCurrent = xmobarColor "#8F4E8B" ""
+          , ppSep = "   "
+      }
+      , manageHook = manageDocks <+> myManageHook
+      , startupHook = setWMName "LG3D"
+      , handleEventHook = docksEventHook
+  }
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
