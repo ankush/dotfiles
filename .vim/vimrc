@@ -1,3 +1,24 @@
+call plug#begin('~/.vim/plugged')
+
+" Appearance
+Plug 'itchyny/lightline.vim'
+Plug 'frazrepo/vim-rainbow'
+Plug 'scrooloose/nerdtree'
+Plug 'dracula/vim', { 'as': 'dracula' }
+
+" HTML/CSS/JS
+Plug 'ap/vim-css-color'
+Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'markdown'] }
+
+"Haskell
+Plug 'neovimhaskell/haskell-vim'
+
+
+call plug#end()
+
+colorscheme dracula
+set background=dark
+
 " Vim is based on Vi. Setting `nocompatible` switches from the default
 " Vi-compatibility mode and enables useful Vim functionality. This
 " configuration option turns out not to be necessary for the file named
@@ -9,6 +30,7 @@ set nocompatible
 
 " Turn on syntax highlighting.
 syntax on
+filetype plugin indent on
 
 " Disable the default Vim startup message.
 set shortmess+=I
@@ -80,3 +102,11 @@ filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" Theme for lightline
+let g:lightline = {
+    \ 'colorscheme': 'seoul256',
+    \}
+
+" Enable rainbow brakcets on all files
+let g:rainbow_active = 1
