@@ -1,12 +1,17 @@
 " NEOVIM CONFIGURATION FILE
 call plug#begin($HOME . '/.local/share/nvim/plugged')
+
+" Intelligence
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Appearance
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " HTML/CSS/JS
-Plug 'ap/vim-css-color'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'markdown'] }
 
 "Haskell
@@ -46,7 +51,8 @@ set lazyredraw " Don't redraw when running macros
 set noswapfile  " Don't use a swapfile for the buffer
 set spell " Enable spell-check
 set nojoinspaces  " Use one space, not two, after punctuation
-
+set termguicolors
+lua require'colorizer'.setup()
 nmap Q <Nop> " Disable useless binding
 " Disable arrow keys
 nnoremap <Left>  :echoe "Use h"<CR>
