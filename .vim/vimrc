@@ -2,7 +2,6 @@ call plug#begin('~/.vim/plugged')
 
 " Appearance
 Plug 'itchyny/lightline.vim'
-Plug 'frazrepo/vim-rainbow'
 Plug 'scrooloose/nerdtree'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
@@ -13,11 +12,10 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'markdown'] }
 "Haskell
 Plug 'neovimhaskell/haskell-vim'
 
-
 call plug#end()
 
 colorscheme dracula
-set background=dark
+set cursorline " highlight current line
 
 " Vim is based on Vi. Setting `nocompatible` switches from the default
 " Vi-compatibility mode and enables useful Vim functionality. This
@@ -30,20 +28,24 @@ set nocompatible
 
 " Turn on syntax highlighting.
 syntax on
-filetype plugin indent on
 
 " Disable the default Vim startup message.
 set shortmess+=I
 
-" Show line numbers.
-set number
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+set softtabstop=0
+set expandtab
 
-" This enables relative line numbering mode. With both number and
-" relativenumber enabled, the current line shows the true line number, while
-" all other lines (above and below) are numbered relative to the current line.
-" This is useful because you can tell, at a glance, what count is needed to
-" jump up or down to a particular line, by {count}k to go up or {count}j to go
-" down.
+"" Encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+set ttyfast
+
+" Show line numbers and relative line numbers.
+set number
 set relativenumber
 
 " Always show the status line at the bottom, even if you only have one window open.
@@ -98,15 +100,10 @@ inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
 
-filetype plugin indent on
-set tabstop=4
-set shiftwidth=4
-set expandtab
-
 " Theme for lightline
 let g:lightline = {
     \ 'colorscheme': 'seoul256',
     \}
 
-" Enable rainbow brakcets on all files
-let g:rainbow_active = 1
+set term=gnome-256color
+set scrolloff=5

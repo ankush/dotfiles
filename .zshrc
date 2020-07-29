@@ -130,6 +130,9 @@ alias httpserver="xdg-open http://localhost:8000 && python -m http.server"
 # dotfiles manager
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
+# the one true text editor
+alias v="vim"
+alias vrc="vim ~/.vim/vimrc"
 
 # safe rm and move
 alias rm="rm -i"
