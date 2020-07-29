@@ -1,0 +1,14 @@
+---
+BasedOnStyle: Microsoft
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 79
+AllowShortIfStatementsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+NamespaceIndentation: All
+---
+Language: Cpp
+DerivePointerAlignment: false
+PointerAlignment: Left
