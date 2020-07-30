@@ -62,7 +62,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch rofi
     , ((modm,               xK_space     ), spawn "rofi -show drun -show-icons -lines 5")
 
-    -- close focused window
+     -- launch rofi-TODO
+    , ((modm,               xK_p         ), spawn "rofi -modi TODO:.config/rofi/rofi-todo.sh -show TODO")
+
+   -- close focused window
     , ((modm .|. shiftMask, xK_q     ), kill)
 
      -- Rotate through the available layout algorithms
@@ -121,6 +124,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Mute audio
     , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+
+    -- Take screenshot
+    , ((modm              , xK_Print ), spawn "flameshot gui -d 2000")
 
     -- Decrease volume
     , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -10%")
@@ -209,9 +215,10 @@ myLayout = avoidStruts(tiled ||| Mirror tiled ||| Full)
 -- 'className' and 'resource' are used below.
 --
 myManageHook = composeAll
-    [ className =? "MPlayer"        --> doFloat
-    , className =? "Gimp"           --> doFloat
-    , resource  =? "desktop_window" --> doIgnore
+    [ resource  =? "desktop_window"     --> doIgnore
+    , className =? "Firefox"            --> doShift(myWorkspaces !! 0)
+    , className =? "Google-chrome"      --> doShift(myWorkspaces !! 2)
+    , className =? "VirtualBox Manager" --> doShift(myWorkspaces !! 3)
     , resource  =? "kdesktop"       --> doIgnore ]
 
 ------------------------------------------------------------------------
@@ -251,6 +258,7 @@ myStartupHook = do
   spawnOnce "volumeicon &"
   spawnOnce "nm-applet &"
   spawnOnce "trayer --edge bottom --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --transparent true --alpha 0 --tint 0x000000 --height 22 &"
+  spawnOnce "xsetroot -cursor_name left_ptr"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -267,7 +275,6 @@ main = do
           , ppSep = "   "
       }
       , manageHook = manageDocks <+> myManageHook
-      , startupHook = setWMName "LG3D"
       , handleEventHook = docksEventHook
   }
 
@@ -298,4 +305,4 @@ defaults = def {
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
         startupHook        = myStartupHook
-    }
+}
