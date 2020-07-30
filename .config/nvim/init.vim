@@ -1,23 +1,7 @@
 " NEOVIM CONFIGURATION FILE
-call plug#begin($HOME . '/.local/share/nvim/plugged')
+source $HOME/.config/nvim/plugins.vim
+source $HOME/.config/nvim/keybindings.vim
 
-" Intelligence
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Appearance
-Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'dracula/vim', { 'as': 'dracula' }
-
-" HTML/CSS/JS
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'markdown'] }
-
-"Haskell
-Plug 'neovimhaskell/haskell-vim'
-call plug#end()
-
-let g:mapleader = "\<Space>"
 colorscheme dracula
 set ruler " Show cursor position all the time
 set background=dark
@@ -52,38 +36,5 @@ set lazyredraw " Don't redraw when running macros
 set noswapfile  " Don't use a swapfile for the buffer
 set nospell " disable spell-check
 set nojoinspaces  " Use one space, not two, after punctuation
-set termguicolors
 set colorcolumn=80 " Colour column to show 79 char limit
-lua require'colorizer'.setup()
-
-
-" Key mappings
-nmap Q <Nop> " Disable useless binding
-" Disable arrow keys
-nnoremap <Left>  :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up>    :echoe "Use k"<CR>
-nnoremap <Down>  :echoe "Use j"<CR>
-inoremap <Left>  <ESC>:echoe "Use h"<CR>
-inoremap <Right> <ESC>:echoe "Use l"<CR>
-inoremap <Up>    <ESC>:echoe "Use k"<CR>
-inoremap <Down>  <ESC>:echoe "Use j"<CR>
-" Completion navigation
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
-" Resize windows
-nnoremap <M-j>     :resize -2<CR>
-nnoremap <M-k>     :resize +2<CR>
-nnoremap <M-h>     :vertical resize -2<CR>
-nnoremap <M-l>     :vertical resize +2<CR>
-
-" Save like normal human beings
-nnoremap <C-s> :w<CR>
-
-" Theme for lightline
-let g:lightline = {
-    \ 'colorscheme': 'seoul256',
-    \}
-
-" Show at least 5 extra lines while scrolling
-set scrolloff=5
+set scrolloff=5 " Show at least 5 extra lines while scrolling

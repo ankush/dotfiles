@@ -10,7 +10,12 @@
 
   // python config
   "python.linting.enabled": true,
-  "python.linting.pylintenabled": true,
+  "python.linting.pylintEnabled": true,
 
-  "clangd.path": "/usr/bin/clangd-10"
+  "clangd.path": "/usr/bin/clangd-10",
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
+  }
 }
