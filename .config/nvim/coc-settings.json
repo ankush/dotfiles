@@ -1,0 +1,16 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "javascript",
+    "json",
+    "html",
+    "python"
+  ],
+
+  // python config
+  "python.linting.enabled": true,
+  "python.linting.pylintenabled": true,
+
+  "clangd.path": "/usr/bin/clangd-10"
+}
