@@ -6,7 +6,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Appearance
 Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'sheerun/vim-polyglot'
+Plug 'ryanoasis/vim-devicons'
 
 " HTML/CSS/JS
 Plug 'norcalli/nvim-colorizer.lua'
@@ -35,7 +38,19 @@ let g:lightline = {
       \ 'component_function': {
       \   'gitbranch': 'FugitiveHead'
       \ },
+      \ 'tabline': {
+      \   'left': [ ['buffers'] ],
+      \   'right': [ ['close'] ]
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
       \ }
+      \ }
+let g:lightline#bufferline#enable_devicons = 1
+let g:lightline#bufferline#show_number=2
 " Signify settings
 
 let g:signify_sign_add               = '+'

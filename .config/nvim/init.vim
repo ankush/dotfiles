@@ -38,3 +38,4 @@ set nojoinspaces  " Use one space, not two, after punctuation
 "set colorcolumn=80 " Colour column to show 79 char limit
 set scrolloff=5 " Show at least 5 extra lines while scrolling
 hi Normal guibg=NONE ctermbg=NONE
+set showtabline=2
