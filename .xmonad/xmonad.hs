@@ -47,12 +47,12 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1: WWW","2: Code","3: Work","4: VM","5","6","7","8","9"]
+myWorkspaces    = ["www","code","work","vm","music","misc"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#000000"
-myFocusedBorderColor = "#00ffff"
+myNormalBorderColor  = "#4D4D4D"
+myFocusedBorderColor = "#BD93F9"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
@@ -63,7 +63,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch rofi
-    , ((modm,               xK_space     ), spawn "rofi -show drun -show-icons -lines 5")
+    , ((modm,               xK_space     ), spawn "rofi -show drun -lines 5")
 
      -- launch rofi-TODO
     , ((modm,               xK_p         ), spawn "rofi -modi TODO:.config/rofi/rofi-todo.sh -show TODO")
@@ -117,7 +117,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
     -- See also the statusBar function from Hooks.DynamicLog.
     --
-    -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
+    , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_e     ), io (exitWith ExitSuccess))
@@ -141,21 +141,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ++
 
     --
-    -- mod-[1..9], Switch to workspace N
-    -- mod-shift-[1..9], Move client to workspace N
+    -- mod-[1..6], Switch to workspace N
+    -- mod-shift-[1..6], Move client to workspace N
     --
     [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_6]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-    -- ++
 
-    --
-    -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
-    -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
-    --
-    -- [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-    --     | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
-    --     , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 
 ------------------------------------------------------------------------
@@ -194,7 +186,7 @@ mySpacing i = spacingRaw True (Border i i i i) True (Border i i i i) True
 myLayout = avoidStruts $ (tall ||| Mirror tall ||| Full)
   where
      tall = renamed [Replace "tall"]
-            $ mySpacing 4 $ smartBorders
+            $ smartBorders $ mySpacing 2
             $ ResizableTall nmaster delta ratio []
 
      -- The default number of windows in the master pane
@@ -225,8 +217,7 @@ myManageHook = composeAll
     [ resource  =? "desktop_window"     --> doIgnore
     , className =? "Firefox"            --> doShift(myWorkspaces !! 0)
     , className =? "Google-chrome"      --> doShift(myWorkspaces !! 2)
-    , className =? "VirtualBox Manager" --> doShift(myWorkspaces !! 3)
-    , resource  =? "kdesktop"       --> doIgnore ]
+    , className =? "VirtualBox Manager" --> doShift(myWorkspaces !! 3) ]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -264,7 +255,7 @@ myStartupHook = do
   spawnOnce "safeeyes"
   spawnOnce "volumeicon &"
   spawnOnce "nm-applet &"
-  spawnOnce "trayer --edge bottom --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --transparent true --alpha 0 --tint 0x000000 --height 22 &"
+  -- spawnOnce "trayer --edge bottom --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --transparent true --alpha 0 --tint 0x000000 --height 22 &"
   spawnOnce "xsetroot -cursor_name left_ptr"
 
 ------------------------------------------------------------------------
@@ -273,13 +264,17 @@ myStartupHook = do
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
-  xmproc <- spawnPipe "xmobar -x 0 ~/.xmonad/xmobar.config"
+  xmproc <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobar.hs"
   xmonad $ docks defaults {
       logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc
-          , ppTitle = xmobarColor "#FFB6B0" "" . shorten 50
-          , ppCurrent = xmobarColor "#8F4E8B" ""
-          , ppSep = "   "
+          , ppTitle = xmobarColor "#FF79C6" "" . shorten 50
+          , ppCurrent = xmobarColor "#BD93F9" "" . wrap "(" ")"
+          , ppHidden = xmobarColor "#FF79C6" ""
+          , ppUrgent = xmobarColor "#FF5555" "" . wrap "!" "!"
+
+          , ppHiddenNoWindows = xmobarColor "#4D4D4D" ""
+          , ppSep = " | "
       }
       , manageHook = manageDocks <+> myManageHook
       , handleEventHook = docksEventHook

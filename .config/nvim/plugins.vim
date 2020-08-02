@@ -27,9 +27,15 @@ lua require'colorizer'.setup()
 
 " Theme for lightline
 let g:lightline = {
-    \ 'colorscheme': 'seoul256',
-    \}
-
+      \ 'colorscheme': 'darcula',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 " Signify settings
 
 let g:signify_sign_add               = '+'

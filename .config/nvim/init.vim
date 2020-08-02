@@ -4,7 +4,6 @@ source $HOME/.config/nvim/keybindings.vim
 
 colorscheme dracula
 set ruler " Show cursor position all the time
-set background=dark
 set cursorline " highlight current line
 set nocompatible " Disable ancient compatibility
 syntax on " Turn on syntax highlighting.
@@ -36,5 +35,6 @@ set lazyredraw " Don't redraw when running macros
 set noswapfile  " Don't use a swapfile for the buffer
 set nospell " disable spell-check
 set nojoinspaces  " Use one space, not two, after punctuation
-set colorcolumn=80 " Colour column to show 79 char limit
+"set colorcolumn=80 " Colour column to show 79 char limit
 set scrolloff=5 " Show at least 5 extra lines while scrolling
+hi Normal guibg=NONE ctermbg=NONE
