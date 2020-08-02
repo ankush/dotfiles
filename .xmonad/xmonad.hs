@@ -38,16 +38,19 @@ myBorderWidth   = 2
 --
 myModMask       = mod4Mask
 
--- The default number of workspaces (virtual screens) and their names.
--- By default we use numeric strings, but any string may be used as a
--- workspace name. The number of workspaces is determined by the length
--- of this list.
---
--- A tagging example:
---
--- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
---
-myWorkspaces    = ["www","code","work","vm","music","misc"]
+
+xmobarEscape = concatMap doubleLts
+  where
+        doubleLts '<' = "<<"
+        doubleLts x   = [x]
+
+-- workspace with click support. From DT's config: https://gitlab.com/dwt1/dotfiles/-/blob/master/.xmonad/xmonad.hs
+myWorkspaces = clickable . (map xmobarEscape)
+               $ ["www","code","work","vm","music","misc"]
+  where
+        clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
+                      (i,ws) <- zip [1..6] l,
+                      let n = i ]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
