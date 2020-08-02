@@ -7,7 +7,10 @@ import System.Exit
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.SetWMName
+import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
+import XMonad.Layout.ResizableTile
+import XMonad.Layout.Renamed (renamed, Rename(Replace))
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 import qualified XMonad.StackSet as W
@@ -185,10 +188,14 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts(tiled ||| Mirror tiled ||| Full)
+
+mySpacing i = spacingRaw True (Border i i i i) True (Border i i i i) True
+
+myLayout = avoidStruts $ (tall ||| Mirror tall ||| Full)
   where
-     -- default tiling algorithm partitions the screen into two panes
-     tiled   = smartBorders $ Tall nmaster delta ratio
+     tall = renamed [Replace "tall"]
+            $ mySpacing 4 $ smartBorders
+            $ ResizableTall nmaster delta ratio []
 
      -- The default number of windows in the master pane
      nmaster = 1
