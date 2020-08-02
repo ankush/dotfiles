@@ -15,7 +15,7 @@ Config { font = "xft:JetBrainsMono Nerd Font:pixelsize=14:antialias=true:hinting
        , commands = [ Run Network "enp1s0" ["-t", " <rx>  <tx>"] 50
                     , Run Cpu ["-t", " <total>%","-H","70","--high","#FF5555"] 50
                     , Run Memory ["-t"," <usedratio>%"] 50
-                    , Run Date "<fc=#50FA7B> %a %b %d %Y %I:%M </fc>" "date" 300
+                    , Run Date "<fc=#50FA7B> %a %b %d %I:%M </fc>" "date" 300
                     , Run UnsafeStdinReader
                     ]
        , sepChar = "%"

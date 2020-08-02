@@ -54,7 +54,7 @@ myWorkspaces = clickable . (map xmobarEscape)
 
 -- Border colors for unfocused and focused windows, respectively.
 --
-myNormalBorderColor  = "#4D4D4D"
+myNormalBorderColor  = "#282A36"
 myFocusedBorderColor = "#BD93F9"
 
 ------------------------------------------------------------------------
@@ -186,11 +186,12 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 mySpacing i = spacingRaw True (Border i i i i) True (Border i i i i) True
 
-myLayout = avoidStruts $ (tall ||| Mirror tall ||| Full)
+myLayout = avoidStruts $ (tall ||| Mirror tall ||| full)
   where
      tall = renamed [Replace "tall"]
             $ smartBorders $ mySpacing 2
             $ ResizableTall nmaster delta ratio []
+     full = smartBorders $ Full
 
      -- The default number of windows in the master pane
      nmaster = 1
@@ -273,10 +274,9 @@ main = do
             ppOutput = hPutStrLn xmproc
           , ppTitle = xmobarColor "#FF79C6" "" . shorten 50
           , ppCurrent = xmobarColor "#BD93F9" "" . wrap "(" ")"
-          , ppHidden = xmobarColor "#FF79C6" ""
+          , ppHidden = xmobarColor "#FF79C6" "" . wrap " " " "
           , ppUrgent = xmobarColor "#FF5555" "" . wrap "!" "!"
-
-          , ppHiddenNoWindows = xmobarColor "#4D4D4D" ""
+          , ppHiddenNoWindows = xmobarColor "#4D4D4D" "" . wrap " " " "
           , ppSep = " | "
       }
       , manageHook = manageDocks <+> myManageHook
