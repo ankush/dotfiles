@@ -273,9 +273,6 @@ myStartupHook = do
   spawnOnce "setxkbmap -option caps:escape"
   spawnOnce "unclutter"
   spawnOnce "safeeyes"
-  spawnOnce "volumeicon &"
-  spawnOnce "nm-applet &"
-  -- spawnOnce "trayer --edge bottom --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --transparent true --alpha 0 --tint 0x000000 --height 22 &"
   spawnOnce "xsetroot -cursor_name left_ptr"
 
 ------------------------------------------------------------------------
