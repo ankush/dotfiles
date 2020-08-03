@@ -150,8 +150,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_6]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+    ++
 
-
+    -- F1-F4 Switch to first 4 workspaces
+    [((0, k), windows $ f i)
+        | (i, k) <- zip (XMonad.workspaces conf) [xK_F1 .. xK_F4]
+        , (f, m) <- [(W.greedyView, 0)]]
 
 ------------------------------------------------------------------------
 -- Mouse bindings: default actions bound to mouse events
@@ -221,6 +225,7 @@ myManageHook = composeAll
     [ resource  =? "desktop_window"     --> doIgnore
     , className =? "Firefox"            --> doShift(myWorkspaces !! 0)
     , className =? "Google-chrome"      --> doShift(myWorkspaces !! 2)
+    , className =? "FreeCAD"            --> doShift(myWorkspaces !! 2)
     , className =? "VirtualBox Manager" --> doShift(myWorkspaces !! 3) ]
 
 ------------------------------------------------------------------------
