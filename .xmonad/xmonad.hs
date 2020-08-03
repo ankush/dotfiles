@@ -7,6 +7,7 @@ import System.Exit
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.SetWMName
+import XMonad.Hooks.ManageHelpers (doCenterFloat)
 import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
@@ -140,6 +141,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Increase volume
     , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +10%")
 
+    -- cmus-remote controls
+    , ((0, xF86XK_AudioPlay), spawn "cmus-remote -u")
+    , ((0, xF86XK_AudioStop), spawn "cmus-remote -s")
+    , ((0, xF86XK_AudioNext), spawn "cmus-remote --next")
+    , ((0, xF86XK_AudioPrev), spawn "cmus-remote --prev")
+
+    -- Switch to music workspace
+    , ((0, xK_F9),(windows $ W.greedyView (myWorkspaces !! 4)))
     ]
     ++
 
@@ -226,6 +235,8 @@ myManageHook = composeAll
     , className =? "Firefox"            --> doShift(myWorkspaces !! 0)
     , className =? "Google-chrome"      --> doShift(myWorkspaces !! 2)
     , className =? "FreeCAD"            --> doShift(myWorkspaces !! 2)
+    , className =? "cmus"               --> doShift(myWorkspaces !! 4)
+    , className =? "cmus"               --> doCenterFloat
     , className =? "VirtualBox Manager" --> doShift(myWorkspaces !! 3) ]
 
 ------------------------------------------------------------------------

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Display=true
+Exec=bash -c "(! pgrep cmus && gnome-terminal --geometry=120x40 --class=cmus --title="cmus" -- cmus)"
+Terminal=false
+Name=cmus
+Comment=Music player cmus-remote control
+StartupWMClass=cmus
+Icon=cmus
