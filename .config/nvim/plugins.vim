@@ -4,6 +4,10 @@ call plug#begin($HOME . '/.local/share/nvim/plugged')
 " Intelligence
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" General
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+
 " Appearance
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
@@ -22,6 +26,9 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
+
+" Plain text
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
