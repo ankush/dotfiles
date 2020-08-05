@@ -6,12 +6,18 @@
     "javascript",
     "json",
     "html",
+    "cpp",
+    "c",
+    "hpp",
+    "h",
     "python"
   ],
 
   "diagnostic.errorSign": "💩",
   "diagnostic.warningSign": "⚠️ ",
   "diagnostic.infoSign": "💁",
+
+  "diagnostic.virtualText": true,
 
   // python config
   "python.linting.enabled": true,

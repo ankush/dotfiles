@@ -134,6 +134,8 @@ alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 alias v="nvim"
 alias vrc="nvim ~/.config/nvim/init.vim"
 
+alias z="zathura"
+
 # safe rm and move
 alias rm="rm -i"
 alias mv="mv -i"
@@ -141,3 +143,6 @@ alias cp="cp -i"
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPS="--extended"

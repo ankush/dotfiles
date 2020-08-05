@@ -41,5 +41,11 @@ set scrolloff=5 " Show at least 5 extra lines while scrolling
 hi Normal guibg=NONE ctermbg=NONE
 set showtabline=2 " Enable bufferline on top
 
+" required by Coc
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
+
 " Trim whitespace on save for all files
 autocmd BufWritePre * :%s/\s\+$//e

@@ -19,9 +19,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript'] }
 
-" C/C++
-Plug 'rhysd/vim-clang-format'
-
 "Haskell
 Plug 'neovimhaskell/haskell-vim'
 
@@ -38,15 +35,21 @@ call plug#end()
 set termguicolors
 lua require'colorizer'.setup()
 
+function! CocCurrentFunction()
+    return get(b:, 'coc_current_function', '')
+endfunction
+
 " Theme for lightline
 let g:lightline = {
       \ 'colorscheme': 'darcula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'gitbranch', 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
+      \   'gitbranch': 'FugitiveHead',
+      \   'cocstatus': 'coc#status',
+      \   'currentfunction': 'CocCurrentFunction'
       \ },
       \ 'tabline': {
       \   'left': [ ['buffers'] ],
@@ -69,7 +72,3 @@ let g:signify_sign_delete_first_line = '‾'
 let g:signify_sign_change            = '~'
 let g:signify_sign_show_count = 0
 let g:signify_sign_show_text = 1
-
-" Use .clang-format file and auto format on save
-let g:clang_format#detect_style_file=1
-let g:clang_format#auto_format=1
