@@ -19,6 +19,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript'] }
 
+" C/C++
+Plug 'rhysd/vim-clang-format'
+
 "Haskell
 Plug 'neovimhaskell/haskell-vim'
 
@@ -66,3 +69,7 @@ let g:signify_sign_delete_first_line = '‾'
 let g:signify_sign_change            = '~'
 let g:signify_sign_show_count = 0
 let g:signify_sign_show_text = 1
+
+" Use .clang-format file and auto format on save
+let g:clang_format#detect_style_file=1
+let g:clang_format#auto_format=1
