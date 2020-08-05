@@ -143,7 +143,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- cmus-remote controls
     , ((0, xF86XK_AudioPlay), spawn "cmus-remote -u")
-    , ((0, xF86XK_AudioStop), spawn "cmus-remote -s")
+    , ((0, xF86XK_AudioStop), spawn "killall cmus")
     , ((0, xF86XK_AudioNext), spawn "cmus-remote --next")
     , ((0, xF86XK_AudioPrev), spawn "cmus-remote --prev")
 
