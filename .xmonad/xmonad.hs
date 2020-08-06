@@ -12,6 +12,7 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Renamed (renamed, Rename(Replace))
+import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 import qualified XMonad.StackSet as W
@@ -47,10 +48,10 @@ xmobarEscape = concatMap doubleLts
 
 -- workspace with click support. From DT's config: https://gitlab.com/dwt1/dotfiles/-/blob/master/.xmonad/xmonad.hs
 myWorkspaces = clickable . (map xmobarEscape)
-               $ ["www","code","work","vm","music","misc"]
+               $ ["www","code","work","vm"]
   where
         clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
-                      (i,ws) <- zip [1..6] l,
+                      (i,ws) <- zip [1..4] l,
                       let n = i ]
 
 -- Border colors for unfocused and focused windows, respectively.
@@ -147,8 +148,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_AudioNext), spawn "cmus-remote --next")
     , ((0, xF86XK_AudioPrev), spawn "cmus-remote --prev")
 
-    -- Switch to music workspace
-    , ((0, xK_F9),(windows $ W.greedyView (myWorkspaces !! 4)))
+    -- Open CMUS scratchpad
+    , ((0, xK_F9), namedScratchpadAction myScratchPads "cmus")
     ]
     ++
 
@@ -157,7 +158,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-shift-[1..6], Move client to workspace N
     --
     [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_6]
+        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_4]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
 
@@ -184,6 +185,19 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
+
+
+-- Scratchpads. They act like drop down terminals
+myScratchPads = [ NS "cmus" spawnCmus findCmus manageCmus ]
+    where
+        spawnCmus = "gnome-terminal --title=\"cmus\" --class=cmus -- cmus"
+        findCmus = className =? "cmus"
+        manageCmus = customFloating $ W.RationalRect l t w h
+            where
+                h = 0.7
+                w = 0.7
+                t = 0.85 - h
+                l = 0.85 - w
 
 ------------------------------------------------------------------------
 -- Layouts:
@@ -235,9 +249,8 @@ myManageHook = composeAll
     , className =? "Firefox"            --> doShift(myWorkspaces !! 0)
     , className =? "Google-chrome"      --> doShift(myWorkspaces !! 2)
     , className =? "FreeCAD"            --> doShift(myWorkspaces !! 2)
-    , className =? "cmus"               --> doShift(myWorkspaces !! 4)
-    , className =? "cmus"               --> doCenterFloat
-    , className =? "VirtualBox Manager" --> doShift(myWorkspaces !! 3) ]
+    , className =? "VirtualBox Manager" --> doShift(myWorkspaces !! 3)
+    ] <+> namedScratchpadManageHook myScratchPads
 
 ------------------------------------------------------------------------
 -- Event handling
