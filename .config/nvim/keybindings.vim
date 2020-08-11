@@ -75,3 +75,11 @@ command! -nargs=0 Format :call CocAction('format')
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+
+" Make and run
+nmap <Leader>m :!make<CR>
+nmap <Leader>r :!make run<CR>
+
+" Replace yanked word
+nmap <C-p> ciw<C-r>0<ESC>

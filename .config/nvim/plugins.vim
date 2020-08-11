@@ -7,6 +7,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " General
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'mhinz/vim-startify'
 
 " Appearance
 Plug 'itchyny/lightline.vim'

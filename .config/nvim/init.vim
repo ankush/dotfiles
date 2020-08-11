@@ -13,6 +13,11 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=0
 set expandtab
+if has("autocmd")
+    " If the filetype is Makefile then we need to use tabs
+    " So do not expand tabs into space.
+    autocmd FileType make   set noexpandtab
+endif
 "" Encoding
 set encoding=utf-8
 set fileencoding=utf-8
@@ -40,12 +45,13 @@ set scrolloff=5 " Show at least 5 extra lines while scrolling
 "enable transperancy
 hi Normal guibg=NONE ctermbg=NONE
 set showtabline=2 " Enable bufferline on top
+set splitbelow  " Put new window below current one when splitting
+set splitright  " Put new window to the right of the current one when splitting
 
 " required by Coc
 set nobackup
 set nowritebackup
-set cmdheight=2
-set updatetime=300
+set updatetime=500
 
 " Trim whitespace on save for all files
 autocmd BufWritePre * :%s/\s\+$//e
