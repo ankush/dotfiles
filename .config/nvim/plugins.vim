@@ -32,6 +32,12 @@ Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
+" Auto install missing plugins on startup
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
+
 set termguicolors
 lua require'colorizer'.setup()
 
