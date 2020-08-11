@@ -21,7 +21,7 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "gnome-terminal"
+myTerminal      = "konsole"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse = False
@@ -190,8 +190,8 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- Scratchpads. They act like drop down terminals
 myScratchPads = [ NS "cmus" spawnCmus findCmus manageCmus ]
     where
-        spawnCmus = "gnome-terminal --title=\"cmus\" --class=cmus -- cmus"
-        findCmus = className =? "cmus"
+        spawnCmus = "terminator -e cmus"
+        findCmus = className =? "Terminator" -- A hack. I am only using terminator for cmus.
         manageCmus = customFloating $ W.RationalRect l t w h
             where
                 h = 0.7
