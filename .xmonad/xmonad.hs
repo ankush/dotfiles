@@ -47,8 +47,9 @@ xmobarEscape = concatMap doubleLts
         doubleLts x   = [x]
 
 -- workspace with click support. From DT's config: https://gitlab.com/dwt1/dotfiles/-/blob/master/.xmonad/xmonad.hs
+myWorkspaceNames = ["www","code","work","vm"]
 myWorkspaces = clickable . (map xmobarEscape)
-               $ ["www","code","work","vm"]
+               $ myWorkspaceNames
   where
         clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
                       (i,ws) <- zip [1..4] l,
@@ -154,8 +155,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     ++
 
     --
-    -- mod-[1..6], Switch to workspace N
-    -- mod-shift-[1..6], Move client to workspace N
+    -- mod-[1..4], Switch to workspace N
+    -- mod-shift-[1..4], Move client to workspace N
     --
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_4]
@@ -244,13 +245,18 @@ myLayout = avoidStruts $ (tall ||| Mirror tall ||| full)
 -- To match on the WM_NAME, you can use 'title' in the same way that
 -- 'className' and 'resource' are used below.
 --
+
 myManageHook = composeAll
-    [ resource  =? "desktop_window"     --> doIgnore
-    , className =? "Firefox"            --> doShift(myWorkspaces !! 0)
-    , className =? "Google-chrome"      --> doShift(myWorkspaces !! 2)
-    , className =? "FreeCAD"            --> doShift(myWorkspaces !! 2)
-    , className =? "VirtualBox Manager" --> doShift(myWorkspaces !! 3)
-    ] <+> namedScratchpadManageHook myScratchPads
+     [ resource  =? "desktop_window"     --> doIgnore
+     , className =? "Firefox"            --> (shiftAndSwitch 0)
+     , className =? "Google-chrome"      --> (shiftAndSwitch 2)
+     , className =? "FreeCAD"            --> (shiftAndSwitch 2)
+     , className =? "VirtualBox Manager" --> (shiftAndSwitch 3)
+     ] <+> namedScratchpadManageHook myScratchPads
+         where
+             shiftAndSwitch ws = do
+                 spawn $ "xdotool key Super+" ++ show(ws+1)
+                 doShift(myWorkspaces !! ws)
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -287,6 +293,7 @@ myStartupHook = do
   spawnOnce "unclutter"
   spawnOnce "safeeyes"
   spawnOnce "xsetroot -cursor_name left_ptr"
+  spawnOnce "trayer --edge bottom --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x292d3e --height 20 &"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
