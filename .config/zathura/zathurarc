@@ -1,0 +1,52 @@
+# Open document in fit-width mode by default
+set adjust-open "best-fit"
+
+# One page per row by default
+set pages-per-row 1
+
+# Remove options at the bottom (toggle with Ctrl+n)
+set guioptions ""
+
+# use normal clipboard
+set selection-clipboard clipboard
+
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+
+# Zathura dark
+set font "inconsolata 15"
+set default-bg "#000000" #00
+set default-fg "#F8F8F2" #01
+
+set statusbar-fg "#B0B0B0" #04
+set statusbar-bg "#282A36" #01
+
+set inputbar-bg "#282A36" #00 currently not used
+set inputbar-fg "#F8F8F2" #02
+
+set notification-error-bg "#FF6E67" #08
+set notification-error-fg "#282A36" #00
+
+set notification-warning-bg "#FF6E67" #08
+set notification-warning-fg "#282A36" #00
+
+set highlight-color "#F1FA8C" #0A
+set highlight-active-color "#8BE9FD" #0D
+
+set completion-highlight-fg "#282A36" #02
+set completion-highlight-bg "#50FA7B" #0C
+
+set completion-bg "#303030" #02
+set completion-fg "#F8F8F2" #0C
+
+set notification-bg "#50FA7B" #0B
+set notification-fg "#282A36" #00
+
+set recolor "true"
+map i recolor
+set recolor-lightcolor "#000000" #00
+set recolor-darkcolor "#E0E0E0" #06
+set recolor-reverse-video "true"
+set recolor-keephue "true"
+
+set render-loading "false"
