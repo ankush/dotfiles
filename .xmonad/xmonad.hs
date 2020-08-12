@@ -110,6 +110,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Expand the master area
     , ((modm,               xK_l     ), sendMessage Expand)
 
+    -- Reize windows in resizable tall mode
+    , ((modm .|. shiftMask, xK_l), sendMessage MirrorShrink)
+    , ((modm .|. shiftMask, xK_h), sendMessage MirrorExpand)
+
     -- Push window back into tiling
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
 
