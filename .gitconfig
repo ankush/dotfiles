@@ -1,0 +1,21 @@
+[user]
+	email = ankushmenat@gmail.com
+	name = Ankush Menat
+	signingkey = CB36108D7E7ECE21
+
+[commit]
+	gpgsign = true
+
+[difftool]
+    tool = vimdiff
+
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
+
+[core]
+	editor = nvim
+
+[merge]
+	tool = kdiff3
