@@ -117,7 +117,12 @@ alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
 # the one true text editor
 alias v="nvim"
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# Common config files
 alias vrc="nvim ~/.config/nvim/init.vim"
+alias vxm="nvim ~/.xmonad/xmonad.hs"
 
 alias z="zathura"
 
@@ -127,7 +132,7 @@ alias mv="mv -i"
 alias cp="cp -i"
 
 # Downloads directory
-alias down="cd /media/ankush/DATA/Downloads"
+alias down="cd /mnt/ankush/DATA/Downloads"
 
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"

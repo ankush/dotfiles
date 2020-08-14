@@ -47,6 +47,7 @@ hi Normal guibg=NONE ctermbg=NONE
 set showtabline=2 " Enable bufferline on top
 set splitbelow  " Put new window below current one when splitting
 set splitright  " Put new window to the right of the current one when splitting
+autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
 " required by Coc
 set nobackup

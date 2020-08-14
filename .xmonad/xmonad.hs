@@ -11,6 +11,7 @@ import XMonad.Hooks.ManageHelpers (doCenterFloat)
 import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
+import XMonad.Layout.Tabbed
 import XMonad.Layout.Renamed (renamed, Rename(Replace))
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run
@@ -218,7 +219,7 @@ myScratchPads = [ NS "cmus" spawnCmus findCmus manageCmus ]
 
 mySpacing i = spacingRaw True (Border i i i i) True (Border i i i i) True
 
-myLayout = avoidStruts $ (tall ||| Mirror tall ||| full)
+myLayout = avoidStruts $ (tall ||| Mirror tall ||| full ||| tabbed shrinkText def)
   where
      tall = renamed [Replace "tall"]
             $ smartBorders $ mySpacing 2
@@ -256,6 +257,7 @@ myManageHook = composeAll
      , className =? "Google-chrome"      --> (shiftAndSwitch 2)
      , className =? "FreeCAD"            --> (shiftAndSwitch 2)
      , className =? "VirtualBox Manager" --> (shiftAndSwitch 3)
+     , title     =? "OtoDecks"           --> doFloat
      ] <+> namedScratchpadManageHook myScratchPads
          where
              shiftAndSwitch ws = do
