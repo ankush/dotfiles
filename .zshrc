@@ -124,7 +124,12 @@ export VISUAL="nvim"
 alias vrc="nvim ~/.config/nvim/init.vim"
 alias vxm="nvim ~/.xmonad/xmonad.hs"
 
-alias z="zathura"
+# open and disown zathura
+function z()
+{
+    zathura $1 & disown
+
+}
 
 # safe rm and move
 alias rm="rm -i"
