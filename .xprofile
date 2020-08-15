@@ -1,0 +1,7 @@
+if [ "$XDG_CURRENT_DESKTOP" = "xmonad" ]; then
+    export QT_QPA_PLATFORMTHEME="qt5ct"
+fi
+
+# map Caps lock key to escape and control BOTH!
+setxkbmap -option ctrl:nocaps
+xcape -e 'Control_L=Escape'

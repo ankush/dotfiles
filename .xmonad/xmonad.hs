@@ -295,7 +295,6 @@ myStartupHook = do
   spawnOnce "nitrogen --restore &"
   spawnOnce "compton &"
   spawnOnce "xset r rate 250 60"
-  spawnOnce "setxkbmap -option caps:escape"
   spawnOnce "unclutter"
   spawnOnce "safeeyes"
   spawnOnce "xsetroot -cursor_name left_ptr"
