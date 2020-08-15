@@ -8,6 +8,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'mhinz/vim-startify'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 
 " Appearance
 Plug 'itchyny/lightline.vim'
@@ -71,11 +74,17 @@ let g:lightline = {
       \ }
 let g:lightline#bufferline#enable_devicons = 1
 let g:lightline#bufferline#show_number=2
-" Signify settings
 
+" Signify settings
 let g:signify_sign_add               = '+'
 let g:signify_sign_delete            = '_'
 let g:signify_sign_delete_first_line = '‾'
 let g:signify_sign_change            = '~'
 let g:signify_sign_show_count = 0
 let g:signify_sign_show_text = 1
+
+" rooter settings
+let g:rooter_patterns = ['.git', 'Makefile', 'compile_commands.json']
+
+" fzf settings
+let g:fzf_preview_window = 'right:60%'

@@ -15,12 +15,15 @@ nnoremap <M-l>     :vertical resize +2<CR>
 " Save like normal human beings
 nnoremap <C-s> :w<CR>
 
-:nmap <space>e :CocCommand explorer<CR>
+" FZF keybindings
+nnoremap <Leader>o :Files<CR>
+nnoremap \ :Ag<CR>
 
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
 nmap <Leader>2 <Plug>lightline#bufferline#go(2)
 nmap <Leader>3 <Plug>lightline#bufferline#go(3)
 nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+
 nmap <Leader>5 <Plug>lightline#bufferline#go(5)
 nmap <Leader>6 <Plug>lightline#bufferline#go(6)
 
