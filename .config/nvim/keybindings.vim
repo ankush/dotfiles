@@ -86,3 +86,6 @@ nmap <Leader>r :!make run<CR>
 
 " Replace yanked word
 nmap <C-p> ciw<C-r>0<ESC>
+
+" Clear current highlighted text
+nmap <F5> :noh<CR>
