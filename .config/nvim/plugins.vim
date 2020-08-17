@@ -11,6 +11,7 @@ Plug 'mhinz/vim-startify'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
+Plug 'junegunn/goyo.vim'
 
 " Appearance
 Plug 'itchyny/lightline.vim'
@@ -88,3 +89,9 @@ let g:rooter_patterns = ['.git', 'Makefile', 'compile_commands.json']
 
 " fzf settings
 let g:fzf_preview_window = 'right:60%'
+
+
+let g:vimwiki_list = [{'path': '~/Dropbox/wiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown'}
+let g:vimwiki_global_ext = 0

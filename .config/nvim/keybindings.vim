@@ -89,3 +89,22 @@ nmap <C-p> ciw<C-r>0<ESC>
 
 " Clear current highlighted text
 nmap <F5> :noh<CR>
+
+" Move between open windows
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" Move in long wrapped lines
+nmap <Down> gj
+nmap <Up> gk
+
+" Use arrow keys in visual mode for indenting
+vmap <Left> <gv
+vmap <Right> >gv
+
+" Addtional escapes
+inoremap kj <esc>
+inoremap jk <esc>
+
