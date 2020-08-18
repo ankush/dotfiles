@@ -219,7 +219,7 @@ myScratchPads = [ NS "cmus" spawnCmus findCmus manageCmus ]
 
 mySpacing i = spacingRaw True (Border i i i i) True (Border i i i i) True
 
-myLayout = avoidStruts $ (tall ||| Mirror tall ||| full ||| tabbed shrinkText def)
+myLayout = avoidStruts $ (tall ||| Mirror tall ||| full )
   where
      tall = renamed [Replace "tall"]
             $ smartBorders $ mySpacing 2
@@ -293,7 +293,6 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = do
   spawnOnce "nitrogen --restore &"
-  spawnOnce "compton &"
   spawnOnce "xset r rate 250 60"
   spawnOnce "unclutter"
   spawnOnce "safeeyes"
