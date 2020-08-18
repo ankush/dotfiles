@@ -16,7 +16,7 @@ nnoremap <M-l>     :vertical resize +2<CR>
 nnoremap <C-s> :w<CR>
 
 " FZF keybindings
-nnoremap <Leader>o :Files<CR>
+nnoremap <C-p> :Files<cr>
 nnoremap \ :Ag<CR>
 
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
@@ -85,7 +85,7 @@ nmap <Leader>m :!make<CR>
 nmap <Leader>r :!make run<CR>
 
 " Replace yanked word
-nmap <C-p> ciw<C-r>0<ESC>
+nmap <Leader>p ciw<C-r>0<ESC>
 
 " Clear current highlighted text
 nmap <F5> :noh<CR>
@@ -108,3 +108,5 @@ vmap <Right> >gv
 inoremap kj <esc>
 inoremap jk <esc>
 
+" Toggle spellchecking
+:map <F6> :setlocal spell! spelllang=en_gb<CR>

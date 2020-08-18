@@ -2,6 +2,7 @@
   "dependencies": {
     "coc-clangd": ">=0.4.13",
     "coc-css": ">=1.2.4",
+    "coc-diagnostic": ">=0.7.0",
     "coc-html": ">=1.2.4",
     "coc-json": ">=1.2.6",
     "coc-python": ">=1.2.12",

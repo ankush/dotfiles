@@ -1,50 +1,55 @@
 {
-  "codeLens.enable": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "markdown",
-    "javascript",
-    "json",
-    "cpp",
-    "h",
-    "hpp",
-    "c",
-    "html",
-    "python"
-  ],
-
-  "diagnostic.errorSign": "💩",
-  "diagnostic.warningSign": "⚠️ ",
-  "diagnostic.infoSign": "💁",
-
-  "diagnostic.virtualText": true,
-  "suggest.maxCompleteItemCount": 5,
-
-  // python config
-  "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true,
-
-  "clangd.path": "/usr/bin/clangd-10",
-  "explorer.previewAction.onHover": false,
-  "explorer.keyMappings": {
-    "<cr>": ["expandable?", "expand", "open"],
-    "v": "open:vsplit"
-  },
-  "languageserver": {
-    "haskell": {
-      "command": "haskell-language-server-wrapper",
-      "args": ["--lsp"],
-      "rootPatterns": [
-        "hie.yaml",
-        "*.cabal",
-        "stack.yaml",
-        "cabal.project",
-        "package.yaml"
-      ],
-      "filetypes": ["hs", "lhs", "haskell"],
-      "initializationOptions": {
-        "haskell": {}
-      }
+    "codeLens.enable": true,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "markdown",
+        "javascript",
+        "json",
+        "cpp",
+        "h",
+        "hpp",
+        "c",
+        "html",
+        "python"
+    ],
+    "diagnostic.errorSign": "💩",
+    "diagnostic.warningSign": "⚠️ ",
+    "diagnostic.infoSign": "💁",
+    "diagnostic.virtualText": true,
+    "suggest.maxCompleteItemCount": 5,
+    // python config
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "clangd.path": "/usr/bin/clangd-10",
+    "languageserver": {
+        "haskell": {
+            "command": "haskell-language-server-wrapper",
+            "args": [
+                "--lsp"
+            ],
+            "rootPatterns": [
+                "hie.yaml",
+                "*.cabal",
+                "stack.yaml",
+                "cabal.project",
+                "package.yaml"
+            ],
+            "filetypes": [
+                "hs",
+                "lhs",
+                "haskell"
+            ],
+            "initializationOptions": {
+                "haskell": {}
+            }
+        }
+    },
+    "diagnostic-languageserver.filetypes": {
+        "markdown": [
+            "write-good"
+        ],
+        "vimwiki": [
+            "write-good"
+        ]
     }
-  }
 }
