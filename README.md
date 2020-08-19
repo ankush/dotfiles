@@ -2,6 +2,7 @@
 
 This repo contains configurations for applications and tools I use daily.
 
+![busy looking screenshot](/.config/screenshots/busy.png?raw=true)
 
 My (current) primary applications:
 
