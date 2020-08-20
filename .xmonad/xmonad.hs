@@ -154,8 +154,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_AudioNext), spawn "cmus-remote --next")
     , ((0, xF86XK_AudioPrev), spawn "cmus-remote --prev")
 
-    -- Open CMUS scratchpad
+    -- Open CMUS and vimwiki scratchpads
     , ((0, xK_F9), namedScratchpadAction myScratchPads "cmus")
+    , ((0, xK_F8), namedScratchpadAction myScratchPads "wiki")
     ]
     ++
 
@@ -194,16 +195,25 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 
 -- Scratchpads. They act like drop down terminals
-myScratchPads = [ NS "cmus" spawnCmus findCmus manageCmus ]
+myScratchPads = [ NS "cmus" spawnCmus findCmus manageCmus
+                , NS "wiki" spawnWiki findWiki manageWiki]
     where
-        spawnCmus = "terminator -e cmus"
-        findCmus = className =? "Terminator" -- A hack. I am only using terminator for cmus.
+        spawnCmus = "terminator --title \"cmus\" -e cmus"
+        findCmus = title =? "cmus"
         manageCmus = customFloating $ W.RationalRect l t w h
             where
                 h = 0.7
                 w = 0.7
                 t = 0.85 - h
                 l = 0.85 - w
+        spawnWiki = "terminator --title \"vimwiki\" -e \"nvim -c 'let g:startify_disable_at_vimenter = 1' +VimwikiMakeDiaryNote\""
+        findWiki = title =? "vimwiki"
+        manageWiki = customFloating $ W.RationalRect l t w h
+            where
+                h = 0.8
+                w = 0.8
+                t = 0.9 - h
+                l = 0.9 - w
 
 ------------------------------------------------------------------------
 -- Layouts:
