@@ -34,7 +34,6 @@ set history=1000
 set inccommand=nosplit
 set lazyredraw " Don't redraw when running macros
 set noswapfile  " Don't use a swapfile for the buffer
-autocmd BufRead,BufNewFile *.md setlocal spell
 set spelllang=en_gb " enable spell-check
 set spellfile=$HOME/.config/nvim/spell/en.utf-8.add
 set nojoinspaces  " Use one space, not two, after punctuation
@@ -72,8 +71,6 @@ autocmd BufReadPost *
     \   exe "normal g`\"" |
     \ endif
 
-if has("autocmd")
-    " If the filetype is Makefile then we need to use tabs
-    " So do not expand tabs into space.
-    autocmd FileType make   set noexpandtab
-endif
+
+set list   " show whitespace
+set listchars=tab:│·,extends:›,precedes:‹,nbsp:⦸,trail:• " white space characters to show
