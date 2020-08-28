@@ -128,7 +128,6 @@ alias vxm="nvim ~/.xmonad/xmonad.hs"
 function z()
 {
     zathura $1 & disown
-
 }
 
 # safe rm and move
@@ -161,3 +160,12 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# Texlive
+export PATH="/mnt/ankush/DATA/softwares/texlive/2020/bin/x86_64-linux:$PATH"
+export MANPATH="/mnt/ankush/DATA/softwares/texlive/2020/texmf-dist/doc/man:$MANPATH"
+export INFOPATH="/mnt/ankush/DATA/softwares/texlive/2020/texmf-dist/doc/info:$INFOPATH"
+
+alias :q="exit"
+
+export TERM="konsole"
