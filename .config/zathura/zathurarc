@@ -14,7 +14,7 @@ set statusbar-h-padding 0
 set statusbar-v-padding 0
 
 # Zathura dark
-set font "inconsolata 15"
+set font "JetBrains Mono Nerd Font 15"
 set default-bg "#000000" #00
 set default-fg "#F8F8F2" #01
 
