@@ -148,6 +148,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Increase volume
     , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +10%")
 
+    -- Toggle microphone
+    , ((0, xK_F10), spawn "amixer -D pulse sset Capture toggle")
+
     -- cmus-remote controls
     , ((0, xF86XK_AudioPlay), spawn "cmus-remote -u")
     , ((0, xF86XK_AudioStop), spawn "killall cmus")

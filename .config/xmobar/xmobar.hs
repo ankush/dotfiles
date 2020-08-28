@@ -19,9 +19,10 @@ Config { font = "xft:JetBrainsMono Nerd Font:pixelsize=14:antialias=true:hinting
                     , Run Date "<fc=#50FA7B> %a %b %d %I:%M </fc>" "date" 300
                     , Run Com "/home/ankush/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 100
                     , Run UnsafeStdinReader
+                    , Run Com "/home/ankush/.config/custom-scripts/mic-status.sh" [] "microphone" 20
                     ]
        , sepChar = "%"
        , alignSep = "}{"
        , template = " <icon=haskell.xpm/>  %UnsafeStdinReader% }\
-                    \{<fc=#FF79C6>%cmus%</fc> | <fc=#F1FA8C> %cpu%</fc> | <fc=#FF6E67>%memory%</fc> |<fc=#8BE9FD> %enp1s0%</fc> | %date% %trayerpad%"
+                    \{<fc=#FF79C6>%cmus%</fc> | %microphone% | <fc=#F1FA8C> %cpu%</fc> | <fc=#FF6E67>%memory%</fc> |<fc=#8BE9FD> %enp1s0%</fc> | %date% %trayerpad%"
        }
