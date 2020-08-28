@@ -96,7 +96,6 @@ let g:fzf_preview_window = 'right:60%'
 let g:vimwiki_list = [{'path': '~/Dropbox/wiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown'}
-let g:vimwiki_global_ext = 0
 let g:vimwiki_listsyms = ' ○◐●✓'
 let g:vimwiki_listsym_rejected = '✗'
 let g:vimwiki_folding='list'

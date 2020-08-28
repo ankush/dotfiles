@@ -17,13 +17,15 @@ nnoremap <C-s> :w<CR>
 
 " FZF keybindings
 nnoremap <C-p> :Files<cr>
+nnoremap ? :Files<cr>
 nnoremap \ :Ag<CR>
+
+nnoremap <Leader>q :q<CR>
 
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
 nmap <Leader>2 <Plug>lightline#bufferline#go(2)
 nmap <Leader>3 <Plug>lightline#bufferline#go(3)
 nmap <Leader>4 <Plug>lightline#bufferline#go(4)
-
 nmap <Leader>5 <Plug>lightline#bufferline#go(5)
 nmap <Leader>6 <Plug>lightline#bufferline#go(6)
 
