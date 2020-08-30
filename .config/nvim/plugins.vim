@@ -93,9 +93,11 @@ let g:fzf_preview_window = 'right:60%'
 
 
 " VimWiki config
-let g:vimwiki_list = [{'path': '~/Dropbox/wiki/',
+let g:vimwiki_list = [{'path': '~/wiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown'}
 let g:vimwiki_listsyms = ' ○◐●✓'
 let g:vimwiki_listsym_rejected = '✗'
 let g:vimwiki_folding='list'
+" Copy diary template when starting a new file in diary directory
+autocmd BufNewFile */wiki/diary/[0-9]*.md :read ~/wiki/diary/template.md

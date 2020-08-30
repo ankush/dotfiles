@@ -8,6 +8,7 @@ set cursorline " highlight current line
 set nocompatible " Disable ancient compatibility
 syntax on " Turn on syntax highlighting.
 set shortmess+=I " Disable the default Vim startup message.
+set shortmess+=W " Disable file written messages
 filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
@@ -73,4 +74,4 @@ autocmd BufReadPost *
 
 
 set list   " show whitespace
-set listchars=tab:│·,extends:›,precedes:‹,nbsp:⦸,trail:• " white space characters to show
+set listchars=tab:│·,extends:›,precedes:‹,nbsp:⦸ " white space characters to show
