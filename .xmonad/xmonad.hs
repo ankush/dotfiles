@@ -140,7 +140,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
 
     -- Take screenshot
-    , ((modm              , xK_Print ), spawn "flameshot gui -d 2000")
+    , ((modm              , xK_Print ), spawn "flameshot gui -d 2000 -r | xclip -selection clipboard -t image/png")
 
     -- Decrease volume
     , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -10%")
