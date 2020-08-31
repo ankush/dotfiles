@@ -207,16 +207,16 @@ myScratchPads = [ NS "cmus" spawnCmus findCmus manageCmus
             where
                 h = 0.7
                 w = 0.7
-                t = 0.85 - h
-                l = 0.85 - w
+                t = (1 - h)/2
+                l = (1 - w)/2
         spawnWiki = "terminator --title \"vimwiki\" -e \"nvim -c 'let g:startify_disable_at_vimenter = 1' +VimwikiMakeDiaryNote\""
         findWiki = title =? "vimwiki"
         manageWiki = customFloating $ W.RationalRect l t w h
             where
-                h = 0.8
-                w = 0.8
-                t = 0.9 - h
-                l = 0.9 - w
+                h = 0.80
+                w = 0.46 -- roughly 80 character + gutter
+                t = (1 - h)/2
+                l = (1 - w)/2
 
 ------------------------------------------------------------------------
 -- Layouts:
@@ -310,10 +310,11 @@ myStartupHook = do
   spawnOnce "unclutter"
   spawnOnce "safeeyes"
   spawnOnce "xsetroot -cursor_name left_ptr"
-  spawnOnce "trayer --edge bottom --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x292d3e --height 20 &"
+  spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x292d3e --height 20 &"
   spawnOnce "setxkbmap -option ctrl:nocaps"
   spawnOnce "xcape -e \'Control_L=Escape\'"
   spawnOnce "redshift &"
+  spawnOnce "klipper &"
 
 
 ------------------------------------------------------------------------
