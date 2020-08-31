@@ -1,13 +1,11 @@
 #!/bin/sh
 # Copied from https://github.com/jaor/xmobar/issues/239#issuecomment-233206552
-# Detects the width of running trayer-srg window (xprop name 'panel')
 # and creates an XPM icon of that width, 1px height, and transparent.
 # Outputs an <icon>-tag for use in xmobar to display the generated
 # XPM icon.
 #
 # Run script from xmobar:
 # `Run Com "/where/ever/trayer-padding-icon.sh" [] "trayerpad" 10`
-# and use `%trayerpad%` in your template.
 
 
 # Function to create a transparent Wx1 px XPM icon
@@ -45,4 +43,4 @@ if [ ! -f $iconfile ]; then
 fi
 
 # Output the icon tag for xmobar
-echo "<icon=${iconfile}/>"
+echo -n "<icon=${iconfile}/>"

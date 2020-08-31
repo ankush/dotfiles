@@ -84,9 +84,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch rofi
     , ((modm,               xK_space     ), spawn "rofi -show drun -lines 5")
 
-     -- launch rofi-TODO
-    , ((modm,               xK_p         ), spawn "rofi -modi TODO:.config/rofi/rofi-todo.sh -show TODO")
-
    -- close focused window
     , ((modm .|. shiftMask, xK_q     ), kill)
 
