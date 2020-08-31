@@ -9,6 +9,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.ManageHelpers (doCenterFloat)
 import XMonad.Layout.Spacing
+import XMonad.Layout.LayoutModifier
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Tabbed
@@ -22,16 +23,20 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
+myTerminal :: [Char]
 myTerminal      = "konsole"
 
 -- Whether focus follows the mouse pointer.
+myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
 
 -- Whether clicking on a window to focus also passes the click to the window
+myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
 -- Width of the window border in pixels.
 --
+myBorderWidth :: Dimension
 myBorderWidth   = 2
 
 -- modMask lets you specify which modkey you want to use. The default
@@ -39,16 +44,20 @@ myBorderWidth   = 2
 -- ("right alt"), which does not conflict with emacs keybindings. The
 -- "windows key" is usually mod4Mask.
 --
+myModMask :: KeyMask
 myModMask       = mod4Mask
 
 
+xmobarEscape :: [Char] -> [Char]
 xmobarEscape = concatMap doubleLts
   where
         doubleLts '<' = "<<"
         doubleLts x   = [x]
 
 -- workspace with click support. From DT's config: https://gitlab.com/dwt1/dotfiles/-/blob/master/.xmonad/xmonad.hs
+myWorkspaceNames :: [[Char]]
 myWorkspaceNames = ["www","code","work","vm"]
+myWorkspaces :: [[Char]]
 myWorkspaces = clickable . (map xmobarEscape)
                $ myWorkspaceNames
   where
@@ -58,12 +67,15 @@ myWorkspaces = clickable . (map xmobarEscape)
 
 -- Border colors for unfocused and focused windows, respectively.
 --
+myNormalBorderColor :: [Char]
 myNormalBorderColor  = "#282A36"
+myFocusedBorderColor :: [Char]
 myFocusedBorderColor = "#BD93F9"
 
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
+myKeys :: XConfig l -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
@@ -180,6 +192,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 ------------------------------------------------------------------------
 -- Mouse bindings: default actions bound to mouse events
 --
+myMouseBindings :: XConfig l -> M.Map (KeyMask, Button) (Window -> X ())
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- mod-button1, Set the window to floating mode and move by dragging
@@ -198,6 +211,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 
 -- Scratchpads. They act like drop down terminals
+myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "cmus" spawnCmus findCmus manageCmus
                 , NS "wiki" spawnWiki findWiki manageWiki]
     where
@@ -230,6 +244,7 @@ myScratchPads = [ NS "cmus" spawnCmus findCmus manageCmus
 -- which denotes layout choice.
 --
 
+mySpacing :: Integer -> l a -> ModifiedLayout Spacing l a
 mySpacing i = spacingRaw True (Border i i i i) True (Border i i i i) True
 
 myLayout = avoidStruts $ (tall ||| Mirror tall ||| full )
@@ -264,6 +279,7 @@ myLayout = avoidStruts $ (tall ||| Mirror tall ||| full )
 -- 'className' and 'resource' are used below.
 --
 
+myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll
      [ resource  =? "desktop_window"     --> doIgnore
      , className =? "Firefox"            --> (shiftAndSwitch 0)
@@ -286,6 +302,7 @@ myManageHook = composeAll
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
+myEventHook :: Event -> X All
 myEventHook = mempty
 
 ------------------------------------------------------------------------
@@ -294,6 +311,7 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
+myLogHook :: X ()
 myLogHook = return ()
 
 ------------------------------------------------------------------------
@@ -304,6 +322,7 @@ myLogHook = return ()
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
+myStartupHook :: X ()
 myStartupHook = do
   spawnOnce "nitrogen --restore &"
   spawnOnce "xset r rate 250 60"
@@ -322,6 +341,7 @@ myStartupHook = do
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
+main :: IO ()
 main = do
   xmproc <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobar.hs"
   xmonad $ docks defaults {
