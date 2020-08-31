@@ -18,4 +18,4 @@ My (current) primary applications:
 * Music Player: [cmus](https://github.com/cmus/cmus)
 
 ## Acknowledgements
-I have taken inspiration and sometimes copy-pasted config from generous users who have put their configs online. Notably from [@DT](https://gitlab.com/dwt1/dotfiles) and [@sglavioe](https://github.com/sglavoie/dotfiles)
+I have taken inspiration and sometimes copy-pasted config from generous users who have put their configs online. Notably from [@DT](https://gitlab.com/dwt1/dotfiles) and [@sglavoie](https://github.com/sglavoie/dotfiles)
