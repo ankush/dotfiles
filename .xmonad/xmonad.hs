@@ -330,7 +330,6 @@ myStartupHook = do
   spawnOnce "setxkbmap -option ctrl:nocaps"
   spawnOnce "xcape -e \'Control_L=Escape\'"
   spawnOnce "redshift &"
-  spawnOnce "klipper &"
 
 
 ------------------------------------------------------------------------
