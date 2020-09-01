@@ -323,6 +323,7 @@ myStartupHook :: X ()
 myStartupHook = do
   spawnOnce "nitrogen --restore &"
   spawnOnce "xset r rate 250 60"
+  spawnOnce "compton &"
   spawnOnce "unclutter"
   spawnOnce "safeeyes"
   spawnOnce "xsetroot -cursor_name left_ptr"
@@ -330,6 +331,7 @@ myStartupHook = do
   spawnOnce "setxkbmap -option ctrl:nocaps"
   spawnOnce "xcape -e \'Control_L=Escape\'"
   spawnOnce "redshift &"
+  spawnOnce "conky -b &"
 
 
 ------------------------------------------------------------------------

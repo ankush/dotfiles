@@ -99,5 +99,14 @@ let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown'}
 let g:vimwiki_listsyms = ' ○◐●✓'
 let g:vimwiki_listsym_rejected = '✗'
 let g:vimwiki_folding='list'
+let g:vimwiki_use_calender=1
+
+" Calendar config
+let g:calendar_options = 'nornu'        " Draw calendar with proper width in split view
+let g:calendar_monday=1                 " Start week on monday
+let g:calendar_diary=$HOME.'wiki/diary' " Specify location for diary file
+
+
 " Copy diary template when starting a new file in diary directory
-autocmd BufNewFile */wiki/diary/[0-9]*.md :read ~/wiki/diary/template.md
+autocmd BufNewFile */wiki/diary/[0-9]*.md :read ~/wiki/diary/templates/template.md
+
