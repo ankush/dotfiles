@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Backup dotfiles to dropbox too just in case.
+rsync -rh ~/dotfiles ~/Dropbox/
