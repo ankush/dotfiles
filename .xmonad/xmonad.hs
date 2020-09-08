@@ -323,7 +323,6 @@ myStartupHook :: X ()
 myStartupHook = do
   spawnOnce "nitrogen --restore &"
   spawnOnce "xset r rate 250 60"
-  spawnOnce "compton &"
   spawnOnce "unclutter"
   spawnOnce "safeeyes"
   spawnOnce "xsetroot -cursor_name left_ptr"
