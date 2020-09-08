@@ -11,8 +11,8 @@ Plug 'mhinz/vim-startify'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
-Plug 'junegunn/goyo.vim'
 Plug 'mattn/calendar-vim'
+Plug 'liuchengxu/vim-which-key'
 
 " Appearance
 Plug 'itchyny/lightline.vim'
@@ -31,10 +31,11 @@ Plug 'neovimhaskell/haskell-vim'
 " Git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
 
 " Plain text
 Plug 'vimwiki/vimwiki'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
@@ -110,3 +111,14 @@ let g:calendar_diary=$HOME.'wiki/diary' " Specify location for diary file
 " Copy diary template when starting a new file in diary directory
 autocmd BufNewFile */wiki/diary/[0-9]*.md :read ~/wiki/diary/templates/template.md
 
+" Goyo and limelight
+let g:goyo_width='85%'
+let g:goyo_height='85%'
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+" Which-key
+highlight default link WhichKey          Operator
+highlight default link WhichKeySeperator DiffAdded
+highlight default link WhichKeyGroup     Identifier
+highlight default link WhichKeyDesc      Function

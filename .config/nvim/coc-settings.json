@@ -48,8 +48,6 @@
         "markdown": [
             "write-good"
         ],
-        "vimwiki": [
-            "write-good"
-        ]
+        "vimwiki": []
     }
 }

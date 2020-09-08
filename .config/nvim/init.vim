@@ -6,10 +6,10 @@ colorscheme dracula
 set ruler " Show cursor position all the time
 set cursorline " highlight current line
 set nocompatible " Disable ancient compatibility
-syntax on " Turn on syntax highlighting.
 set shortmess+=I " Disable the default Vim startup message.
 set shortmess+=W " Disable file written messages
 filetype plugin indent on
+syntax on " Turn on syntax highlighting.
 set tabstop=4
 set shiftwidth=4
 set softtabstop=0
@@ -18,7 +18,6 @@ set expandtab
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
-set ttyfast
 set number " show absolute line number on current line
 set numberwidth=5
 set relativenumber " show relative line number on all other lines
@@ -38,17 +37,18 @@ set noswapfile  " Don't use a swapfile for the buffer
 set spelllang=en_gb " enable spell-check
 set spellfile=$HOME/.config/nvim/spell/en.utf-8.add
 set nojoinspaces  " Use one space, not two, after punctuation
-"set colorcolumn=80 " Colour column to show 79 char limit
 set scrolloff=5 " Show at least 5 extra lines while scrolling
 set showtabline=2 " Enable bufferline on top
 set splitbelow  " Put new window below current one when splitting
 set splitright  " Put new window to the right of the current one when splitting
+set wildmenu
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+set timeoutlen=500 " reduce leader key timeout from 1sec to 0.5
 
 " required by Coc
 set nobackup
 set nowritebackup
-set updatetime=500
+set updatetime=300
 
 " Trim whitespace on save for all files
 autocmd BufWritePre * :%s/\s\+$//e
