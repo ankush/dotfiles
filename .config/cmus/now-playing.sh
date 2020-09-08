@@ -8,8 +8,8 @@ then
 
     if [ ${#artist} -ge 30 ]
     then
-        artist=${artist:0:26}
-        artist+=" ..."
+        artist=${artist:0:28}
+        artist+=" …"
     fi
     echo -n " $artist ~ $song"
 else
