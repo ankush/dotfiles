@@ -21,6 +21,7 @@ DISABLE_AUTO_TITLE="true"
 # oh-my-zsh plugins
 plugins=(git ubuntu ssh-agent)
 
+
 source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
@@ -34,7 +35,11 @@ export LC_ALL=en_IN.UTF-8
 alias httpserver="xdg-open http://localhost:8000 && python -m http.server"
 
 # dotfiles manager
-alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+alias dot="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+
+# enable autocompletion on dotfiles manager
+compdef dot='git'
+setopt complete_aliases
 
 # the one true text editor
 alias v="nvim"
@@ -92,3 +97,4 @@ export MANPATH="$hdd/softwares/texlive/2020/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="$hdd/softwares/texlive/2020/texmf-dist/doc/info:$INFOPATH"
 
 alias :q="exit" # hehe
+
