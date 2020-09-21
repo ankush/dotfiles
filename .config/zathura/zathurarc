@@ -50,3 +50,8 @@ set recolor-reverse-video "true"
 set recolor-keephue "true"
 
 set render-loading "false"
+
+map d scroll half-down
+map u scroll half-up
+
+map D toggle_page_mode
