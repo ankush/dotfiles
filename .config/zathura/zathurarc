@@ -15,7 +15,7 @@ set statusbar-v-padding 0
 
 # Zathura dark
 set font "JetBrains Mono Nerd Font 15"
-set default-bg "#000000" #00
+set default-bg "#282A36" #00
 set default-fg "#F8F8F2" #01
 
 set statusbar-fg "#B0B0B0" #04
@@ -44,8 +44,8 @@ set notification-fg "#282A36" #00
 
 set recolor "true"
 map i recolor
-set recolor-lightcolor "#000000" #00
-set recolor-darkcolor "#E0E0E0" #06
+set recolor-lightcolor "#282A36" #00
+set recolor-darkcolor "#F8F8F2" #06
 set recolor-reverse-video "true"
 set recolor-keephue "true"
 
