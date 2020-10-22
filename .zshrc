@@ -98,3 +98,4 @@ export INFOPATH="$hdd/softwares/texlive/2020/texmf-dist/doc/info:$INFOPATH"
 
 alias :q="exit" # hehe
 
+source $HOME/.aliases
