@@ -93,6 +93,7 @@ let g:which_key_map['h'] = [ '<C-W>s'     , 'split below']
 let g:which_key_map['v'] = [ '<C-W>v'     , 'split right']
 let g:which_key_map['z'] = [ 'Goyo'       , 'zen mode' ]
 let g:which_key_map['q'] = [ ':q'         , 'close buffer' ]
+let g:which_key_map['p'] = [ ':Format'    , 'Format current file' ]
 
 " s is for search
 let g:which_key_map.s = {
@@ -112,7 +113,7 @@ let g:which_key_map.s = {
 " m is for make
 let g:which_key_map.m = {
       \ 'name' : '+make' ,
-      \ 'm' : [':make'       , 'make default'],
+      \ 'm' : [':!make'       , 'make default'],
       \ 'r' : [':make run'   , 'make run'],
       \ 'c' : [':make clean' , 'make clean'],
       \ }
@@ -134,7 +135,8 @@ nmap <Leader>c6 <Plug>lightline#bufferline#delete(6)
 " Clear current highlighted text
 nnoremap <CR><CR> :noh<CR><CR>
 
-
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")
 
+" Replace yanked word
+nmap <C-p> ciw<C-r>0<ESC>

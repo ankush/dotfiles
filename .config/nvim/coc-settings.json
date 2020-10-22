@@ -1,17 +1,5 @@
 {
     "codeLens.enable": true,
-    "coc.preferences.formatOnSaveFiletypes": [
-        "css",
-        "markdown",
-        "javascript",
-        "json",
-        "cpp",
-        "h",
-        "hpp",
-        "c",
-        "html",
-        "python"
-    ],
     "diagnostic.errorSign": "💩",
     "diagnostic.warningSign": "⚠️ ",
     "diagnostic.infoSign": "💁",
@@ -20,7 +8,11 @@
     // python config
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.jediEnabled": false,
+    "python.pythonPath": "/home/ankush/miniconda3/bin/python",
     "clangd.path": "/usr/bin/clangd-10",
+    "javascript.format.enabled": false,
     "languageserver": {
         "haskell": {
             "command": "haskell-language-server-wrapper",

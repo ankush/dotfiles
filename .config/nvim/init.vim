@@ -73,5 +73,3 @@ autocmd BufReadPost *
     \ endif
 
 
-set list   " show whitespace
-set listchars=tab:│·,extends:›,precedes:‹,nbsp:⦸ " white space characters to show

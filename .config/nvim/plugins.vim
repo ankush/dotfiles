@@ -25,9 +25,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript'] }
 
-"Haskell
-Plug 'neovimhaskell/haskell-vim'
-
 " Git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
@@ -112,8 +109,8 @@ let g:calendar_diary=$HOME.'wiki/diary' " Specify location for diary file
 autocmd BufNewFile */wiki/diary/[0-9]*.md :read ~/wiki/diary/templates/template.md
 
 " Goyo and limelight
-let g:goyo_width='85%'
-let g:goyo_height='85%'
+let g:goyo_width='95%'
+let g:goyo_height='95%'
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
