@@ -6,6 +6,7 @@
     "coc-emmet": ">=1.1.6",
     "coc-html": ">=1.2.4",
     "coc-json": ">=1.2.6",
+    "coc-prettier": ">=1.1.17",
     "coc-python": ">=1.2.12",
     "coc-tsserver": ">=1.5.4",
     "coc-vimlsp": ">=0.10.1"
