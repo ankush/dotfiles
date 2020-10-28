@@ -61,9 +61,6 @@ set splitright
 set modelines=0
 set nomodeline
 
-" enable true color support
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
 " When editing a file, always jump to the last known cursor position.
 " Don't do it for commit messages, when the position is invalid, or when
 " inside an event handler (happens when dropping a file on gvim).
@@ -71,5 +68,3 @@ autocmd BufReadPost *
     \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
-
-

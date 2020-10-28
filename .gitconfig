@@ -18,4 +18,4 @@
 	editor = nvim
 
 [merge]
-	tool = kdiff3
+	tool = vimdiff

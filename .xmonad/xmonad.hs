@@ -26,14 +26,6 @@ import qualified Data.Map        as M
 myTerminal :: [Char]
 myTerminal      = "konsole"
 
--- Whether focus follows the mouse pointer.
-myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = False
-
--- Whether clicking on a window to focus also passes the click to the window
-myClickJustFocuses :: Bool
-myClickJustFocuses = False
-
 -- Width of the window border in pixels.
 --
 myBorderWidth :: Dimension
@@ -345,7 +337,7 @@ main = do
       logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc
           , ppTitle = xmobarColor "#FF79C6" "" . shorten 50
-          , ppCurrent = xmobarColor "#BD93F9" "" . wrap "(" ")"
+          , ppCurrent = xmobarColor "#BD93F9" "" . wrap "[" "]"
           , ppHidden = xmobarColor "#FF79C6" "" . wrap " " " "
           , ppUrgent = xmobarColor "#FF5555" "" . wrap "!" "!"
           , ppHiddenNoWindows = xmobarColor "#4D4D4D" "" . wrap " " " "
@@ -364,8 +356,8 @@ main = do
 defaults = def {
       -- simple stuff
         terminal           = myTerminal,
-        focusFollowsMouse  = myFocusFollowsMouse,
-        clickJustFocuses   = myClickJustFocuses,
+        focusFollowsMouse  = False,
+        clickJustFocuses   = False,
         borderWidth        = myBorderWidth,
         modMask            = myModMask,
         workspaces         = myWorkspaces,
