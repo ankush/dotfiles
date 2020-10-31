@@ -48,7 +48,7 @@ set timeoutlen=500 " reduce leader key timeout from 1sec to 0.5
 " required by Coc
 set nobackup
 set nowritebackup
-set updatetime=300
+set updatetime=150
 
 " Trim whitespace on save for all files
 autocmd BufWritePre * :%s/\s\+$//e

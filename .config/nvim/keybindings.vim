@@ -79,6 +79,8 @@ inoremap kj <esc>
 " Toggle spellchecking
 :map <F6> :setlocal spell! spelllang=en_gb<CR>
 
+:nnoremap \ :Rg<CR>
+
 " Which key
 nnoremap <silent> <leader> :silent WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :silent <c-u> :silent WhichKeyVisual '<Space>'<CR>
@@ -94,6 +96,7 @@ let g:which_key_map['v'] = [ '<C-W>v'     , 'split right']
 let g:which_key_map['z'] = [ 'Goyo'       , 'zen mode' ]
 let g:which_key_map['q'] = [ ':q'         , 'close buffer' ]
 let g:which_key_map['p'] = [ ':Format'    , 'Format current file' ]
+let g:which_key_map['e'] = [ ':CocCommand explorer'    , 'Coc-explorer' ]
 
 " s is for search
 let g:which_key_map.s = {

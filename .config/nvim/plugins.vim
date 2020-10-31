@@ -34,6 +34,9 @@ Plug 'vimwiki/vimwiki'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
+
 call plug#end()
 
 " Auto install missing plugins on startup
@@ -88,7 +91,7 @@ let g:rooter_patterns = ['.git', 'Makefile', 'compile_commands.json']
 
 " fzf settings
 let g:fzf_preview_window = 'right:60%'
-
+let g:rg_derive_root='true' " move to current root set by rooter
 
 " VimWiki config
 let g:vimwiki_list = [{'path': '~/wiki/',
