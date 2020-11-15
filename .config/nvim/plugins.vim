@@ -65,8 +65,7 @@ let g:lightline = {
       \   'currentfunction': 'CocCurrentFunction'
       \ },
       \ 'tabline': {
-      \   'left': [ ['buffers'] ],
-      \   'right': [ ['close'] ]
+      \   'left': [ ['buffers'] ]
       \ },
       \ 'component_expand': {
       \   'buffers': 'lightline#bufferline#buffers'
@@ -80,14 +79,14 @@ let g:lightline#bufferline#show_number=2
 
 " Signify settings
 let g:signify_sign_add               = '+'
-let g:signify_sign_delete            = '_'
+let g:signify_sign_delete            = '-'
 let g:signify_sign_delete_first_line = '‾'
 let g:signify_sign_change            = '~'
 let g:signify_sign_show_count = 0
 let g:signify_sign_show_text = 1
 
 " rooter settings
-let g:rooter_patterns = ['.git', 'Makefile', 'compile_commands.json']
+let g:rooter_patterns = ['.git', 'Makefile', 'compile_commands.json', 'package.json']
 
 " fzf settings
 let g:fzf_preview_window = 'right:60%'
