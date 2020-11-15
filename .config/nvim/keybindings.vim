@@ -113,6 +113,15 @@ let g:which_key_map.s = {
       \ 'r' : [':Rg'           , 'text Rg'],
       \ }
 
+" g is for git
+let g:which_key_map.g = {
+      \ 'name' : '+git' ,
+      \ 's' : [':G'      , 'status'],
+      \ 'c' : [':Gcommit'      , 'commit'],
+      \ 'd' : [':Gdiffsplit'      , 'diff split'],
+      \ 'l' : [':Glog'      , 'log']
+      \ }
+
 " m is for make
 let g:which_key_map.m = {
       \ 'name' : '+make' ,
