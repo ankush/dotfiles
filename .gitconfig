@@ -19,3 +19,7 @@
 
 [merge]
 	tool = vimdiff
+
+[commit]
+	verbose = true
+	template = ~/.gitmessage
