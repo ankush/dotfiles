@@ -152,3 +152,6 @@ call which_key#register('<Space>', "g:which_key_map")
 
 " Replace yanked word
 nmap <C-p> ciw<C-r>0<ESC>
+
+" Terminal mode
+tnoremap <Esc> <C-\><C-n>
