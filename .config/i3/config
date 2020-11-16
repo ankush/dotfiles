@@ -4,7 +4,7 @@
 set $mod Mod4
 
 # Set font
-font pango:JetBrainsMonoNerdFont 11
+font pango:JetBrainsMonoNerdFont 10
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -108,10 +108,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -145,12 +145,6 @@ popup_during_fullscreen smart
 focus_follows_mouse no
 hide_edge_borders smart
 
-# Specify the distance between windows in pixels. (i3-gaps)
-# gaps inner 2
-# gaps outer 0
-
-# smart_gaps 1
-
 
 ###############################################################################
 # i3 Colors and Fonts
@@ -167,8 +161,8 @@ client.background       #F8F8F2
 
 # primary bar
 bar {
-    status_command i3blocks
-    position bottom
+    status_command SCRIPT_DIR=~/.config/i3blocks i3blocks
+    position top
 
     # disable scrolling
     bindsym button4 nop
