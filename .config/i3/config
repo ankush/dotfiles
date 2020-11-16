@@ -156,26 +156,35 @@ hide_edge_borders smart
 # i3 Colors and Fonts
 ###############################################################################
 
-# Window Border color
-# class                 border   background  text      indicator  child_border
-client.focused          #002b36  #586e75     #fdf6e3   #FF0000    #00FFFF
-client.focused_inactive #002b36  #073642     #839496   #073642    #000000
-client.unfocused        #002b36  #073642     #839496   #073642    #000000
-client.urgent           #002b36  #dc322f     #fdf6e3   #002b36    #FF0000
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #F8F8F2
 
 # primary bar
 bar {
-        # i3bar_command i3bar
-        status_command i3status
-        position bottom
+    # i3bar_command i3bar
+    status_command i3status
+    position bottom
 
-        # disable scrolling
-        bindsym button4 nop
-        bindsym button5 nop
+    # disable scrolling
+    bindsym button4 nop
+    bindsym button5 nop
 
-        colors {
-#                          border    background  text
-        focused_workspace  #000000   #00FFFF     #000000
+    colors {
+        background #282A36
+        statusline #F8F8F2
+        separator  #44475A
+
+        focused_workspace  #44475A #44475A #F8F8F2
+        active_workspace   #282A36 #44475A #F8F8F2
+        inactive_workspace #282A36 #282A36 #BFBFBF
+        urgent_workspace   #FF5555 #FF5555 #F8F8F2
+        binding_mode       #FF5555 #FF5555 #F8F8F2
     }
 }
 
