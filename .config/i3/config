@@ -167,8 +167,7 @@ client.background       #F8F8F2
 
 # primary bar
 bar {
-    # i3bar_command i3bar
-    status_command i3status
+    status_command i3blocks
     position bottom
 
     # disable scrolling
@@ -193,7 +192,7 @@ exec_always --no-startup-id xset r rate 250 60
 
 # map capslock to escape (tap) and ctrl (chord)
 exec_always --no-startup-id "setxkbmap -option ctrl:nocaps"
-exec_always --no-startup-id "xcape -e \'Control_L=Escape\'"
+exec_always --no-startup-id "xcape -e 'Control_L=Escape'"
 
 # default startup applications
 exec --no-startup-id compton -b
@@ -202,4 +201,3 @@ exec --no-startup-id .screenlayout/internal-graphics.sh
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id safeeyes
 exec --no-startup-id redshift
-exec --no-startup-id conky -b
