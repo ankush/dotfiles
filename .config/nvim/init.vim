@@ -26,7 +26,6 @@ set nomodeline " Disable modlines
 set noswapfile  " Don't use a swapfile for the buffer
 set nowritebackup " required by Coc
 set number " show absolute line number on current line
-set numberwidth=6
 set relativenumber " show relative line number on all other lines
 set scrolloff=5 " Show at least 5 extra lines while scrolling
 set shiftwidth=4
@@ -42,6 +41,7 @@ set splitright " Open new window in right half
 set tabstop=4
 set timeoutlen=500 " reduce leader key timeout from 1sec to 0.5
 set updatetime=150
+"set signcolumn=number "merge sign and number columns to save space, nvim 0.5 feature
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 " Trim whitespace on save for all files
 autocmd BufWritePre * :%s/\s\+$//e

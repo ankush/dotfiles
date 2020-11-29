@@ -13,6 +13,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'mattn/calendar-vim'
 Plug 'liuchengxu/vim-which-key'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Appearance
 Plug 'itchyny/lightline.vim'
@@ -96,9 +97,7 @@ let g:rg_derive_root='true' " move to current root set by rooter
 let g:vimwiki_list = [{'path': '~/wiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown'}
-let g:vimwiki_listsyms = ' ○◐●✓'
 let g:vimwiki_listsym_rejected = '✗'
-let g:vimwiki_folding='list'
 let g:vimwiki_use_calender=1
 
 " Calendar config

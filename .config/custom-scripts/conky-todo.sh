@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rg '\[ \]' "$HOME/wiki/diary/$(date -I'date').md" | cut -c2-
+rg '\[' "$HOME/wiki/diary/$(date -I'date').md" | cut -c2-

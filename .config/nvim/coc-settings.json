@@ -28,9 +28,5 @@
         "haskell": {}
       }
     }
-  },
-  "diagnostic-languageserver.filetypes": {
-    "markdown": ["write-good"],
-    "vimwiki": []
   }
 }

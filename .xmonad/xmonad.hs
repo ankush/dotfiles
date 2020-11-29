@@ -321,6 +321,7 @@ myStartupHook = do
   spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x292d3e --height 20 &"
   spawnOnce "setxkbmap -option ctrl:nocaps"
   spawnOnce "xcape -e \'Control_L=Escape\'"
+  spawnOnce "xcape -e \'Alt_R=Menu\'"
   spawnOnce "redshift &"
   spawnOnce "conky -b &"
 

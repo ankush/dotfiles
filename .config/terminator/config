@@ -12,7 +12,7 @@
     background_type = transparent
     cursor_shape = ibeam
     cursor_color = "#aaaaaa"
-    font = JetBrainsMono Nerd Font 12
+    font = JetBrainsMono Nerd Font 13
     show_titlebar = False
     scrollbar_position = hidden
     palette = "#000000:#ff5555:#50fa7b:#f1fa8c:#bd93f9:#ff79c6:#8be9fd:#bbbbbb:#555555:#ff5555:#50fa7b:#f1fa8c:#bd93f9:#ff79c6:#8be9fd:#ffffff"
