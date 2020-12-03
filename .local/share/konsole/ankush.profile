@@ -9,6 +9,8 @@ DimWhenInactive=false
 LocalTabTitleFormat=%n
 Name=ankush
 Parent=FALLBACK/
+TerminalColumns=191
+TerminalRows=48
 
 [Scrolling]
 HistoryMode=1

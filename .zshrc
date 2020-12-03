@@ -45,6 +45,7 @@ setopt complete_aliases
 alias v="nvim"
 export EDITOR="nvim"
 export VISUAL="nvim"
+export MANPAGER="nvim +Man!"
 
 # Common config files
 alias vrc="nvim ~/.config/nvim/init.vim"
@@ -141,6 +142,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # tmux aliases
 alias t=tmux
+alias mux=tmuxinator
 
 # file manager
 alias f=vifm
