@@ -146,3 +146,7 @@ alias mux=tmuxinator
 
 # file manager
 alias f=vifm
+
+# quick file/project launchers
+alias proj='cd $(ls -d ~/proj/* | fzf) && tmxl'
+

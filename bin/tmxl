@@ -2,7 +2,7 @@
 
 # TMUX launcher
 
-DEFAULT_SESS_NAME="0"
+DEFAULT_SESS_NAME="$(basename "$PWD" | tr . -)"
 
 if [[ -z "$1" ]]; then
     # use default session name
@@ -19,10 +19,8 @@ if ! tmux has-session -t "$SESS_NAME"; then
     # rename default window
     tmux rename-window -t "$SESS_NAME:1" "nvim"
 
-    # Create 3 usual windows
+    # Create background window
     tmux new-window -t "$SESS_NAME:2" -n "repl"
-    tmux new-window -t "$SESS_NAME:3" -n "git"
-    tmux new-window -t "$SESS_NAME:9" -n "bg"
 
     # launch vim
     tmux send-keys -t "$SESS_NAME:1" nvim Enter

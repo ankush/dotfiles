@@ -72,10 +72,6 @@ nmap <Up> gk
 vmap <Left> <gv
 vmap <Right> >gv
 
-" Addtional escapes
-inoremap kj <esc>
-" inoremap jk <esc> " Disabled temporarily while working on nunjucks files
-
 " Toggle spellchecking
 :map <F6> :setlocal spell! spelllang=en_gb<CR>
 
