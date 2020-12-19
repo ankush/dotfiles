@@ -7,6 +7,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " General
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-abolish'
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -29,6 +30,10 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript'] }
 " Git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
+
+" Testing
+Plug 'vim-test/vim-test'
+Plug 'christoomey/vim-tmux-runner'
 
 " Plain text
 Plug 'vimwiki/vimwiki'
@@ -120,3 +125,6 @@ highlight default link WhichKey          Operator
 highlight default link WhichKeySeperator DiffAdded
 highlight default link WhichKeyGroup     Identifier
 highlight default link WhichKeyDesc      Function
+
+" Vim-test config
+let test#strategy = "vtr"

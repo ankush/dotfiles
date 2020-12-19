@@ -57,11 +57,8 @@ function z()
     zathura $1 & disown
 }
 
-function tbr()
-{
-    cd ~/Dropbox/UoL/TBR
-    ls
-}
+# quick open a tbr file
+alias tbr='z "$(ls -d ~/Dropbox/UoL/TBR/* | fzf)"'
 
 # extract files
 function extract()
@@ -148,5 +145,5 @@ alias mux=tmuxinator
 alias f=vifm
 
 # quick file/project launchers
-alias proj='cd $(ls -d ~/proj/* | fzf) && tmxl'
+alias p='cd $(ls -d ~/proj/* | fzf) && tmxl'
 

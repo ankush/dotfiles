@@ -85,7 +85,7 @@ let g:which_key_map =  {}
 
 " Single mappings
 let g:which_key_map['c'] = [ ':e $MYVIMRC'     , 'search files' ]
-let g:which_key_map['f'] = [ ':GFiles'     , 'search files' ]
+let g:which_key_map['f'] = [ ':Files'     , 'search files' ]
 let g:which_key_map['S'] = [ ':Startify'  , 'start screen' ]
 let g:which_key_map['h'] = [ '<C-W>s'     , 'split below']
 let g:which_key_map['v'] = [ '<C-W>v'     , 'split right']
@@ -121,9 +121,16 @@ let g:which_key_map.g = {
 " m is for make
 let g:which_key_map.m = {
       \ 'name' : '+make' ,
-      \ 'm' : [':!make'       , 'make default'],
+      \ 'm' : [':!make'      , 'make default'],
       \ 'r' : [':make run'   , 'make run'],
       \ 'c' : [':make clean' , 'make clean'],
+      \ }
+
+
+" t is for test
+let g:which_key_map.t = {
+      \ 'name' : '+test' ,
+      \ 'a' : [':TestSuite'    , 'Run all tests'],
       \ }
 
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)

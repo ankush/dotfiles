@@ -141,7 +141,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
 
     -- Take screenshot
-    , ((modm              , xK_Print ), spawn "flameshot gui -d 2000 -r | xclip -selection clipboard -t image/png")
+    , ((modm              , xK_p ), spawn "flameshot gui -d 2000 -r | xclip -selection clipboard -t image/png")
 
     -- Decrease volume
     , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -10%")
@@ -314,16 +314,14 @@ myLogHook = return ()
 myStartupHook :: X ()
 myStartupHook = do
   spawnOnce "nitrogen --restore &"
-  spawnOnce "xset r rate 250 60"
   spawnOnce "unclutter"
+  spawnOnce "xset r rate 250 50"
   spawnOnce "safeeyes"
   spawnOnce "xsetroot -cursor_name left_ptr"
   spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x292d3e --height 20 &"
-  spawnOnce "setxkbmap -option ctrl:nocaps"
-  spawnOnce "xcape -e \'Control_L=Escape\'"
-  spawnOnce "xcape -e \'Alt_R=Menu\'"
   spawnOnce "redshift &"
   spawnOnce "conky -b &"
+  setWMName "LG3D"
 
 
 ------------------------------------------------------------------------
