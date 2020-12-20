@@ -17,10 +17,10 @@ if ! tmux has-session -t "$SESS_NAME"; then
     tmux new-session -s "$SESS_NAME" -d
 
     # rename default window
-    tmux rename-window -t "$SESS_NAME:1" "nvim"
+    tmux rename-window -t "$SESS_NAME:1" "editor"
 
     # Create background window
-    tmux new-window -t "$SESS_NAME:2" -n "repl"
+    tmux new-window -t "$SESS_NAME:2" -n "shell"
 
     # launch vim
     tmux send-keys -t "$SESS_NAME:1" nvim Enter
