@@ -171,12 +171,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_4]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-    ++
-
-    -- F1-F4 Switch to first 4 workspaces
-    [((0, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_F1 .. xK_F4]
-        , (f, m) <- [(W.greedyView, 0)]]
 
 ------------------------------------------------------------------------
 -- Mouse bindings: default actions bound to mouse events
@@ -316,7 +310,6 @@ myStartupHook = do
   spawnOnce "nitrogen --restore &"
   spawnOnce "unclutter"
   spawnOnce "xset r rate 250 50"
-  spawnOnce "safeeyes"
   spawnOnce "xsetroot -cursor_name left_ptr"
   spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x292d3e --height 20 &"
   spawnOnce "redshift &"
