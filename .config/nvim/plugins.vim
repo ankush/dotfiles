@@ -15,6 +15,7 @@ Plug 'airblade/vim-rooter'
 Plug 'mattn/calendar-vim'
 Plug 'liuchengxu/vim-which-key'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'editorconfig/editorconfig-vim'
 
 " Appearance
 Plug 'itchyny/lightline.vim'

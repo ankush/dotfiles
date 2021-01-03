@@ -3,12 +3,12 @@ source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/keybindings.vim
 
 colorscheme dracula
+set autoindent
 filetype plugin indent on
-set backspace=indent,eol,start " Disable awkward backspace behaviour
+set backspace=indent,eol,start  " Disable awkward backspace behaviour
 set clipboard=unnamedplus  " Use the system clipboard by default
 set cursorline " highlight current line
 set encoding=utf-8
-set expandtab
 set fileencoding=utf-8
 set fileencodings=utf-8
 set hidden " Allows hiding unsaved buffers
@@ -19,7 +19,6 @@ set incsearch " Search while still typing
 set laststatus=2  " Always show the status line at the bottom
 set lazyredraw " Don't redraw when running macros
 set list
-set listchars=tab:│>-,extends:>,precedes:<,nbsp:⦸
 set mouse+=a " Enable mouse support
 set nojoinspaces  " Use one space, not two, after punctuation
 set nomodeline " Disable modlines
@@ -33,14 +32,18 @@ set shortmess+=I " Disable the default Vim startup message.
 set shortmess+=W " Disable file written messages
 set showtabline=2 " Enable bufferline on top
 set smartcase " Consider case if caps are present
-set softtabstop=0
 set spellfile=$HOME/.config/nvim/spell/en.utf-8.add
 set spelllang=en_gb " enable spell-check
 set splitbelow " Open new window in bottom half
 set splitright " Open new window in right half
 set tabstop=4
+set expandtab
+set listchars=tab:│>-,extends:>,precedes:<,nbsp:⦸
+set softtabstop=0
 set timeoutlen=500 " reduce leader key timeout from 1sec to 0.5
 set updatetime=150
+set noshowmode  " lightline does it already
+set wildmenu
 "set signcolumn=number "merge sign and number columns to save space, nvim 0.5 feature
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 " Trim whitespace on save for all files
