@@ -9,7 +9,7 @@ My (current) primary applications:
 * Operating system: [Kubuntu](https://kubuntu.org/) 20.04 minimal install
 * Window Manager: [xmonad](https://xmonad.org/)
 * Dock/Bar: [xmobar](https://hackage.haskell.org/package/xmobar)
-* Terminal emulator: Konsole
+* Terminal emulator: Konsole + tmux
 * Shell: zsh + [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) + [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 * Colorscheme and theme: [Dracula](https://draculatheme.com)
 * Monospaced fonts: [JetBrains Mono with patched icons](https://github.com/ryanoasis/nerd-fonts)

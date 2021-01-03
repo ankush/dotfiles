@@ -16,13 +16,14 @@ Config { font = "xft:JetBrainsMono Nerd Font:pixelsize=14:antialias=true:hinting
                     , Run Cpu ["-t", " <total>%","-H","70","--high","#FF5555"] 50
                     , Run Memory ["-t"," <usedratio>%"] 50
                     , Run Com "/home/ankush/.config/cmus/now-playing.sh" [] "cmus" 50
-                    , Run Date "<fc=#50FA7B> %a %b %d %I:%M</fc>" "date" 600
+                    , Run Date "<fc=#50FA7B>%a %d-%m %I:%M</fc>" "date" 600
                     , Run Com "/home/ankush/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 200
                     , Run UnsafeStdinReader
                     , Run Com "/home/ankush/.config/custom-scripts/mic-status.sh" [] "microphone" 20
+                    , Run Com "/home/ankush/.config/custom-scripts/memento-mori.sh" [] "memento" 600
                     ]
        , sepChar = "%"
        , alignSep = "}{"
        , template = " <icon=haskell.xpm/> %UnsafeStdinReader% }\
-                    \{<fc=#FF79C6>%cmus%</fc>|%microphone%|<fc=#F1FA8C>%cpu%</fc>|<fc=#FF6E67>%memory%</fc>|<fc=#8BE9FD>%enp1s0%</fc>|%date%%trayerpad%"
+                    \{ %memento%|<fc=#FF79C6>%cmus%</fc>|%microphone%|<fc=#F1FA8C>%cpu%</fc>|<fc=#FF6E67>%memory%</fc>|<fc=#8BE9FD>%enp1s0%</fc>|%date%%trayerpad%"
        }
