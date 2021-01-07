@@ -19,8 +19,8 @@ Config { font = "xft:JetBrainsMono Nerd Font:pixelsize=14:antialias=true:hinting
                     , Run Date "<fc=#50FA7B>%a %d-%m %I:%M</fc>" "date" 600
                     , Run Com "/home/ankush/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 200
                     , Run UnsafeStdinReader
-                    , Run Com "/home/ankush/.config/custom-scripts/mic-status.sh" [] "microphone" 20
-                    , Run Com "/home/ankush/.config/custom-scripts/memento-mori.sh" [] "memento" 600
+                    , Run Com "/home/ankush/bin/mic-status.sh" [] "microphone" 20
+                    , Run Com "/home/ankush/bin/memento-mori.sh" [] "memento" 3600
                     ]
        , sepChar = "%"
        , alignSep = "}{"
