@@ -113,7 +113,7 @@ let g:calendar_diary=$HOME.'wiki/diary' " Specify location for diary file
 
 
 " Copy diary template when starting a new file in diary directory
-autocmd BufNewFile */wiki/diary/[0-9]*.md :read !cat ~/wiki/diary/$(date -I --date='-1 day').md
+autocmd BufNewFile */wiki/diary/[0-9]*.md :read ~/wiki/diary/templates/template.md
 
 " Goyo and limelight
 let g:goyo_width='95%'

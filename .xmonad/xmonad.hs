@@ -206,7 +206,7 @@ myScratchPads = [ NS "cmus" spawnCmus findCmus manageCmus
                 w = 0.7
                 t = (1 - h)/2
                 l = (1 - w)/2
-        spawnWiki = "terminator --title \"vimwiki\" -e \"nvim -c 'let g:startify_disable_at_vimenter = 1' +VimwikiMakeDiaryNote\""
+        spawnWiki = "terminator --title \"vimwiki\" -e \"bash ~/bin/take-note.sh\""
         findWiki = title =? "vimwiki"
         manageWiki = customFloating $ W.RationalRect l t w h
             where
