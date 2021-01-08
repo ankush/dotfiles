@@ -1,4 +1,4 @@
-" Vim-PLugged configuration
+" Vim-Plugged configuration
 call plug#begin($HOME . '/.local/share/nvim/plugged')
 
 " Intelligence
@@ -22,11 +22,10 @@ Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sheerun/vim-polyglot'
-Plug 'ryanoasis/vim-devicons'
 
 " HTML/CSS/JS
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript'] }
+Plug 'mattn/emmet-vim'
 
 " Git
 Plug 'mhinz/vim-signify'
@@ -81,7 +80,6 @@ let g:lightline = {
       \   'buffers': 'tabsel'
       \ }
       \ }
-let g:lightline#bufferline#enable_devicons = 1
 let g:lightline#bufferline#show_number=2
 
 " Signify settings
@@ -102,7 +100,7 @@ let g:rg_derive_root='true' " move to current root set by rooter
 " VimWiki config
 let g:vimwiki_list = [{'path': '~/wiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown'}
+let g:vimwiki_ext2syntax = {'.md': 'markdown'}
 let g:vimwiki_listsym_rejected = '✗'
 let g:vimwiki_use_calender=1
 

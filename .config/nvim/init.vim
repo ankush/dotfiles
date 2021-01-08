@@ -42,9 +42,8 @@ set listchars=tab:│>-,extends:>,precedes:<,nbsp:⦸
 set softtabstop=0
 set timeoutlen=500 " reduce leader key timeout from 1sec to 0.5
 set updatetime=150
-set noshowmode  " lightline does it already
 set wildmenu
-"set signcolumn=number "merge sign and number columns to save space, nvim 0.5 feature
+set noshowmode
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 " Trim whitespace on save for all files
 autocmd BufWritePre * :%s/\s\+$//e
@@ -57,8 +56,9 @@ autocmd BufReadPost *
     \   exe "normal g`\"" |
     \ endif
 
-" Highlight yanked text for half a second
-augroup highlight_yank
-    autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 500})
-augroup END
+" merge sign column if  using nvim 0.5
+if has("nvim-0.5")
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif

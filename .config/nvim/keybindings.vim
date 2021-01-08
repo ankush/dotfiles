@@ -57,13 +57,6 @@ endfunction
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
-
-" Move between open windows
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
-
 " Move in long wrapped lines
 nmap <Down> gj
 nmap <Up> gk
@@ -155,6 +148,3 @@ call which_key#register('<Space>', "g:which_key_map")
 
 " Replace yanked word
 nmap <C-p> ciw<C-r>0<ESC>
-
-" Terminal mode
-tnoremap <Esc> <C-\><C-n>

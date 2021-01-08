@@ -9,8 +9,6 @@
   "python.linting.enabled": true,
   "python.pythonPath": "/home/ankush/miniconda3/bin/python",
   "python.linting.pylintEnabled": true,
-  "python.linting.mypyEnabled": true,
-  "python.jediEnabled": false,
   "clangd.path": "/usr/bin/clangd-10",
   "javascript.format.enabled": false,
   "languageserver": {
