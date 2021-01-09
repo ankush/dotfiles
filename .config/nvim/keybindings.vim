@@ -57,12 +57,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -114,22 +108,20 @@ let g:which_key_map =  {}
 
 
 " Single mappings
-let g:which_key_map['c'] = [ ':e $MYVIMRC'     , 'search files' ]
-let g:which_key_map['f'] = [ ':Files'     , 'search files' ]
 let g:which_key_map['S'] = [ ':Startify'  , 'start screen' ]
+let g:which_key_map['c'] = [ ':e $MYVIMRC', 'Edit vimrc' ]
+let g:which_key_map['e'] = [ ':CocCommand explorer'    , 'Coc-explorer' ]
+let g:which_key_map['f'] = [ ':Files'     , 'search files' ]
 let g:which_key_map['h'] = [ '<C-W>s'     , 'split below']
+let g:which_key_map['q'] = [ ':q'         , 'close buffer' ]
 let g:which_key_map['v'] = [ '<C-W>v'     , 'split right']
 let g:which_key_map['z'] = [ 'Goyo'       , 'zen mode' ]
-let g:which_key_map['q'] = [ ':q'         , 'close buffer' ]
-let g:which_key_map['p'] = [ ':Format'    , 'Format current file' ]
-let g:which_key_map['e'] = [ ':CocCommand explorer'    , 'Coc-explorer' ]
 
 " s is for search
 let g:which_key_map.s = {
       \ 'name' : '+search' ,
-      \ '/' : [':History/'     , 'history'],
+      \ '/' : [':History'     , 'history'],
       \ ';' : [':Commands'     , 'commands'],
-      \ 'a' : [':Ag'           , 'text Ag'],
       \ 'b' : [':Buffers'      , 'open buffers'],
       \ 'c' : [':Commits'      , 'commits'],
       \ 'f' : [':Files'        , 'files'],
@@ -142,18 +134,18 @@ let g:which_key_map.s = {
 " g is for git
 let g:which_key_map.g = {
       \ 'name' : '+git' ,
-      \ 's' : [':G'      , 'status'],
       \ 'c' : [':Gcommit'      , 'commit'],
       \ 'd' : [':Gdiffsplit'      , 'diff split'],
-      \ 'l' : [':Glog'      , 'log']
+      \ 'l' : [':Glog'      , 'log'],
+      \ 's' : [':G'      , 'status'],
       \ }
 
 " m is for make
 let g:which_key_map.m = {
       \ 'name' : '+make' ,
+      \ 'c' : [':make clean' , 'make clean'],
       \ 'm' : [':!make'      , 'make default'],
       \ 'r' : [':make run'   , 'make run'],
-      \ 'c' : [':make clean' , 'make clean'],
       \ }
 
 
@@ -162,6 +154,26 @@ let g:which_key_map.t = {
       \ 'name' : '+test' ,
       \ 'a' : [':TestSuite'    , 'Run all tests'],
       \ }
+
+
+" l is for LSP
+let g:which_key_map.l = {
+      \ 'name' : '+LSP' ,
+      \ 'a' : ['<Plug>(coc-codeaction-selected)'    , 'Apply code action on selection'],
+      \ 'c' : [':CocList commands', 'Coc commands'],
+      \ 'd' : [':CocList diagnostics', 'List diagnostics'],
+      \ 'f' : ['<Plug>(coc-format-selected)'    , 'Format selected code'],
+      \ 'p' : [':Format'    , 'Format full file'],
+      \ 'q' : ['<Plug>(coc-codeaction)'    , 'Apply code action on buffer'],
+      \ 'r' : ['<Plug>(coc-rename)', 'Rename symbol'],
+      \ 's' : [':CocList -I symbols', 'Search sybols'],
+      \ }
+
+" Clear current highlighted text
+nnoremap <CR><CR> :noh<CR><CR>
+
+" Register which key map
+call which_key#register('<Space>', "g:which_key_map")
 
 nmap <Leader>1 <Plug>lightline#bufferline#go(1)
 nmap <Leader>2 <Plug>lightline#bufferline#go(2)
@@ -176,12 +188,6 @@ nmap <Leader>c3 <Plug>lightline#bufferline#delete(3)
 nmap <Leader>c4 <Plug>lightline#bufferline#delete(4)
 nmap <Leader>c5 <Plug>lightline#bufferline#delete(5)
 nmap <Leader>c6 <Plug>lightline#bufferline#delete(6)
-
-" Clear current highlighted text
-nnoremap <CR><CR> :noh<CR><CR>
-
-" Register which key map
-call which_key#register('<Space>', "g:which_key_map")
 
 " Replace yanked word
 nmap <C-p> ciw<C-r>0<ESC>
