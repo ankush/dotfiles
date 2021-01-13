@@ -5,40 +5,42 @@ call plug#begin($HOME . '/.local/share/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " General
+Plug 'editorconfig/editorconfig-vim'
+Plug 'mattn/calendar-vim'
+Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-abolish'
-Plug 'mhinz/vim-startify'
+
+" Navigation and search
+Plug 'airblade/vim-rooter'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-rooter'
-Plug 'mattn/calendar-vim'
 Plug 'liuchengxu/vim-which-key'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'editorconfig/editorconfig-vim'
 
 " Appearance
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sheerun/vim-polyglot'
 
 " HTML/CSS/JS
-Plug 'norcalli/nvim-colorizer.lua'
 Plug 'mattn/emmet-vim'
+Plug 'norcalli/nvim-colorizer.lua'
 
 " Git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 
 " Testing
-Plug 'vim-test/vim-test'
 Plug 'christoomey/vim-tmux-runner'
+Plug 'vim-test/vim-test'
 
 " Plain text
-Plug 'vimwiki/vimwiki'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'vimwiki/vimwiki'
 
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
