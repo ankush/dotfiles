@@ -3,11 +3,12 @@ source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/keybindings.vim
 
 colorscheme dracula
+set cursorline " highlight current line
+highlight CursorLine ctermbg=234 guibg=#1a1b23
 set autoindent
 filetype plugin indent on
 set backspace=indent,eol,start  " Disable awkward backspace behaviour
 set clipboard=unnamedplus  " Use the system clipboard by default
-set cursorline " highlight current line
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
