@@ -45,6 +45,8 @@ set timeoutlen=500 " reduce leader key timeout from 1sec to 0.5
 set updatetime=150
 set wildmenu
 set noshowmode
+set undodir=~/.config/nvim/undo-dir
+set undofile
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 " Trim whitespace on save for all files
 autocmd BufWritePre * :%s/\s\+$//e
