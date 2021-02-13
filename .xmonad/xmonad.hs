@@ -48,7 +48,7 @@ xmobarEscape = concatMap doubleLts
 
 -- workspace with click support. From DT's config: https://gitlab.com/dwt1/dotfiles/-/blob/master/.xmonad/xmonad.hs
 myWorkspaceNames :: [[Char]]
-myWorkspaceNames = ["www","code","work","vm"]
+myWorkspaceNames = ["www","code","work","misc"]
 myWorkspaces :: [[Char]]
 myWorkspaces = clickable . (map xmobarEscape)
                $ myWorkspaceNames

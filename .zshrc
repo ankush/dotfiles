@@ -96,21 +96,6 @@ export PATH="$HOME/gems/bin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/ankush/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/ankush/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/ankush/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/ankush/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 # define external disk mount point
 hdd="/mnt/ankush/DATA/"
 
@@ -147,3 +132,10 @@ alias f=vifm
 # quick file/project launchers
 alias p='cd $(ls -d ~/proj/* | fzf) && tmxl'
 
+# add local python scripts to PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+# pyenv
+export PATH="/home/ankush/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"

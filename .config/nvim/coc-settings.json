@@ -5,9 +5,7 @@
   "diagnostic.infoSign": "💁",
   "diagnostic.virtualText": true,
   "suggest.maxCompleteItemCount": 5,
-  // python config
   "python.linting.enabled": true,
-  "python.pythonPath": "/home/ankush/miniconda3/bin/python",
   "python.linting.pylintEnabled": true,
   "clangd.path": "/usr/bin/clangd-10",
   "javascript.format.enabled": false,
