@@ -13,7 +13,7 @@ My (current) primary applications:
 * Shell: zsh + [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) + [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 * Colorscheme and theme: [Dracula](https://draculatheme.com)
 * Monospaced fonts: [JetBrains Mono with patched icons](https://github.com/ryanoasis/nerd-fonts)
-* Text Editor: [Neovim](https://neovim.io) + [coc](https://github.com/neoclide/coc.nvim)
+* Text Editor: [Neovim](https://neovim.io) with native LSP.
 * Document viewer: [Zathura](https://pwmt.org/projects/zathura/)
 * Music Player: [cmus](https://github.com/cmus/cmus)
 

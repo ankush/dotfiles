@@ -6,6 +6,7 @@ call plug#begin($HOME . '/.local/share/nvim/plugged')
 " Intelligence
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/nvim-compe'
 
 " General
 Plug 'editorconfig/editorconfig-vim'
@@ -17,10 +18,9 @@ Plug 'tpope/vim-surround'
 
 " Navigation and search
 Plug 'airblade/vim-rooter'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 
 " Appearance
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -104,6 +104,10 @@ let g:completion_matching_smart_case = 1
 let g:completion_trigger_keyword_length = 2
 let g:completion_timer_cycle = 150
 
+" fzf settings
+let g:fzf_preview_window = ['up:70%', 'ctrl-/']
+let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.95 } }
+
 " Copy diary template when starting a new file in diary directory
 autocmd BufNewFile */wiki/diary/[0-9]*.md :read ~/wiki/diary/templates/template.md
 
@@ -146,7 +150,7 @@ set spelllang=en_gb " enable spell-check
 set splitbelow " Open new window in bottom half
 set splitright " Open new window in right half
 set tabstop=4
-set listchars=tab:│>-,extends:>,precedes:<,nbsp:⦸
+set listchars=tab:│∙,extends:>,precedes:<,nbsp:⦸
 set softtabstop=0
 set timeoutlen=500 " reduce leader key timeout from 1sec to 0.5
 set updatetime=150
@@ -185,11 +189,11 @@ nnoremap <leader>v <C-W>v
 nnoremap <leader>q :bdelete<CR>
 
 " Searching
-nnoremap \ <cmd>Telescope live_grep<cr>
-nnoremap <leader>f <cmd>Telescope find_files<cr>
-nnoremap <leader>sg <cmd>Telescope git_files<cr>
-nnoremap <leader>sb <cmd>Telescope buffers<cr>
-nnoremap <leader>sh <cmd>Telescope help_tags<cr>
+nnoremap \ :Rg<cr>
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>sg :GFiles<cr>
+nnoremap <leader>sc :Commits<cr>
+nnoremap <leader>sm :GFiles?<cr>
 
 " Git
 nnoremap <leader>gc :Gcommit<CR>
@@ -223,12 +227,20 @@ nmap <Leader>2 <Plug>lightline#bufferline#go(2)
 nmap <Leader>3 <Plug>lightline#bufferline#go(3)
 nmap <Leader>4 <Plug>lightline#bufferline#go(4)
 nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 
 nmap <Leader>c1 <Plug>lightline#bufferline#delete(1)
 nmap <Leader>c2 <Plug>lightline#bufferline#delete(2)
 nmap <Leader>c3 <Plug>lightline#bufferline#delete(3)
 nmap <Leader>c4 <Plug>lightline#bufferline#delete(4)
 nmap <Leader>c5 <Plug>lightline#bufferline#delete(5)
+nmap <Leader>c6 <Plug>lightline#bufferline#delete(6)
+nmap <Leader>c7 <Plug>lightline#bufferline#delete(7)
+nmap <Leader>c8 <Plug>lightline#bufferline#delete(8)
+nmap <Leader>c9 <Plug>lightline#bufferline#delete(9)
 
 " Replace word with yanked word
 nmap <C-p> ciw<C-r>0<ESC>

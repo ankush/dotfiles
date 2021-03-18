@@ -1,5 +1,33 @@
 local nvim_lsp = require('lspconfig')
 local nvim_completion = require('completion')
+local compe = require('compe')
+
+vim.o.completeopt = "menuone,noselect"
+
+require'compe'.setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = 'enable';
+  throttle_time = 80;
+  source_timeout = 200;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = true;
+
+  source = {
+    path = true;
+    buffer = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+    spell = true;
+    treesitter = true;
+  };
+}
+
 
 local on_attach = function(client, bufnr)
   nvim_completion.on_attach(client, bufnr)
@@ -14,7 +42,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<space>lk', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '<space>lwa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>lwr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   buf_set_keymap('n', '<space>lw', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
@@ -49,18 +77,18 @@ local on_attach = function(client, bufnr)
 end
 
 nvim_lsp.pyright.setup {
- on_attach = on_attach,
+  on_attach = on_attach,
   settings = {
-  python = {
-    analysis = {
-      autoSearchPaths = true,
-      useLibraryCodeForTypes = false,
-      typeCheckingMode = "off"
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = false,
+        typeCheckingMode = "off"
+      }
     }
   }
 }
 
-}
 nvim_lsp.tsserver.setup { on_attach = on_attach }
 nvim_lsp.vimls.setup { on_attach = on_attach }
 
@@ -68,4 +96,3 @@ require'nvim-treesitter.configs'.setup {
   highlight = { enable = true, },
   incremental_selection = { enable = true, },
 }
-

@@ -7,7 +7,8 @@
 	gpgsign = true
 
 [difftool]
-    tool = vimdiff
+	tool = vimdiff
+	colorMoved = default
 
 [color "status"]
 	added = green bold
@@ -16,10 +17,32 @@
 
 [core]
 	editor = nvim
+	pager = delta
+
 
 [merge]
-	tool = vimdiff
+	tool = nvim
+
+[mergetool "nvim"]
+	cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+
+[interactive]
+	diffFilter = delta --color-only
 
 [commit]
 	verbose = true
 	template = ~/.gitmessage
+
+[pull]
+	ff = only
+
+
+[delta]
+	features = line-numbers
+	whitespace-error-style = 22 reverse
+	syntax-theme = Dracula
+
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
