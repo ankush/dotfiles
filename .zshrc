@@ -87,14 +87,17 @@ function extract()
 alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
+alias :q="exit" # hehe
 
-
-# Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
+export FZF_DEFAULT_COMMAND='rg --files --follow'
+
+# tmux aliases
+alias t=tmux
+alias mux=tmuxinator
+source $HOME/.aliases
 
 # define external disk mount point
 hdd="/mnt/ankush/DATA/"
@@ -107,27 +110,17 @@ export PATH="$hdd/softwares/texlive/2020/bin/x86_64-linux:$PATH"
 export MANPATH="$hdd/softwares/texlive/2020/texmf-dist/doc/man:$MANPATH"
 export INFOPATH="$hdd/softwares/texlive/2020/texmf-dist/doc/info:$INFOPATH"
 
-alias :q="exit" # hehe
-
-source $HOME/.aliases
+# ruby
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
-
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --no-ignore-vcs'
 
 # Node version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-# tmux aliases
-alias t=tmux
-alias mux=tmuxinator
-
-# file manager
-alias f=vifm
 
 # quick file/project launchers
 alias p='cd $(ls -d ~/proj/* | fzf) && tmxl'
@@ -135,7 +128,10 @@ alias p='cd $(ls -d ~/proj/* | fzf) && tmxl'
 # add local python scripts to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
-# pyenv
+# python
 export PATH="/home/ankush/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# golang
+export PATH="/home/ankush/go/bin:$PATH"
