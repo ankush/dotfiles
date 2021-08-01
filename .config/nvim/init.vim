@@ -31,6 +31,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " HTML/CSS/JS
 Plug 'mattn/emmet-vim'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'prettier/vim-prettier'
 
 " Git
 Plug 'mhinz/vim-signify'
@@ -88,7 +89,7 @@ let g:rooter_patterns = ['.git', 'Makefile', 'compile_commands.json', 'package.j
 " VimWiki config
 let g:vimwiki_list = [{'path': '~/wiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_ext2syntax = {'.md': 'markdown'}
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown'}
 let g:vimwiki_listsym_rejected = '✗'
 let g:vimwiki_use_calender=1
 
@@ -172,6 +173,11 @@ autocmd BufReadPost *
     \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
+
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=1000 }
+augroup END
 
 " VIM key bindings
 
