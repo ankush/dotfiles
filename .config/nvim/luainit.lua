@@ -76,22 +76,44 @@ local on_attach = function(client, bufnr)
   end
 end
 
+
+local on_init = function(client, bufnr)
+  print('LSP server started')
+
+  if client.config.flags then
+    client.config.flags.allow_incremental_sync = true
+  end
+end
+
 nvim_lsp.pyright.setup {
   on_attach = on_attach,
+  on_init = on_init,
   settings = {
     python = {
       analysis = {
         autoSearchPaths = true,
-        useLibraryCodeForTypes = false,
+        useLibraryCodeForTypes = true,
         typeCheckingMode = "off"
       }
     }
   }
 }
 
-nvim_lsp.tsserver.setup { on_attach = on_attach }
-nvim_lsp.vimls.setup { on_attach = on_attach }
-nvim_lsp.gopls.setup { on_attach = on_attach }
+
+nvim_lsp.tsserver.setup { on_attach = on_attach, on_init = on_init }
+nvim_lsp.vimls.setup { on_attach = on_attach, on_init = on_init }
+nvim_lsp.gopls.setup { on_attach = on_attach, on_init = on_init }
+nvim_lsp.rls.setup {
+	on_attach = on_attach,
+	on_init = on_init,
+	settings = {
+		rust = {
+			unstable_features = true,
+			build_on_save = false,
+			all_featuress = true,
+		},
+	},
+}
 
 require'nvim-treesitter.configs'.setup {
   highlight = { enable = true, },

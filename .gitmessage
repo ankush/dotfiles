@@ -1,10 +1,9 @@
-# [Add/Fix/Remove/Update/Refactor/Document] [summary]
 
+# <type>(<scope>): <summary>
+# Type: chore, docs, feat, fix, refactor, style, perf or test.
 
-# Why is it necessary? (Bug fix, feature, improvements?)
-#-
-# How does the change address the issue?
-#-
-# What side effects does this change have?
-#-
-# Include a link to the ticket, if any.
+# Description:
+
+# The footer MUST only contain BREAKING CHANGE, external links, issue
+# references, and other meta-information.
+# Footer:

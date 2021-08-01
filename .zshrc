@@ -51,6 +51,8 @@ export MANPAGER="nvim +Man!"
 alias vrc="nvim ~/.config/nvim/init.vim"
 alias vxm="nvim ~/.xmonad/xmonad.hs"
 
+alias open="xdg-open"
+
 # open and disown zathura
 function z()
 {
@@ -135,3 +137,11 @@ eval "$(pyenv virtualenv-init -)"
 
 # golang
 export PATH="/home/ankush/go/bin:$PATH"
+
+# cool
+export PATH="/usr/class/bin:$PATH"
+
+export PATH="$HOME/.poetry/bin:$PATH"
+
+# opam configuration
+test -r /home/ankush/.opam/opam-init/init.zsh && . /home/ankush/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
