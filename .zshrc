@@ -131,13 +131,20 @@ alias p='cd $(ls -d ~/proj/* | fzf) && tmxl'
 # add local python scripts to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+# send ripgrep output to vim quickfix list
+function vrg()
+{
+    nvim -q <(rg --vimgrep "$@")
+}
+
 # python
 export PATH="/home/ankush/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # golang
-export PATH="/home/ankush/go/bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$HOME/go/bin"
 
 # cool
 export PATH="/usr/class/bin:$PATH"

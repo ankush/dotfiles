@@ -1,7 +1,8 @@
 [Appearance]
+AntiAliasFonts=true
 BoldIntense=true
 ColorScheme=Dracula
-Font=JetBrainsMono Nerd Font,13,-1,5,50,0,0,0,0,0
+Font=JetBrainsMono Nerd Font,12,-1,5,50,0,0,0,0,0
 UseFontLineChararacters=true
 
 [General]

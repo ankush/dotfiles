@@ -24,7 +24,7 @@ import qualified Data.Map        as M
 -- certain contrib modules.
 --
 myTerminal :: [Char]
-myTerminal      = "konsole"
+myTerminal      = "terminator"
 
 -- Width of the window border in pixels.
 --

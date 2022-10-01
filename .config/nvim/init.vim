@@ -142,8 +142,6 @@ set undofile
 set colorcolumn=92
 set noexpandtab
 set signcolumn=number
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
 set foldlevel=99
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 " Trim whitespace on save for all files
