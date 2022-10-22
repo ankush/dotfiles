@@ -140,17 +140,18 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Take screenshot
     , ((modm              , xK_p ), spawn "flameshot gui -d 2000 -r | xclip -selection clipboard -t image/png")
 
-    -- Decrease volume
+    -- Speaker volume controls
     , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -10%")
-
-    -- Increase volume
     , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +10%")
 
-    -- Toggle audio muting
+    -- Muting speaker and mic
     , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-
-    -- Toggle microphone muting
     , ((0, xF86XK_AudioMicMute), spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
+
+    -- Brightness control
+    , ((0, xF86XK_MonBrightnessUp), spawn "lux -a 5%")
+    , ((0, xF86XK_MonBrightnessDown), spawn "lux -s 5%")
+
 
     -- cmus-remote controls
     , ((0, xF86XK_AudioPlay), spawn "cmus-remote -u")
