@@ -6,7 +6,7 @@ This repo contains configurations for applications and tools I use daily.
 
 My (current) primary applications:
 
-* Operating system: [PopOS](https://pop.system76.com/) 22.04 minimal install
+* Operating system: [PopOS](https://pop.system76.com/) 22.04
 * Window Manager: [xmonad](https://xmonad.org/)
 * Dock/Bar: [xmobar](https://hackage.haskell.org/package/xmobar)
 * Terminal emulator: Gnome terminal + tmux

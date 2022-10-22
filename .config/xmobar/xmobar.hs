@@ -1,4 +1,4 @@
-Config { font = "xft:JetBrainsMono Nerd Font Mono:pixelsize=14:antialias=true:hinting=true"
+Config { font = "xft:JetBrainsMono Nerd Font Mono:pixelsize=15:antialias=true:hinting=true"
        , additionalFonts = []
        , borderColor = "black"
        , bgColor = "#282A36"
@@ -18,7 +18,7 @@ Config { font = "xft:JetBrainsMono Nerd Font Mono:pixelsize=14:antialias=true:hi
                     , Run Battery [ "--template" , "  <acstatus>"
                              , "--" -- battery specific options
                                        -- discharging status
-                                       , "-o"	, "<left>% (<timeleft>)"
+                                       , "-o"	, "<left>%"
                                        -- AC "on" status
                                        , "-O"	, "AC"
                                        -- charged status
@@ -33,5 +33,5 @@ Config { font = "xft:JetBrainsMono Nerd Font Mono:pixelsize=14:antialias=true:hi
        , sepChar = "%"
        , alignSep = "}{"
        , template = " <icon=haskell.xpm/> %UnsafeStdinReader% }\
-                    \{ %memento%|<fc=#FF79C6>%battery%</fc>|%microphone%|<fc=#F1FA8C>%cpu%</fc>|<fc=#FF6E67>%memory%</fc>|<fc=#8BE9FD>%wlp2s0%</fc>|%date%%trayerpad%"
+                    \{ %memento%| %microphone%| <fc=#F1FA8C>%cpu%</fc> | <fc=#FF6E67>%memory%</fc> | <fc=#8BE9FD>%wlp2s0%</fc> |<fc=#FF79C6>%battery%</fc> | %date% %trayerpad%"
        }

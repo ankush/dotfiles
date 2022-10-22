@@ -29,7 +29,7 @@ myTerminal      = "gnome-terminal"
 -- Width of the window border in pixels.
 --
 myBorderWidth :: Dimension
-myBorderWidth   = 2
+myBorderWidth   = 1
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -48,13 +48,13 @@ xmobarEscape = concatMap doubleLts
 
 -- workspace with click support. From DT's config: https://gitlab.com/dwt1/dotfiles/-/blob/master/.xmonad/xmonad.hs
 myWorkspaceNames :: [[Char]]
-myWorkspaceNames = ["www","code","work","misc"]
+myWorkspaceNames = ["www","code","misc"]
 myWorkspaces :: [[Char]]
 myWorkspaces = clickable . (map xmobarEscape)
                $ myWorkspaceNames
   where
         clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
-                      (i,ws) <- zip [1..4] l,
+                      (i,ws) <- zip [1..3] l,
                       let n = i ]
 
 -- Border colors for unfocused and focused windows, respectively.
@@ -233,7 +233,7 @@ mySpacing i = spacingRaw True (Border i i i i) True (Border i i i i) True
 myLayout = avoidStruts $ (tall ||| Mirror tall ||| full )
   where
      tall = renamed [Replace "tall"]
-            $ smartBorders $ mySpacing 2
+            $ smartBorders $ mySpacing 1
             $ ResizableTall nmaster delta ratio []
      full = smartBorders $ Full
 
