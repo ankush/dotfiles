@@ -4,7 +4,7 @@
 	signingkey = CB36108D7E7ECE21
 
 [commit]
-	gpgsign = true
+	gpgsign = false
 
 [difftool]
 	tool = vimdiff

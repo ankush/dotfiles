@@ -74,7 +74,7 @@ cmp.setup({
 })
 
 nvim_lsp.pyright.setup {
-  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
   on_attach = on_attach,
   settings = {
     python = {
@@ -89,12 +89,12 @@ nvim_lsp.pyright.setup {
 }
 
 nvim_lsp.tsserver.setup {
-  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
   on_attach = on_attach
 }
 
 nvim_lsp.vimls.setup {
-  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
   on_attach = on_attach
 }
 
