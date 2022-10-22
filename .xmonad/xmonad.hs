@@ -172,6 +172,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_4]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+    ++
+
+   -- F1-F4 Switch to first 4 workspaces
+    [((0, k), windows $ f i)
+        | (i, k) <- zip (XMonad.workspaces conf) [xK_F1 .. xK_F3]
+        , (f, m) <- [(W.greedyView, 0)]]
 
 ------------------------------------------------------------------------
 -- Mouse bindings: default actions bound to mouse events
