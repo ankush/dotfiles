@@ -11,7 +11,6 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'ray-x/lsp_signature.nvim'
 
-
 " General
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mhinz/vim-startify'
@@ -20,26 +19,24 @@ Plug 'tpope/vim-surround'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'hrsh7th/vim-vsnip'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'kyazdani42/nvim-tree.lua'
 
 " Navigation and search
 Plug 'airblade/vim-rooter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " Appearance
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'hoob3rt/lualine.nvim'
 Plug 'akinsho/nvim-bufferline.lua'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " HTML/CSS/JS
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'prettier/vim-prettier'
-Plug 'mattn/emmet-vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -53,11 +50,6 @@ Plug 'ankush/frappe_test.vim'
 " Notetaking
 Plug 'vimwiki/vimwiki'
 Plug 'mattn/calendar-vim'
-
-" Rust
-Plug 'rust-lang/rust.vim'
-Plug 'nvim-lua/lsp_extensions.nvim'
-
 
 call plug#end()
 
@@ -80,18 +72,10 @@ let g:vimwiki_ext2syntax = {'.md': 'markdown'}
 let g:vimwiki_listsym_rejected = '✗'
 let g:vimwiki_use_calender=1
 
-" Rust
-autocmd CursorHold,CursorHoldI *.rs :lua require'lsp_extensions'.inlay_hints{}
-
 " Calendar config
 let g:calendar_options = 'nornu'        " Draw calendar with proper width in split view
 let g:calendar_monday=1                 " Start week on monday
 let g:calendar_diary=$HOME.'wiki/diary' " Specify location for diary file
-
-" fzf settings
-let g:fzf_preview_window = ['down:70%', 'ctrl-/']
-let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.95 } }
-let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
 
 " Copy diary template when starting a new file in diary directory
@@ -112,7 +96,7 @@ set history=1000
 set ignorecase " Ignore case while searching
 set inccommand=nosplit
 set incsearch " Search while still typing
-set laststatus=2  " Always show the status line at the bottom
+set laststatus=3  " global statusline
 set lazyredraw " Don't redraw when running macros
 set list
 set mouse+=a " Enable mouse support
@@ -142,6 +126,8 @@ set undofile
 set colorcolumn=92
 set noexpandtab
 set signcolumn=number
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 set foldlevel=99
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 " Trim whitespace on save for all files
@@ -187,20 +173,9 @@ nnoremap <leader>v <C-W>v
 nnoremap <leader>q :bdelete<CR>
 
 " Searching
-nnoremap \ :Rg<cr>
-nnoremap <leader>f :Files<cr>
-nnoremap <leader>sg :GFiles<cr>
-nnoremap <leader>sc :Commits<cr>
-nnoremap <leader>sm :GFiles?<cr>
-nnoremap <leader>m :History<CR>
-
-" Git
-nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gd :Gdiffsplit<CR>
-nnoremap <leader>gl :Glog<CR>
-nnoremap <leader>gs :G<CR>
-nnoremap <leader>gb :Git blame<CR>
-nnoremap <leader>gg :GBrowse<CR>
+nnoremap \ <cmd>Telescope live_grep<cr>
+nnoremap <leader>f <cmd>Telescope find_files<cr>
+nnoremap <leader>m <cmd>Telescope oldfiles<cr>
 
 " Make
 nnoremap <leader>mm :!make<CR>
@@ -220,7 +195,7 @@ nnoremap <leader>lp :cprev<CR>
 nnoremap <C-s> :w<CR>
 
 " black formatting
-nnoremap <leader>b :!black %<CR>
+nnoremap <leader>b :!black %<CR>:!isort %<CR>
 
 " Move in long wrapped lines
 nmap <Down> gj

@@ -1,4 +1,4 @@
-Config { font = "xft:JetBrainsMono Nerd Font:pixelsize=14:antialias=true:hinting=true"
+Config { font = "xft:JetBrainsMono Nerd Font Mono:pixelsize=14:antialias=true:hinting=true"
        , additionalFonts = []
        , borderColor = "black"
        , bgColor = "#282A36"
@@ -15,6 +15,7 @@ Config { font = "xft:JetBrainsMono Nerd Font:pixelsize=14:antialias=true:hinting
        , commands = [ Run Network "enp1s0" ["-t", " <rx>  <tx>"] 50
                     , Run Cpu ["-t", " <total>%","-H","70","--high","#FF5555"] 50
                     , Run Memory ["-t"," <usedratio>%"] 50
+                    -- , Run Battery ["-t", "<acstatus>: <left>% - <timeleft>", "--", "-O", "AC", "-o", "Bat", "-h", "green", "-l", "red" ] 50
                     , Run Com "/home/ankush/.config/cmus/now-playing.sh" [] "cmus" 50
                     , Run Date "<fc=#50FA7B>%a %d-%m %I:%M</fc>" "date" 600
                     , Run Com "/home/ankush/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 200

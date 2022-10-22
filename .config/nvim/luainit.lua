@@ -1,5 +1,6 @@
 local nvim_lsp = require'lspconfig'
 local cmp = require'cmp'
+local telescope = require'telescope'
 
 
 local lsp_sig_config = {
@@ -33,12 +34,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   buf_set_keymap('n', '<space>lq', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
-  -- Set some keybinds conditional on server capabilities
-  if client.resolved_capabilities.document_formatting then
-    buf_set_keymap("n", "<space>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-  elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("n", "<space>lf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
-  end
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec([[
@@ -62,9 +57,6 @@ cmp.setup({
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
         vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-        -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
       end,
     },
     mapping = {
@@ -77,7 +69,7 @@ cmp.setup({
     sources = {
       { name = 'nvim_lsp', max_item_count = 3},
       { name = 'buffer', max_item_count = 2},
-      { name = 'path', max_item_count = 5},
+      { name = 'path', max_item_count = 2},
     }
 })
 
@@ -102,11 +94,6 @@ nvim_lsp.tsserver.setup {
 }
 
 nvim_lsp.vimls.setup {
-  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-  on_attach = on_attach
-}
-
-nvim_lsp.rust_analyzer.setup{
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
   on_attach = on_attach
 }
@@ -139,6 +126,7 @@ require'lualine'.setup{
     theme = 'dracula',
     section_separators = "",
     component_separators = "",
+    globalstatus = true,
   },
   sections = {
     lualine_a = { {'mode', upper = true} },
@@ -148,7 +136,6 @@ require'lualine'.setup{
     lualine_y = { 'progress' },
     lualine_z = { 'location' },
   },
-  extensions = { 'fzf' }
 }
 
 require'bufferline'.setup{
@@ -191,7 +178,7 @@ require('gitsigns').setup {
     ['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>'
   },
   watch_gitdir = {
-    interval = 1000,
+    interval = 5000,
     follow_files = true
   },
   current_line_blame = false,
@@ -207,4 +194,23 @@ require('gitsigns').setup {
   word_diff = false,
 }
 
--- require'nvim-tree'.setup()
+require("indent_blankline").setup {
+    show_current_context = true,
+}
+
+
+telescope.setup{
+    defaults = {
+        layout_strategy = 'vertical',
+        layout_config = { height = 0.95 , width = 0.95},
+    },
+    pickers = {
+        find_files = {
+            hidden = true,
+
+        }
+
+    }
+}
+
+telescope.load_extension('fzf')
