@@ -310,6 +310,11 @@ myStartupHook = do
   spawnOnce "nitrogen --restore &"
   spawnOnce "unclutter"
   spawnOnce "xset r rate 280 60"
+  -- tap to click and natural scroll
+  spawnOnce "synclient TapButton1=1"
+  spawnOnce "synclient PalmDetect=1"
+  spawnOnce "synclient VertScrollDelta=-79"
+  spawnOnce "synclient HorizScrollDelta=-79"
   spawnOnce "xsetroot -cursor_name left_ptr"
   spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x292d3e --height 20 &"
   spawnOnce "setxkbmap -option caps:escape"
