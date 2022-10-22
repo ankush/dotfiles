@@ -15,15 +15,8 @@ Config { font = "xft:JetBrainsMono Nerd Font Mono:pixelsize=15:antialias=true:hi
        , commands = [ Run Network "wlp2s0" ["-t", " <rx>  <tx>"] 50
                     , Run Cpu ["-t", " <total>%","-H","70","--high","#FF5555"] 50
                     , Run Memory ["-t"," <usedratio>%"] 50
-                    , Run Battery [ "--template" , "  <acstatus>"
-                             , "--" -- battery specific options
-                                       -- discharging status
-                                       , "-o"	, "<left>%"
-                                       -- AC "on" status
-                                       , "-O"	, "AC"
-                                       -- charged status
-                                       , "-i"	, "Charged"
-                             ] 50
+                    , Run Volume "default" "Master" [ "-t", " 墳 <volume>%<status>" , "--", "-O", "", "-o", " (mute)" ] 50
+                    , Run Battery [ "--template" , "  <acstatus>" , "--" , "-o", "<left>%" , "-O", "AC" , "-i", "Charged" ] 50
                     , Run Date "<fc=#50FA7B>%a %d-%m %I:%M</fc>" "date" 600
                     , Run Com "/home/ankush/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 200
                     , Run UnsafeStdinReader
@@ -33,5 +26,5 @@ Config { font = "xft:JetBrainsMono Nerd Font Mono:pixelsize=15:antialias=true:hi
        , sepChar = "%"
        , alignSep = "}{"
        , template = " <icon=haskell.xpm/> %UnsafeStdinReader% }\
-                    \{ %memento%| %microphone%| <fc=#F1FA8C>%cpu%</fc> | <fc=#FF6E67>%memory%</fc> | <fc=#8BE9FD>%wlp2s0%</fc> |<fc=#FF79C6>%battery%</fc> | %date% %trayerpad%"
+                    \{ %memento%| %microphone%| <fc=#8BE9FD>%default:Master%</fc> | <fc=#F1FA8C>%cpu%</fc> | <fc=#FF6E67>%memory%</fc> | <fc=#8BE9FD>%wlp2s0%</fc> |<fc=#FF79C6>%battery%</fc> | %date% %trayerpad%"
        }

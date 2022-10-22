@@ -137,9 +137,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
-    -- Mute audio
-    , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-
     -- Take screenshot
     , ((modm              , xK_p ), spawn "flameshot gui -d 2000 -r | xclip -selection clipboard -t image/png")
 
@@ -149,8 +146,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Increase volume
     , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +10%")
 
-    -- Toggle microphone
-    , ((0, xK_F10), spawn "amixer -D pulse sset Capture toggle")
+    -- Toggle audio muting
+    , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+
+    -- Toggle microphone muting
+    , ((0, xF86XK_AudioMicMute), spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
 
     -- cmus-remote controls
     , ((0, xF86XK_AudioPlay), spawn "cmus-remote -u")
@@ -312,9 +312,9 @@ myStartupHook = do
   spawnOnce "xset r rate 280 60"
   -- tap to click and natural scroll
   spawnOnce "synclient TapButton1=1"
-  spawnOnce "synclient PalmDetect=1"
   spawnOnce "synclient VertScrollDelta=-79"
   spawnOnce "synclient HorizScrollDelta=-79"
+  spawnOnce "syndaemon -i 0.8 -t -K -R"
   spawnOnce "xsetroot -cursor_name left_ptr"
   spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x292d3e --height 20 &"
   spawnOnce "setxkbmap -option caps:escape"
