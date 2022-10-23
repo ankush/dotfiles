@@ -274,9 +274,6 @@ myManageHook = composeAll
      [ resource  =? "desktop_window"     --> doIgnore
      , className =? "Firefox"            --> (shiftAndSwitch 0)
      , className =? "Google-chrome"      --> (shiftAndSwitch 2)
-     , className =? "FreeCAD"            --> (shiftAndSwitch 2)
-     , className =? "VirtualBox Manager" --> (shiftAndSwitch 3)
-     , title     =? "OtoDecks"           --> doFloat
      ] <+> namedScratchpadManageHook myScratchPads
          where
              shiftAndSwitch ws = do
