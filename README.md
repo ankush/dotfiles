@@ -10,7 +10,7 @@ My (current) primary applications:
 * Operating system: [PopOS](https://pop.system76.com/) 22.04
 * Window Manager: [xmonad](https://xmonad.org/)
 * Dock/Bar: [xmobar](https://hackage.haskell.org/package/xmobar)
-* Terminal emulator: Gnome terminal + tmux
+* Terminal: Alacritty + tmux
 * Shell: zsh + [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) + [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 * Colorscheme and theme: [Dracula](https://draculatheme.com)
 * Monospaced fonts: [JetBrains Mono with patched icons](https://github.com/ryanoasis/nerd-fonts)
