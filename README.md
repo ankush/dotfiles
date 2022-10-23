@@ -2,7 +2,8 @@
 
 This repo contains configurations for applications and tools I use daily.
 
-![busy looking screenshot](/.config/screenshots/busy.png?raw=true)
+![image](https://user-images.githubusercontent.com/9079960/197398508-a93d717c-615a-4a41-bb35-4443cf5990d2.png)
+
 
 My (current) primary applications:
 
