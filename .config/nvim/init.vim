@@ -174,6 +174,7 @@ nnoremap <leader>q :bdelete<CR>
 
 " Searching
 nnoremap \ <cmd>Telescope live_grep<cr>
+nnoremap # <cmd>Telescope grep_string<cr>
 nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>m <cmd>Telescope oldfiles<cr>
 
