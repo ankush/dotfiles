@@ -29,7 +29,7 @@ myTerminal   = "alacritty"
 -- Width of the window border in pixels.
 --
 myBorderWidth :: Dimension
-myBorderWidth   = 1
+myBorderWidth   = 2
 
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
@@ -159,9 +159,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_AudioNext), spawn "cmus-remote --next")
     , ((0, xF86XK_AudioPrev), spawn "cmus-remote --prev")
 
-    -- Open CMUS and vimwiki scratchpads
-    , ((0, xK_F9), namedScratchpadAction myScratchPads "cmus")
-    , ((0, xK_F8), namedScratchpadAction myScratchPads "wiki")
+    -- Open vimwiki scratchpad
+    , ((0, xF86XK_Favorites), namedScratchpadAction myScratchPads "wiki")
     ]
     ++
 
@@ -205,7 +204,7 @@ myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "cmus" spawnCmus findCmus manageCmus
                 , NS "wiki" spawnWiki findWiki manageWiki]
     where
-        spawnCmus = "terminator --title \"cmus\" -e cmus"
+        spawnCmus = "alacritty --title='cmus' --class='cmus' -e cmus"
         findCmus = title =? "cmus"
         manageCmus = customFloating $ W.RationalRect l t w h
             where
@@ -213,7 +212,7 @@ myScratchPads = [ NS "cmus" spawnCmus findCmus manageCmus
                 w = 0.7
                 t = (1 - h)/2
                 l = (1 - w)/2
-        spawnWiki = "terminator --title \"vimwiki\" -e \"bash ~/bin/take-note.sh\""
+        spawnWiki = "alacritty --class='vimwiki' --title='vimwiki' -e '/home/ankush/bin/take-note.sh'"
         findWiki = title =? "vimwiki"
         manageWiki = customFloating $ W.RationalRect l t w h
             where
@@ -329,8 +328,8 @@ myStartupHook = do
   spawnOnce "setxkbmap -option caps:escape"
   spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x292d3e --height 20 &"
 
-  -- Some java programs need this :shrug:
-  setWMName "LG3D"
+  -- Some trash java programs need this :shrug:
+  -- setWMName "LG3D"
 
 
 ------------------------------------------------------------------------
