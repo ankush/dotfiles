@@ -1,4 +1,4 @@
-Config { font = "xft:JetBrainsMono Nerd Font Mono:pixelsize=15:antialias=true:hinting=true"
+Config { font = "xft:JetBrainsMono NL Nerd Font:pixelsize=14:antialias=true:hinting=true"
        , additionalFonts = []
        , borderColor = "black"
        , bgColor = "#282A36"

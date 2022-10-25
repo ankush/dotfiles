@@ -204,16 +204,16 @@ myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "cmus" spawnCmus findCmus manageCmus
                 , NS "wiki" spawnWiki findWiki manageWiki]
     where
-        spawnCmus = "alacritty --title='cmus' --class='cmus' -e cmus"
-        findCmus = title =? "cmus"
+        spawnCmus = "alacritty --class='cmus' -e cmus"
+        findCmus = className =? "cmus"
         manageCmus = customFloating $ W.RationalRect l t w h
             where
                 h = 0.7
                 w = 0.7
                 t = (1 - h)/2
                 l = (1 - w)/2
-        spawnWiki = "alacritty --class='vimwiki' --title='vimwiki' -e '/home/ankush/bin/take-note.sh'"
-        findWiki = title =? "vimwiki"
+        spawnWiki = "alacritty --class='vimwiki' -e '/home/ankush/bin/take-note.sh'"
+        findWiki = className =? "vimwiki"
         manageWiki = customFloating $ W.RationalRect l t w h
             where
                 h = 0.80

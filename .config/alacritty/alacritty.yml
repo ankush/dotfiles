@@ -1,5 +1,8 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
 
+import:
+  - "~/.config/alacritty/dracula.yml"
+
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
@@ -74,11 +77,11 @@ window:
   title: Alacritty
 
   # Window class (Linux/BSD only):
-  class:
-    # Application instance name
-    instance: Alacritty
-    # General application class
-    general: Alacritty
+  # class:
+  #   # Application instance name
+  #   instance: Alacritty
+  #   # General application class
+  #   general: Alacritty
 
   # GTK theme variant (Linux/BSD only)
   #
@@ -117,7 +120,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: "JetBrainsMono Nerd Font Mono"
+    family: "JetBrainsMono NL Nerd Font"
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -128,7 +131,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: "JetBrainsMono Nerd Font Mono"
+    family: "JetBrainsMono NL Nerd Font"
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -139,7 +142,7 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: "JetBrainsMono Nerd Font Mono"
+    family: "JetBrainsMono NL Nerd Font"
 
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -150,13 +153,13 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: "JetBrainsMono Nerd Font Mono"
+    family: "JetBrainsMono NL Nerd Font"
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
   # Point size
-  size: 8.0
+  size: 8.5
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -189,72 +192,6 @@ font:
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
-
-#######################################
-##      START OF COLOR SCHEMES       ##
-#######################################
-schemes:
-  ### Dracula ###
-  Dracula: &Dracula
-    primary:
-      background: '#282a36'
-      foreground: '#f8f8f2'
-    cursor:
-      text: CellBackground
-      cursor: CellForeground
-    vi_mode_cursor:
-      text: CellBackground
-      cursor: CellForeground
-    search:
-      matches:
-        foreground: '#44475a'
-        background: '#50fa7b'
-      focused_match:
-        foreground: '#44475a'
-        background: '#ffb86c'
-    footer_bar:
-      background: '#282a36'
-      foreground: '#f8f8f2'
-    line_indicator:
-      foreground: None
-      background: None
-    selection:
-      text: CellForeground
-      background: '#44475a'
-    normal:
-      black:   '#000000'
-      red:     '#ff5555'
-      green:   '#50fa7b'
-      yellow:  '#f1fa8c'
-      blue:    '#bd93f9'
-      magenta: '#ff79c6'
-      cyan:    '#8be9fd'
-      white:   '#bfbfbf'
-    bright:
-      black:   '#4d4d4d'
-      red:     '#ff6e67'
-      green:   '#5af78e'
-      yellow:  '#f4f99d'
-      blue:    '#caa9fa'
-      magenta: '#ff92d0'
-      cyan:    '#9aedfe'
-      white:   '#e6e6e6'
-    dim:
-      black:   '#14151b'
-      red:     '#ff2222'
-      green:   '#1ef956'
-      yellow:  '#ebf85b'
-      blue:    '#4d5b86'
-      magenta: '#ff46b0'
-      cyan:    '#59dffc'
-      white:   '#e6e6d1'
-
-
-colors: *Dracula
-
-#######################################
-##       END OF COLOR SCHEMES        ##
-#######################################
 
 # Visual Bell
 #
