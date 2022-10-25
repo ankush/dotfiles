@@ -35,8 +35,8 @@ window:
   # by DPI and the specified value is always added at both opposing sides.
   # these values are optimized for tmux usage
   padding:
-    x: 2
-    y: 1
+    x: 0
+    y: 0
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -156,7 +156,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 10.0
+  size: 8.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -212,9 +212,9 @@ schemes:
       focused_match:
         foreground: '#44475a'
         background: '#ffb86c'
-      bar:
-        background: '#282a36'
-        foreground: '#f8f8f2'
+    footer_bar:
+      background: '#282a36'
+      foreground: '#f8f8f2'
     line_indicator:
       foreground: None
       background: None

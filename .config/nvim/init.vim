@@ -192,6 +192,9 @@ nnoremap <leader>ll :copen<CR>
 nnoremap <leader>ln :cnext<CR>
 nnoremap <leader>lp :cprev<CR>
 
+" Git
+nnoremap <leader>gb :Git blame<CR>
+
 " Save like normal human beings
 nnoremap <C-s> :w<CR>
 
