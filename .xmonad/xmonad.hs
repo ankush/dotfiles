@@ -19,6 +19,7 @@ import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+import XMonad.Actions.CycleWS
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -161,6 +162,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Open vimwiki scratchpad
     , ((0, xF86XK_Favorites), namedScratchpadAction myScratchPads "wiki")
+
+    -- Cycle through workspaces - also used by touchpad gestures
+    , ((modm, xK_Right), nextWS)
+    , ((modm, xK_Left),  prevWS)
     ]
     ++
 
@@ -314,12 +319,13 @@ myStartupHook = do
   spawnOnce "picom"
   spawnOnce "nitrogen --restore &"
 
-  -- touchpad and pointer
-  spawnOnce "synclient TapButton1=1"
-  spawnOnce "synclient VertScrollDelta=-79"
-  spawnOnce "synclient HorizScrollDelta=-79"
-  spawnOnce "killall syndaemon"
-  spawnOnce "syndaemon -i 0.8 -K -R -d"
+  -- tap to click
+  spawnOnce "xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 321 1"
+  -- natural scrolling
+  spawnOnce "xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 300 1"
+  -- disable while typing / palm detection
+  spawnOnce "xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 329 1"
+  spawnOnce "touchegg"
   spawnOnce "xsetroot -cursor_name left_ptr"
   spawnOnce "unclutter"
 
