@@ -1,7 +1,6 @@
 [user]
 	email = ankushmenat@gmail.com
 	name = Ankush Menat
-	signingkey = CB36108D7E7ECE21
 
 [commit]
 	gpgsign = false
@@ -45,3 +44,6 @@
 	commit-decoration-style = bold yellow box ul
 	file-style = bold yellow ul
 	file-decoration-style = none
+
+[includeIf "gitdir:~/benches/"]
+  path = .gitconfig_frappe
