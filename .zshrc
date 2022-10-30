@@ -9,6 +9,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -121,6 +122,7 @@ export LC_ALL=en_IN.UTF-8
 alias dot="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 alias vim=nvim
 alias v=nvim
+alias bat="batcat --theme=Dracula"
 # Is this mac?
 alias open="xdg-open"
 # Zathura open file and disown
