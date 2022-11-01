@@ -204,3 +204,8 @@ export NVM_DIR="$HOME/.nvm"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# if virtual env exist then source it (set my TMUX startup script)
+if [ -n "$VIRTUAL_ENV" ]; then
+    source "$VIRTUAL_ENV/bin/activate";
+fi

@@ -117,6 +117,7 @@ opt.undodir = "/tmp" -- #yolo
 opt.signcolumn = "number"
 opt.clipboard = "unnamedplus"
 opt.number = true
+opt.tabstop = 4
 
 -- Accept defeat and just use vim.cmd
 cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false, timeout=200, higroup='IncSearch'}")
@@ -266,9 +267,9 @@ end
 cmp.setup(
     {
         snippet = {
-            -- REQUIRED - you must specify a snippet engine
+            -- REQUIRED by cmp
             expand = function(args)
-                fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+                fn["vsnip#anonymous"](args.body)
             end
         },
         mapping = {
