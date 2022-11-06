@@ -307,11 +307,6 @@ nvim_lsp.tsserver.setup {
     on_attach = on_attach
 }
 
-nvim_lsp.vimls.setup {
-    capabilities = require("cmp_nvim_lsp").default_capabilities(),
-    on_attach = on_attach
-}
-
 require("nvim-treesitter.configs").setup {
     highlight = {enable = true},
     playground = {
@@ -441,6 +436,7 @@ vim.api.nvim_create_autocmd(
 -- configure vimscript plugins
 g["rooter_patterns"] = {".git", "Makefile", "compile_commands.json", "package.json", "Cargo.toml"}
 
+cmd"let test#strategy = 'vtr'"
 cmd"let g:test#custom_runners = {'python': ['Frappe']}"
 cmd"let g:test#enabled_runners = ['python#frappe']"
 cmd"let g:test#python#frappe#testsite = $CUR_SITE"

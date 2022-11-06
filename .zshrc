@@ -9,6 +9,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -184,7 +185,7 @@ export VISUAL="nvim"
 export MANPAGER="nvim +Man!"
 
 # Common config files
-alias vrc="nvim ~/.config/nvim/init.vim"
+alias vrc="nvim ~/.config/nvim/init.lua"
 alias vxm="nvim ~/.xmonad/xmonad.hs"
 
 
