@@ -307,6 +307,12 @@ nvim_lsp.tsserver.setup {
     on_attach = on_attach
 }
 
+nvim_lsp.rust_analyzer.setup {
+    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+    on_attach = on_attach,
+	cmd = {"rustup", "run", "stable", "rust-analyzer"}
+}
+
 require("nvim-treesitter.configs").setup {
     highlight = {enable = true},
     playground = {
@@ -445,3 +451,4 @@ cmd"let g:vimwiki_ext2syntax = {'.md': 'markdown'}"
 cmd"let g:vimwiki_listsym_rejected = '✗'"
 
 telescope.load_extension("fzf")
+cmd"hi Normal guibg=NONE ctermbg=NONE"
