@@ -25,6 +25,7 @@ require("packer").startup(
         use "hrsh7th/cmp-buffer"
         use "hrsh7th/cmp-path"
         use "hrsh7th/nvim-cmp"
+        use 'simrat39/rust-tools.nvim'
 
         -- General
         use "editorconfig/editorconfig-vim"
@@ -34,6 +35,9 @@ require("packer").startup(
         use "nvim-lua/popup.nvim"
         use "nvim-lua/plenary.nvim"
         use "hrsh7th/vim-vsnip"
+
+		-- Debugging
+        use 'mfussenegger/nvim-dap'
 
         -- Navigation and search
         use "airblade/vim-rooter"
@@ -307,11 +311,28 @@ nvim_lsp.tsserver.setup {
     on_attach = on_attach
 }
 
-nvim_lsp.rust_analyzer.setup {
-    capabilities = require("cmp_nvim_lsp").default_capabilities(),
-    on_attach = on_attach,
-	cmd = {"rustup", "run", "stable", "rust-analyzer"}
-}
+-- nvim_lsp.rust_analyzer.setup {
+--     capabilities = require("cmp_nvim_lsp").default_capabilities(),
+--     on_attach = on_attach,
+-- 	cmd = {"rustup", "run", "stable", "rust-analyzer"}
+-- }
+--
+
+local rt = require("rust-tools")
+
+
+local rt_attach = function(client, bufnr)
+  on_attach(client, bufnr) -- call my original lspconfig function first
+  vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+end
+
+
+
+rt.setup({
+  server = {
+    on_attach = rt_attach,
+  },
+})
 
 require("nvim-treesitter.configs").setup {
     highlight = {enable = true},
