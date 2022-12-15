@@ -189,6 +189,12 @@ alias vrc="nvim ~/.config/nvim/init.lua"
 alias vxm="nvim ~/.xmonad/xmonad.hs"
 
 
+# Git aliases
+function gcu() {
+    git fetch upstream $1:$1
+    git checkout $1
+}
+
 # Setup fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
