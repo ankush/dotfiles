@@ -30,8 +30,9 @@ require("packer").startup(
         -- General
         use "editorconfig/editorconfig-vim"
         use "mhinz/vim-startify"
-        use "tpope/vim-commentary"
+        use "numToStr/Comment.nvim"
         use "tpope/vim-surround"
+        use "tpope/vim-sleuth"
         use "nvim-lua/popup.nvim"
         use "nvim-lua/plenary.nvim"
         use "hrsh7th/vim-vsnip"
@@ -48,8 +49,13 @@ require("packer").startup(
 
         -- Appearance
         use "dracula/vim"
-        use "nvim-treesitter/nvim-treesitter"
-        use "hoob3rt/lualine.nvim"
+		use { -- Highlight, edit, and navigate code
+			'nvim-treesitter/nvim-treesitter',
+			run = function()
+			  pcall(require('nvim-treesitter.install').update { with_sync = true })
+			end,
+		}
+		use "hoob3rt/lualine.nvim"
         use "akinsho/nvim-bufferline.lua"
         use "lukas-reineke/indent-blankline.nvim"
 
@@ -74,6 +80,14 @@ require("packer").startup(
         end
     end
 )
+
+-- Automatically source and re-compile packer whenever you save this init.lua
+local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost', {
+  command = 'source <afile> | PackerCompile',
+  group = packer_group,
+  pattern = vim.fn.expand '$MYVIMRC',
+})
 
 cmd "colorscheme dracula"
 
@@ -124,7 +138,15 @@ opt.number = true
 opt.tabstop = 4
 
 -- Accept defeat and just use vim.cmd
-cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = false, timeout=200, higroup='IncSearch'}")
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
+
 -- trim whitespace on end
 cmd("autocmd BufWritePre * :%s/\\s\\+$//e")
 cmd("autocmd BufNewFile,BufRead * setlocal formatoptions-=cro")
@@ -137,10 +159,6 @@ function map(mode, binding, action, opts)
     end
     vim.api.nvim_set_keymap(mode, binding, action, options)
 end
-
--- Commenting
-map("n", "<leader>/", ":Commentary<CR>")
-map("v", "<leader>/", ":Commentary<CR>")
 
 -- buffer manipulation
 map("n", "<M-j>", ":resize -2<CR>")
@@ -358,9 +376,10 @@ require("nvim-treesitter.configs").setup {
 
 require("lualine").setup {
     options = {
+        icons_enabled = false,
         theme = "dracula",
         section_separators = "",
-        component_separators = "",
+        component_separators = "|",
         globalstatus = true
     },
     sections = {
@@ -427,11 +446,13 @@ require("gitsigns").setup {
 }
 
 require("indent_blankline").setup {
-    show_current_context = true
+    show_current_context = true,
+    char = "┊"
 }
 
 require("colorizer").setup()
 
+telescope.load_extension("fzf")
 telescope.setup {
     defaults = {
         layout_strategy = "vertical",
@@ -471,5 +492,4 @@ cmd"let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'
 cmd"let g:vimwiki_ext2syntax = {'.md': 'markdown'}"
 cmd"let g:vimwiki_listsym_rejected = '✗'"
 
-telescope.load_extension("fzf")
 cmd"hi Normal guibg=NONE ctermbg=NONE"
