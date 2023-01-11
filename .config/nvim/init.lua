@@ -126,6 +126,7 @@ opt.splitbelow = true
 opt.swapfile = false -- #yolo
 opt.showmode = false
 opt.splitright = true
+opt.fixendofline = false -- doctype.json
 opt.listchars = "tab:│ ,extends:>,trail:·,precedes:<,nbsp:⦸"
 opt.timeoutlen = 500
 opt.updatetime = 150
