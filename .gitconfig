@@ -35,6 +35,9 @@
 [pull]
 	ff = only
 
+[blame]
+	date = relative
+
 [delta]
 	features = line-numbers
 	whitespace-error-style = 22 reverse

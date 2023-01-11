@@ -129,7 +129,7 @@ alias open="xdg-open"
 # Zathura open file and disown
 function z()
 {
-    zathura $1 & disown
+    zathura "$@" & disown
 }
 # send ripgrep output to nvim quickfix list
 function vrg()

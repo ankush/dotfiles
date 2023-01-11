@@ -37,7 +37,7 @@ require("packer").startup(
         use "nvim-lua/plenary.nvim"
         use "hrsh7th/vim-vsnip"
 
-		-- Debugging
+        -- Debugging
         use 'mfussenegger/nvim-dap'
 
         -- Navigation and search
@@ -341,6 +341,7 @@ local rt = require("rust-tools")
 
 local rt_attach = function(client, bufnr)
   on_attach(client, bufnr) -- call my original lspconfig function first
+  vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
   vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
 end
 
