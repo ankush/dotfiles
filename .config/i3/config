@@ -24,6 +24,7 @@ exec --no-startup-id xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 329 1
 # Touchpad gestures
 exec --no-startup-id touchegg
 exec --no-startup-id unclutter
+exec --no-startup-id safeeyes
 
 # Higher key repeat
 exec --no-startup-id "xset r rate 280 60"

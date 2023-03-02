@@ -71,6 +71,7 @@ require("packer").startup(
         -- Testing
         use "vim-test/vim-test"
         use "ankush/frappe_test.vim"
+        use "ankush/frappe_sql.nvim"
 
         -- Notetaking
         use "vimwiki/vimwiki"
