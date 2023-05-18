@@ -55,7 +55,7 @@ require("packer").startup(
 			  pcall(require('nvim-treesitter.install').update { with_sync = true })
 			end,
 		}
-		use "hoob3rt/lualine.nvim"
+        use "hoob3rt/lualine.nvim"
         use "akinsho/nvim-bufferline.lua"
         use "lukas-reineke/indent-blankline.nvim"
 
@@ -143,7 +143,7 @@ opt.tabstop = 4
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
-    vim.highlight.on_yank()
+    vim.highlight.on_yank({timeout=300})
   end,
   group = highlight_group,
   pattern = '*',

@@ -16,13 +16,13 @@ exec --no-startup-id picom
 exec --no-startup-id nitrogen --restore &
 
 # Tap to click
-exec --no-startup-id xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 321 1
+exec --no-startup-id xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 320 1
 # Natural scrolling
-exec --no-startup-id xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 300 1
+exec --no-startup-id xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 299 1
 # palm detection
-exec --no-startup-id xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 329 1
+exec --no-startup-id xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 328 1
 # Touchpad gestures
-exec --no-startup-id touchegg
+# exec --no-startup-id touchegg
 exec --no-startup-id unclutter
 exec --no-startup-id safeeyes
 
@@ -120,11 +120,18 @@ bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
 
+
+# Next/prev
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
+
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
