@@ -413,24 +413,6 @@ require("gitsigns").setup {
     },
     numhl = false,
     linehl = false,
-    keymaps = {
-        -- Default keymap options
-        noremap = true,
-        buffer = true,
-        ["n ]c"] = {expr = true, '&diff ? \']c\' : \'<cmd>lua require"gitsigns.actions".next_hunk()<CR>\''},
-        ["n [c"] = {expr = true, '&diff ? \'[c\' : \'<cmd>lua require"gitsigns.actions".prev_hunk()<CR>\''},
-        ["n <leader>hs"] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-        ["v <leader>hs"] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-        ["n <leader>hu"] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-        ["n <leader>hr"] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-        ["v <leader>hr"] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-        ["n <leader>hR"] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
-        ["n <leader>hp"] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-        ["n <leader>hb"] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
-        -- Text objects
-        ["o ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-        ["x ih"] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>'
-    },
     watch_gitdir = {
         interval = 5000,
         follow_files = true
@@ -491,6 +473,7 @@ cmd"let test#strategy = 'vtr'"
 cmd"let g:test#custom_runners = {'python': ['Frappe']}"
 cmd"let g:test#enabled_runners = ['python#frappe']"
 cmd"let g:test#python#frappe#testsite = $CUR_SITE"
+cmd"let g:test#python#frappe#arguments = '--skip-before-tests'"
 cmd"let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]"
 cmd"let g:vimwiki_ext2syntax = {'.md': 'markdown'}"
 cmd"let g:vimwiki_listsym_rejected = '✗'"
