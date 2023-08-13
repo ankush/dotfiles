@@ -182,7 +182,6 @@ alias tree="exa -T"
 # Neovim for everything
 export EDITOR="nvim"
 export VISUAL="nvim"
-export MANPAGER="nvim +Man!"
 
 # Common config files
 alias vrc="nvim ~/.config/nvim/init.lua"
@@ -216,3 +215,8 @@ eval "$(pyenv init -)"
 if [ -n "$VIRTUAL_ENV" ]; then
     source "$VIRTUAL_ENV/bin/activate";
 fi
+
+export PYTHONSTARTUP="/home/ankush/.ipython/profile_default/startup/startup.py"
+
+export QT_QPA_PLATFORMTHEME=qt5ct
+alias grep=rg

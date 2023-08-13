@@ -37,9 +37,6 @@ require("packer").startup(
         use "nvim-lua/plenary.nvim"
         use "hrsh7th/vim-vsnip"
 
-        -- Debugging
-        use 'mfussenegger/nvim-dap'
-
         -- Navigation and search
         use "airblade/vim-rooter"
         use "christoomey/vim-tmux-navigator"
@@ -49,12 +46,14 @@ require("packer").startup(
 
         -- Appearance
         use "dracula/vim"
-		use { -- Highlight, edit, and navigate code
-			'nvim-treesitter/nvim-treesitter',
-			run = function()
-			  pcall(require('nvim-treesitter.install').update { with_sync = true })
-			end,
-		}
+        use { -- Highlight, edit, and navigate code
+                'nvim-treesitter/nvim-treesitter',
+                run = function()
+                  pcall(require('nvim-treesitter.install').update { with_sync = true })
+                end,
+        }
+        -- Treesitter grammers to install
+        -- ":TSInstall bash c comment css git_config git_rebase gitcommit html javascript json lua python query regex rust scss sql toml typescript vim vimdoc yaml"
         use "hoob3rt/lualine.nvim"
         use "akinsho/nvim-bufferline.lua"
         use "lukas-reineke/indent-blankline.nvim"
@@ -357,6 +356,7 @@ rt.setup({
 
 require("nvim-treesitter.configs").setup {
     highlight = {enable = true},
+    indent = {enable = true},
     playground = {
         enable = true,
         disable = {},
