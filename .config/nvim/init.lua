@@ -303,7 +303,7 @@ cmp.setup(
             ["<CR>"] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace, select = true})
         },
         sources = {
-            {name = "nvim_lsp", max_item_count = 3},
+            {name = "nvim_lsp", max_item_count = 5},
             {name = "buffer", max_item_count = 2},
             {name = "path", max_item_count = 2}
         }
@@ -356,7 +356,6 @@ rt.setup({
 
 require("nvim-treesitter.configs").setup {
     highlight = {enable = true},
-    indent = {enable = true},
     playground = {
         enable = true,
         disable = {},
