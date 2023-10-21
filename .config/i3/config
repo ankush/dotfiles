@@ -208,3 +208,7 @@ bar {
 }
 
 bindsym $mod+b bar mode toggle
+bindsym XF86Favorites scratchpad show
+
+exec --no-startup-id alacritty --class='vimwiki' -e '/home/ankush/bin/take-note.sh'
+for_window [class="vimwiki"] move scratchpad

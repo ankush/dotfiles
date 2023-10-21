@@ -120,7 +120,7 @@ opt.shortmess:append("W")
 opt.shortmess:append("c")
 opt.showtabline = 2
 opt.smartcase = true
-opt.spellfile = "$HOME/.config/nvim/spell/en.utf-8.add"
+opt.spellfile = "/home/ankush/.config/nvim/spell/en.utf-8.add"
 opt.spelllang = "en_gb"
 opt.splitbelow = true
 opt.swapfile = false -- #yolo

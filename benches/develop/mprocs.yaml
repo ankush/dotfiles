@@ -25,6 +25,10 @@ procs:
     shell: "bench watch"
     autostart: false
 
+  full-build:
+    shell: "bench build --force"
+    autostart: false
+
   schedule:
     shell: "bench schedule"
     env:
