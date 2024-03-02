@@ -27,8 +27,12 @@ exec --no-startup-id unclutter
 exec --no-startup-id safeeyes
 
 # Higher key repeat
-exec --no-startup-id "xset r rate 280 60"
-exec --no-startup-id "setxkbmap -option caps:escape"
+input type:keyboard {
+  xkb_options caps:escape
+
+  repeat_delay 250
+  repeat_rate 60
+}
 
 
 # Use pactl to adjust volume in PulseAudio.
