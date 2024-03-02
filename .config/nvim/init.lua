@@ -192,7 +192,7 @@ map("n", "<leader>gb", ":Git blame<CR>")
 map("n", "<C-s>", ":w<CR>")
 
 -- black + isort
-map("n", "<leader>b", ":!black %<CR>:!isort %<CR>")
+map("n", "<leader>b", ":!ruff format %<CR>")
 
 -- navigating long wrapped lines
 map("n", "<Down>", "gj")
@@ -309,6 +309,9 @@ cmp.setup(
         }
     }
 )
+
+-- speeds up startup time
+g.python3_host_prog = '/home/ankush/.pyenv/versions/3.11.5/bin/python3'
 
 nvim_lsp.pyright.setup {
     capabilities = require("cmp_nvim_lsp").default_capabilities(),
@@ -429,9 +432,9 @@ require("gitsigns").setup {
     word_diff = false
 }
 
-require("indent_blankline").setup {
-    show_current_context = true,
-    char = "┊"
+require("ibl").setup {
+    indent = { char = "┊" },
+    scope = {enabled = false}
 }
 
 require("colorizer").setup()

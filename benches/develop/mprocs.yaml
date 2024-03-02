@@ -1,22 +1,29 @@
 procs:
-  redis_cache:
-    shell: "redis-server config/redis_cache.conf"
-    stop: { send-keys: ["<C-c>"] }
-  redis_queue:
-    shell: "redis-server config/redis_queue.conf"
-    stop: { send-keys: ["<C-c>"] }
-
   web:
     shell: "bench serve --port 8000"
     env:
       PYTHONUNBUFFERED: "true"
       DEV_SERVER: "true"
-  gunicorn:
-    shell: "gunicorn -b 127.0.0.1:8000 -w 3 --chdir /home/ankush/benches/develop/sites 'frappe.app:application_with_statics()' --preload"
-    stop: { send-keys: ["<C-c>"] }
-    autostart: false
+      FRAPPE_SENTRY_DSN: "https://5ca189387ceb4e218f384bc35589e546@trace.frappe.cloud/10"
+
+  schedule:
+    shell: "bench schedule"
     env:
       PYTHONUNBUFFERED: "true"
+      DEV_SERVER: "true"
+      FRAPPE_SENTRY_DSN: "https://5ca189387ceb4e218f384bc35589e546@trace.frappe.cloud/10"
+
+  redis:
+    shell: "redis-server config/redis_cache.conf"
+    stop: { send-keys: ["<C-c>"] }
+
+  worker:
+    shell: "bench worker"
+    stop: { send-keys: ["<C-c>"] }
+    env:
+      PYTHONUNBUFFERED: "true"
+      DEV_SERVER: "true"
+      FRAPPE_SENTRY_DSN: "https://5ca189387ceb4e218f384bc35589e546@trace.frappe.cloud/10"
 
   socketio:
     shell: "node apps/frappe/socketio.js"
@@ -25,18 +32,19 @@ procs:
     shell: "bench watch"
     autostart: false
 
+  # tasks
   full-build:
-    shell: "bench build --force"
+    shell: "bench build"
     autostart: false
 
-  schedule:
-    shell: "bench schedule"
-    env:
-      PYTHONUNBUFFERED: "true"
-      DEV_SERVER: "true"
-  worker:
-    shell: "bench worker"
+  migrate:
+    shell: "bench --site dev.localhost migrate && bench --site erp.localhost migrate"
+    autostart: false
+
+  gunicorn:
+    shell: "gunicorn -b 127.0.0.1:8000 -w 3 -t 100 --graceful-timeout 10 --chdir /home/ankush/benches/develop/sites 'frappe.app:application_with_statics()' --preload"
     stop: { send-keys: ["<C-c>"] }
+    autostart: false
     env:
       PYTHONUNBUFFERED: "true"
-      DEV_SERVER: "true"
+      FRAPPE_SENTRY_DSN: "https://5ca189387ceb4e218f384bc35589e546@trace.frappe.cloud/10"

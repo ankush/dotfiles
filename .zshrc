@@ -225,3 +225,11 @@ export PYTHONSTARTUP="/home/ankush/.ipython/profile_default/startup/startup.py"
 
 export QT_QPA_PLATFORMTHEME=qt5ct
 alias grep=rg
+
+# pnpm
+export PNPM_HOME="/home/ankush/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
