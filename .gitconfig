@@ -50,3 +50,6 @@
 
 [includeIf "gitdir:~/benches/"]
   path = .gitconfig_frappe
+
+[alias]
+	pick = cherry-pick -x
