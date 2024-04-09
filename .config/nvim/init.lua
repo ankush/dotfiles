@@ -333,12 +333,12 @@ nvim_lsp.tsserver.setup {
     on_attach = on_attach
 }
 
--- nvim_lsp.rust_analyzer.setup {
---     capabilities = require("cmp_nvim_lsp").default_capabilities(),
---     on_attach = on_attach,
--- 	cmd = {"rustup", "run", "stable", "rust-analyzer"}
--- }
---
+nvim_lsp.rust_analyzer.setup {
+    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+    on_attach = on_attach,
+	cmd = {"rustup", "run", "stable", "rust-analyzer"}
+}
+
 
 local rt = require("rust-tools")
 

@@ -127,7 +127,7 @@ alias bat="batcat --theme=Dracula"
 # Is this mac?
 alias open="xdg-open"
 # Zathura open file and disown
-function z()
+function zt()
 {
     zathura "$@" & disown
 }
@@ -233,3 +233,9 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+fpath+=~/.zfunc
+
+eval "$(zoxide init zsh)"

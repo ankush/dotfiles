@@ -1,5 +1,5 @@
 {
-    "allow_postpone": true,
+    "allow_postpone": false,
     "break_interval": 15,
     "long_break_duration": 60,
     "long_breaks": [
@@ -14,7 +14,7 @@
         "config_version": "6.0.0"
     },
     "no_of_short_breaks_per_long_break": 2,
-    "persist_state": false,
+    "persist_state": true,
     "plugins": [
         {
             "enabled": true,
@@ -120,5 +120,5 @@
     "shortcut_disable_time": 2,
     "shortcut_postpone": 65,
     "shortcut_skip": 9,
-    "strict_break": false
+    "strict_break": true
 }
