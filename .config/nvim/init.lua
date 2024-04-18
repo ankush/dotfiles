@@ -191,8 +191,8 @@ map("n", "<leader>gb", ":Git blame<CR>")
 -- the right way to save things
 map("n", "<C-s>", ":w<CR>")
 
--- black + isort
-map("n", "<leader>b", ":!ruff format %<CR>")
+-- ruff
+map("n", "<leader>b", ":!ruff --select=I --fix % && ruff format %<CR>")
 
 -- navigating long wrapped lines
 map("n", "<Down>", "gj")
