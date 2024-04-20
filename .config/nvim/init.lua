@@ -339,6 +339,8 @@ nvim_lsp.rust_analyzer.setup {
 	cmd = {"rustup", "run", "stable", "rust-analyzer"}
 }
 
+nvim_lsp.clangd.setup{}
+
 
 local rt = require("rust-tools")
 

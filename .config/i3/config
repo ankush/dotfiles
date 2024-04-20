@@ -16,13 +16,12 @@ exec --no-startup-id picom
 exec --no-startup-id nitrogen --restore &
 
 # Tap to click
-exec --no-startup-id xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 326 1
+exec --no-startup-id xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 'libinput Tapping Enabled' 1
 # Natural scrolling
-exec --no-startup-id xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 305 1
+exec --no-startup-id xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 'libinput Natural Scrolling Enabled' 1
 # palm detection
-exec --no-startup-id xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 334 1
-# Touchpad gestures
-# exec --no-startup-id touchegg
+exec --no-startup-id xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 'libinput Disable While Typing Enabled' 1
+
 exec --no-startup-id unclutter
 exec --no-startup-id safeeyes
 
