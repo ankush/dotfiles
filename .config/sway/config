@@ -4,20 +4,20 @@ set $mod Mod4
 
 font pango:JetBrainsMono NL Nerd Font 9
 
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-# exec --no-startup-id dex --autostart --environment i3
+output * bg /home/ankush/Pictures/space.png fill
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-exec --no-startup-id picom
-exec --no-startup-id nitrogen --restore &
-
-# exec --no-startup-id touchegg
-exec --no-startup-id unclutter
 exec --no-startup-id safeeyes
+# TODO: Unclutter alternate for wayland.
+
+### Idle configuration
+ exec swayidle -w \
+          timeout 300 'swaylock -f -c 000000' \
+          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
 
 # Higher key repeat
 input type:keyboard {
@@ -27,6 +27,7 @@ input type:keyboard {
   repeat_rate 60
 }
 
+# TODO: fix accel
 input type:touchpad {
     tap enabled
     natural_scroll enabled
@@ -55,7 +56,7 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
+# start rofi (a program launcher)
 bindsym $mod+space exec --no-startup-id rofi -show drun -lines 5
 
 bindsym Mod1+Tab exec "rofi -show window -show-icons"
@@ -65,6 +66,7 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -88,7 +90,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+BackSpace split toggle
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -140,8 +142,8 @@ bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# exit sway
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 # Disable titlebar
 default_border pixel 2
@@ -210,7 +212,6 @@ bar {
 		}
 }
 
-bindsym $mod+b bar mode toggle
 bindsym XF86Favorites scratchpad show
 
 # exec --no-startup-id alacritty --class='vimwiki' -e '/home/ankush/bin/take-note.sh'

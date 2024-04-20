@@ -215,6 +215,7 @@ eval "$(pyenv init -)"
 # Ruby ==============
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
+export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
 
 # if virtual env exist then source it (set my TMUX startup script)
 if [ -n "$VIRTUAL_ENV" ]; then
