@@ -190,7 +190,7 @@ alias vxm="nvim ~/.xmonad/xmonad.hs"
 # Git aliases
 function gcu() {
     git fetch upstream $1:$1
-    git checkout $1
+    git checkout -f $1
 }
 
 # Setup fzf
