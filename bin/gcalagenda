@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cat /tmp/gcalcli_agenda.txt | rg -v "Lunch" | head -1 | sed 's/\t/ /' | sed -E 's/^(.*)$/ \1 /'
