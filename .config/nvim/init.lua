@@ -30,12 +30,10 @@ require("packer").startup(
         -- General
         use "editorconfig/editorconfig-vim"
         use "mhinz/vim-startify"
-        use "numToStr/Comment.nvim"
         use "tpope/vim-surround"
         use "tpope/vim-sleuth"
         use "nvim-lua/popup.nvim"
         use "nvim-lua/plenary.nvim"
-        use "hrsh7th/vim-vsnip"
 
         -- Navigation and search
         use "airblade/vim-rooter"
@@ -132,7 +130,7 @@ opt.timeoutlen = 500
 opt.updatetime = 150
 opt.wildmenu = true
 opt.undofile = true
-opt.undodir = "/tmp" -- #yolo
+opt.undodir = "/tmp/nvim" -- #yolo
 opt.signcolumn = "number"
 opt.clipboard = "unnamedplus"
 opt.number = true
@@ -289,12 +287,6 @@ end
 
 cmp.setup(
     {
-        snippet = {
-            -- REQUIRED by cmp
-            expand = function(args)
-                fn["vsnip#anonymous"](args.body)
-            end
-        },
         mapping = {
             ["<Tab>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Insert}),
             ["<S-Tab>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Insert}),
@@ -475,7 +467,7 @@ g["rooter_patterns"] = {".git", "Makefile", "compile_commands.json", "package.js
 
 cmd"let test#strategy = 'vtr'"
 cmd"let g:test#custom_runners = {'python': ['Frappe']}"
-cmd"let g:test#enabled_runners = ['python#frappe']"
+cmd"let g:test#enabled_runners = ['python#frappe', 'rust#cargotest']"
 cmd"let g:test#python#frappe#testsite = $CUR_SITE"
 cmd"let g:test#python#frappe#arguments = '--skip-before-tests'"
 cmd"let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]"

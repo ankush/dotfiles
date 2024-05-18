@@ -67,7 +67,7 @@
             "version": "0.0.1"
         },
         {
-            "enabled": true,
+            "enabled": false,
             "id": "smartpause",
             "settings": {
                 "idle_time": 10.0,
