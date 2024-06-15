@@ -4,26 +4,23 @@ procs:
     env:
       PYTHONUNBUFFERED: "true"
       DEV_SERVER: "true"
-      FRAPPE_SENTRY_DSN: "https://5ca189387ceb4e218f384bc35589e546@trace.frappe.cloud/10"
 
   schedule:
     shell: "bench schedule"
     env:
       PYTHONUNBUFFERED: "true"
       DEV_SERVER: "true"
-      FRAPPE_SENTRY_DSN: "https://5ca189387ceb4e218f384bc35589e546@trace.frappe.cloud/10"
 
   redis:
     shell: "redis-server config/redis_cache.conf"
     stop: { send-keys: ["<C-c>"] }
 
   worker:
-    shell: "bench worker"
+    shell: "bench worker-pool"
     stop: { send-keys: ["<C-c>"] }
     env:
       PYTHONUNBUFFERED: "true"
       DEV_SERVER: "true"
-      FRAPPE_SENTRY_DSN: "https://5ca189387ceb4e218f384bc35589e546@trace.frappe.cloud/10"
 
   socketio:
     shell: "node apps/frappe/socketio.js"
@@ -42,9 +39,8 @@ procs:
     autostart: false
 
   gunicorn:
-    shell: "gunicorn -b 127.0.0.1:8000 -w 1 -t 100 --graceful-timeout 10 --chdir /home/ankush/benches/develop/sites 'frappe.app:application_with_statics()' --preload"
+    shell: "gunicorn -b 127.0.0.1:8000 -w 2 -t 100 --graceful-timeout 10 --chdir /home/ankush/benches/develop/sites 'frappe.app:application_with_statics()' --preload"
     stop: { send-keys: ["<C-c>"] }
     autostart: false
     env:
       PYTHONUNBUFFERED: "true"
-      FRAPPE_SENTRY_DSN: "https://5ca189387ceb4e218f384bc35589e546@trace.frappe.cloud/10"

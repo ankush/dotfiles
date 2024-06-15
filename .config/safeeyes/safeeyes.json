@@ -1,19 +1,16 @@
 {
     "allow_postpone": false,
-    "break_interval": 15,
-    "long_break_duration": 60,
+    "break_interval": 20,
+    "long_break_duration": 120,
     "long_breaks": [
         {
             "name": "Walk for a while"
-        },
-        {
-            "name": "Lean back at your seat and relax"
         }
     ],
     "meta": {
         "config_version": "6.0.0"
     },
-    "no_of_short_breaks_per_long_break": 2,
+    "no_of_short_breaks_per_long_break": 3,
     "persist_state": true,
     "plugins": [
         {
@@ -33,10 +30,10 @@
             "version": "0.0.1"
         },
         {
-            "enabled": false,
+            "enabled": true,
             "id": "audiblealert",
             "settings": {
-                "pre_break_alert": true
+                "pre_break_alert": false
             },
             "version": "0.0.2"
         },
@@ -93,28 +90,10 @@
     "postpone_duration": 5,
     "pre_break_warning_time": 5,
     "rpc_port": 7200,
-    "short_break_duration": 15,
+    "short_break_duration": 60,
     "short_breaks": [
         {
-            "name": "Tightly close your eyes"
-        },
-        {
-            "name": "Roll your eyes a few times to each side"
-        },
-        {
-            "name": "Rotate your eyes in clockwise direction"
-        },
-        {
-            "name": "Rotate your eyes in counterclockwise direction"
-        },
-        {
-            "name": "Blink your eyes"
-        },
-        {
-            "name": "Focus on a point in the far distance"
-        },
-        {
-            "name": "Have some water"
+            "name": "Take a walk"
         }
     ],
     "shortcut_disable_time": 2,

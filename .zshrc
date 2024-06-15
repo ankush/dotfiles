@@ -127,7 +127,7 @@ alias bat="batcat --theme=Dracula"
 # Is this mac?
 alias open="xdg-open"
 # Zathura open file and disown
-function zt()
+function z()
 {
     zathura "$@" & disown
 }
@@ -238,5 +238,3 @@ esac
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
-
-eval "$(zoxide init zsh)"

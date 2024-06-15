@@ -190,7 +190,7 @@ map("n", "<leader>gb", ":Git blame<CR>")
 map("n", "<C-s>", ":w<CR>")
 
 -- ruff
-map("n", "<leader>b", ":!ruff --select=I --fix % && ruff format %<CR>")
+map("n", "<leader>b", ":!ruff --select=I --fix '%' && ruff format '%'<CR>")
 
 -- navigating long wrapped lines
 map("n", "<Down>", "gj")
@@ -290,8 +290,6 @@ cmp.setup(
         mapping = {
             ["<Tab>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Insert}),
             ["<S-Tab>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Insert}),
-            ["<C-j>"] = cmp.mapping.select_next_item({behavior = cmp.SelectBehavior.Insert}),
-            ["<C-k>"] = cmp.mapping.select_prev_item({behavior = cmp.SelectBehavior.Insert}),
             ["<CR>"] = cmp.mapping.confirm({behavior = cmp.ConfirmBehavior.Replace, select = true})
         },
         sources = {
@@ -473,5 +471,6 @@ cmd"let g:test#python#frappe#arguments = '--skip-before-tests'"
 cmd"let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]"
 cmd"let g:vimwiki_ext2syntax = {'.md': 'markdown'}"
 cmd"let g:vimwiki_listsym_rejected = '✗'"
+
 
 cmd"hi Normal guibg=NONE ctermbg=NONE"
