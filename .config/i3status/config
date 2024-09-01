@@ -16,6 +16,7 @@ order += "volume master"
 order += "cpu_usage"
 order += "memory"
 order += "battery all"
+order += "tztime atlanta"
 order += "tztime local"
 
 wireless _first_ {
@@ -39,6 +40,11 @@ memory {
 
 tztime local {
         format = "%a %d %b %I:%M "
+}
+
+tztime atlanta {
+        format = "Atlanta: %I:%M"
+        timezone = "America/New_York"
 }
 
 volume master {

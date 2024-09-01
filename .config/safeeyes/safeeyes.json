@@ -64,10 +64,10 @@
             "version": "0.0.1"
         },
         {
-            "enabled": false,
+            "enabled": true,
             "id": "smartpause",
             "settings": {
-                "idle_time": 10.0,
+                "idle_time": 30.0,
                 "interpret_idle_as_break": true
             },
             "version": "0.0.2"
@@ -88,7 +88,7 @@
         }
     ],
     "postpone_duration": 5,
-    "pre_break_warning_time": 5,
+    "pre_break_warning_time": 10,
     "rpc_port": 7200,
     "short_break_duration": 60,
     "short_breaks": [
