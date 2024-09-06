@@ -209,6 +209,9 @@ map("n", "<S-tab>", ":BufferLineCyclePrev<CR>", {silent = true})
 -- Replace word with yanked word
 map("n", "<C-p>", "ciw<C-r>0<ESC>")
 
+-- Build?
+map("n", "<leader>m", ":!make<CR>")
+
 -- improve default bindings
 map("n", "Y", "y$")
 map("n", "n", "nzzzv")
