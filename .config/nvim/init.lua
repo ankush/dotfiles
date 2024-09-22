@@ -332,7 +332,9 @@ nvim_lsp.rust_analyzer.setup {
 	cmd = {"rustup", "run", "stable", "rust-analyzer"}
 }
 
-nvim_lsp.clangd.setup{}
+nvim_lsp.clangd.setup{
+    on_attach = on_attach,
+}
 
 
 local rt = require("rust-tools")
@@ -464,7 +466,7 @@ vim.api.nvim_create_autocmd(
 )
 
 -- configure vimscript plugins
-g["rooter_patterns"] = {".git", "Makefile", "compile_commands.json", "package.json", "Cargo.toml"}
+g["rooter_patterns"] = {"Makefile", ".git", "compile_commands.json", "package.json", "Cargo.toml"}
 
 cmd"let test#strategy = 'vtr'"
 cmd"let g:test#custom_runners = {'python': ['Frappe']}"
