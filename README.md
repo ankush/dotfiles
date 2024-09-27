@@ -8,8 +8,8 @@ This repo contains configurations for applications and tools I use daily.
 My (current) primary applications:
 
 * Operating system: [PopOS](https://pop.system76.com/) 22.04
-* Window Manager: [xmonad](https://xmonad.org/)
-* Dock/Bar: [xmobar](https://hackage.haskell.org/package/xmobar)
+* Window Manager: i3
+* Dock/Bar: i3status
 * Terminal: Alacritty + tmux
 * Shell: zsh + [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) + [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 * Colorscheme and theme: [Dracula](https://draculatheme.com)

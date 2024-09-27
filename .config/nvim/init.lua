@@ -92,6 +92,7 @@ cmd "colorscheme dracula"
 -- all global settings
 
 g.mapleader = " "
+g.maplocalleader = " "
 g.nojoinspaces = true
 
 opt.backspace = [[indent,eol,start]]
@@ -109,7 +110,7 @@ opt.list = true
 opt.wrap = true
 opt.mouse = "a"
 opt.incsearch = true
-opt.inccommand = "nosplit"
+opt.inccommand = "split" -- live popup of replacements
 opt.laststatus = 3
 opt.scrolloff = 5
 opt.shiftwidth = 4
@@ -126,13 +127,15 @@ opt.showmode = false
 opt.splitright = true
 opt.fixendofline = false -- doctype.json
 opt.listchars = "tab:│ ,extends:>,trail:·,precedes:<,nbsp:⦸"
-opt.timeoutlen = 500
+opt.timeoutlen = 300
 opt.updatetime = 150
 opt.wildmenu = true
 opt.undofile = true
 opt.undodir = "/tmp/nvim" -- #yolo
 opt.signcolumn = "number"
-opt.clipboard = "unnamedplus"
+vim.schedule(function()
+    opt.clipboard = "unnamedplus"
+end)
 opt.number = true
 opt.tabstop = 4
 
@@ -201,6 +204,7 @@ map("v", "<Left>", "<gv")
 map("v", "<Right>", ">gv")
 
 -- remove search
+map("n", "<Esc>", ":noh<CR>")
 map("n", "<CR><CR>", ":noh<CR>")
 
 map("n", "<tab>", ":BufferLineCycleNext<CR>", {silent = true})
@@ -208,9 +212,6 @@ map("n", "<S-tab>", ":BufferLineCyclePrev<CR>", {silent = true})
 
 -- Replace word with yanked word
 map("n", "<C-p>", "ciw<C-r>0<ESC>")
-
--- Build?
-map("n", "<leader>m", ":!make<CR>")
 
 -- improve default bindings
 map("n", "Y", "y$")
@@ -268,7 +269,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-    buf_set_keymap("n", "<space>lq", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+    buf_set_keymap("n", "<space>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
     -- Set autocommands conditional on server_capabilities
     if client.server_capabilities.documentHighlightProvider then

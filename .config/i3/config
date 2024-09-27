@@ -25,6 +25,9 @@ exec --no-startup-id xinput set-prop 'ELAN0678:00 04F3:3195 Touchpad' 'libinput 
 exec --no-startup-id unclutter
 exec --no-startup-id safeeyes
 
+# password prompts
+exec --no-startup-id mate-polkit &
+
 # Higher key repeat
 exec --no-startup-id "xset r rate 280 60"
 exec --no-startup-id "setxkbmap -option caps:escape"
