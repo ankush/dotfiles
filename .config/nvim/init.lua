@@ -322,7 +322,7 @@ nvim_lsp.pyright.setup {
     }
 }
 
-nvim_lsp.tsserver.setup {
+nvim_lsp.ts_ls.setup {
     capabilities = require("cmp_nvim_lsp").default_capabilities(),
     on_attach = on_attach
 }
@@ -334,6 +334,7 @@ nvim_lsp.rust_analyzer.setup {
 }
 
 nvim_lsp.clangd.setup{
+    filetypes = { "c", "cpp", "cuda"}, -- by default it runs on .proto
     on_attach = on_attach,
 }
 
@@ -405,11 +406,11 @@ require("bufferline").setup {
 
 require("gitsigns").setup {
     signs = {
-        add = {hl = "GitSignsAdd", text = "│", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn"},
-        change = {hl = "GitSignsChange", text = "│", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn"},
-        delete = {hl = "GitSignsDelete", text = "_", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn"},
-        topdelete = {hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn"},
-        changedelete = {hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn"}
+        add = {text = "│"},
+        change = {text = "│"},
+        delete = {text = "_"},
+        topdelete = {text = "‾"},
+        changedelete = {text = "~"}
     },
     numhl = false,
     linehl = false,
