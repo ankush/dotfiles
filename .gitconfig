@@ -30,7 +30,6 @@
 
 [commit]
 	verbose = true
-	template = ~/.gitmessage
 
 [pull]
 	ff = only
