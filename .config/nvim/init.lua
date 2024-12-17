@@ -193,7 +193,7 @@ map("n", "<leader>gb", ":Git blame<CR>")
 map("n", "<C-s>", ":w<CR>")
 
 -- ruff
-map("n", "<leader>b", ":!ruff --select=I --fix '%' && ruff format '%'<CR>")
+map("n", "<leader>b", ":!ruff format '%'<CR>")
 
 -- navigating long wrapped lines
 map("n", "<Down>", "gj")

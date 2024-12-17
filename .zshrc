@@ -194,6 +194,11 @@ function gcu() {
     git checkout -f $1
 }
 
+function gcr() {
+    git fetch upstream develop:develop
+    git rebase develop
+}
+
 # Setup fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPS="--extended"
