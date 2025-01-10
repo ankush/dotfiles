@@ -7,6 +7,7 @@ procs:
 
   schedule:
     shell: "bench schedule"
+    autostart: false
     env:
       PYTHONUNBUFFERED: "true"
       DEV_SERVER: "true"

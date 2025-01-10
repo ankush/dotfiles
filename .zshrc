@@ -244,3 +244,6 @@ esac
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
+. "$HOME/.cargo/env"
+
+alias ghg='GH_HOST=github.gatech.edu gh'
