@@ -469,6 +469,7 @@ vim.api.nvim_create_autocmd(
 
 -- configure vimscript plugins
 g["rooter_patterns"] = {"Makefile", ".git", "compile_commands.json", "package.json", "Cargo.toml"}
+g.vimwiki_key_mappings = {all_maps= 0, global=0}
 
 cmd"let test#strategy = 'vtr'"
 cmd"let g:test#custom_runners = {'python': ['Frappe']}"
