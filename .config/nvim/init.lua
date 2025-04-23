@@ -243,6 +243,8 @@ local lsp_sig_config = {
     }
 }
 
+vim.diagnostic.config({ virtual_text = true })
+
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)

@@ -64,11 +64,11 @@
             "version": "0.0.1"
         },
         {
-            "enabled": false,
+            "enabled": true,
             "id": "smartpause",
             "settings": {
-                "idle_time": 30.0,
-                "interpret_idle_as_break": false
+                "idle_time": 60.0,
+                "interpret_idle_as_break": true
             },
             "version": "0.0.2"
         },

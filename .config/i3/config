@@ -54,6 +54,9 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# Monitor setup
+bindsym XF86Display exec ~/.screenlayout/prompt.sh
+
 # start dmenu (a program launcher)
 bindsym $mod+space exec --no-startup-id rofi -show drun -lines 5
 

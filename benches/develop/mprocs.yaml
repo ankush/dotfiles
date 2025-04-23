@@ -35,6 +35,11 @@ procs:
     shell: "bench build"
     autostart: false
 
+  # tasks
+  frappe-build:
+    shell: "bench build --force --app=frappe"
+    autostart: false
+
   migrate:
     shell: "bench --site dev.localhost migrate && bench --site erp.localhost migrate"
     autostart: false
