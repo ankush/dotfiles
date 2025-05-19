@@ -25,7 +25,6 @@ require("packer").startup(
         use "hrsh7th/cmp-buffer"
         use "hrsh7th/cmp-path"
         use "hrsh7th/nvim-cmp"
-        use 'simrat39/rust-tools.nvim'
 
         -- General
         use "editorconfig/editorconfig-vim"
@@ -339,24 +338,6 @@ nvim_lsp.clangd.setup{
     filetypes = { "c", "cpp", "cuda"}, -- by default it runs on .proto
     on_attach = on_attach,
 }
-
-
-local rt = require("rust-tools")
-
-
-local rt_attach = function(client, bufnr)
-  on_attach(client, bufnr) -- call my original lspconfig function first
-  vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-  vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-end
-
-
-
-rt.setup({
-  server = {
-    on_attach = rt_attach,
-  },
-})
 
 require("nvim-treesitter.configs").setup {
     highlight = {enable = true},
