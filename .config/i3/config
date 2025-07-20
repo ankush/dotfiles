@@ -107,7 +107,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+a focus parent
 
 # Flameshot
-bindsym $mod+p exec "flameshot gui -d 2000 -r | xclip -selection clipboard -t image/png"
+bindsym Print exec "flameshot gui -d 2000 -r | xclip -selection clipboard -t image/png"
 
 # focus the child container
 #bindsym $mod+d focus child

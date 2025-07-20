@@ -1,5 +1,5 @@
 {
-    "allow_postpone": false,
+    "allow_postpone": true,
     "break_interval": 25,
     "long_break_duration": 120,
     "long_breaks": [
@@ -87,7 +87,7 @@
             "version": "0.0.1"
         }
     ],
-    "postpone_duration": 5,
+    "postpone_duration": 1,
     "pre_break_warning_time": 10,
     "rpc_port": 7200,
     "short_break_duration": 60,
@@ -99,5 +99,5 @@
     "shortcut_disable_time": 2,
     "shortcut_postpone": 65,
     "shortcut_skip": 9,
-    "strict_break": true
+    "strict_break": false
 }
