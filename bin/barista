@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v pi >/dev/null 2>&1; then
+  echo "error: pi not found in PATH" >&2
+  exit 127
+fi
+
+if ! command -v frappe-cli >/dev/null 2>&1; then
+  echo "error: frappe-cli not found in PATH" >&2
+  exit 127
+fi
+
+workdir="$(mktemp -d -t pi-frappe-assistant.XXXXXX)"
+cleanup() {
+  if [[ "${PI_FRAPPE_KEEP_TMP:-}" != "1" ]]; then
+    rm -rf "$workdir"
+  else
+    echo "Temporary directory kept: $workdir" >&2
+  fi
+}
+trap cleanup EXIT
+
+sites="$(frappe-cli auth list)"
+guide="$(frappe-cli guide)"
+
+cd "$workdir"
+
+pi \
+  --name "frappe assistant" \
+  --no-context-files \
+  --append-system-prompt "$(cat <<EOF
+You are a Frappe assistant.
+
+Use \`frappe-cli\` whenever you need to inspect or operate on Frappe sites.
+
+Use this \`frappe-cli guide\` output to use \`frappe-cli\` effectively:
+
+$guide
+
+Available authenticated Frappe sites from \`frappe-cli auth list\`:
+
+$sites
+
+When the user refers to a site by name or description, map it to the appropriate site from this list.
+EOF
+)" \
+  "$@"
