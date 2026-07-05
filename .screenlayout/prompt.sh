@@ -14,6 +14,8 @@ fi
 i3-nagbar -p -m "Pick Display Configurtion" -t warning \
 	-b "Inbuilt"  "xrandr --output eDP --primary --mode 1920x1200 --pos 0x0 --rotate normal --output HDMI-A-0 --off --output DisplayPort-0 --off" \
 	-b "Secondary"  "xrandr --output eDP --off --output HDMI-A-0 --off --output DisplayPort-0 --mode 1920x1080 --pos 0x0 --rotate normal" \
-	-b "Both"  "xrandr --output eDP --primary --mode 1920x1200 --pos 1920x0 --rotate normal --output HDMI-A-0 --off --output DisplayPort-0 --mode 1920x1080 --pos 0x60 --rotate normal"
+	-b "Both"  "xrandr --output eDP --primary --mode 1920x1200 --pos 1920x0 --rotate normal --output HDMI-A-0 --off --output DisplayPort-0 --mode 1920x1080 --pos 0x60 --rotate normal" \
+	-b "Office"  "xrandr --output eDP --primary --mode 1920x1200 --pos 960x2160 --rotate normal --output HDMI-A-0 --off --output DisplayPort-0 --mode 3840x2160 --pos 0x0 --rotate normal" \
+	-b "OfficeSecondary"  "xrandr --output eDP --off --output HDMI-A-0 --off --output DisplayPort-0 --mode 3840x2160 --pos 0x0 --rotate normal"
 
 

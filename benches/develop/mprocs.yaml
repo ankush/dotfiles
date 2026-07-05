@@ -17,7 +17,7 @@ procs:
     stop: { send-keys: ["<C-c>"] }
 
   worker:
-    shell: "bench worker-pool"
+    shell: "bench worker"
     stop: { send-keys: ["<C-c>"] }
     env:
       PYTHONUNBUFFERED: "true"
@@ -45,7 +45,14 @@ procs:
     autostart: false
 
   gunicorn:
-    shell: "gunicorn -b 127.0.0.1:8000 -w 2 --chdir /home/ankush/benches/develop/sites 'frappe.app:application_with_statics()' --preload"
+    shell: "gunicorn -b 127.0.0.1:8000 -w1 --thread=4 --chdir /home/ankush/benches/develop/sites 'frappe.app:application_with_statics()' --preload --enable-adaptive-queueing"
+    stop: { send-keys: ["<C-c>"] }
+    autostart: false
+    env:
+      PYTHONUNBUFFERED: "true"
+
+  gunicorn_old:
+    shell: "gunicorn -b 127.0.0.1:8000 -w1 --thread=4 --chdir /home/ankush/benches/develop/sites 'frappe.app:application_with_statics()' --preload"
     stop: { send-keys: ["<C-c>"] }
     autostart: false
     env:

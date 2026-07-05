@@ -8,7 +8,7 @@ font pango:JetBrainsMono NL Nerd Font 9
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # lock screen after 60s
-exec --no-startup-id xset s 60
+exec --no-startup-id xset s 240
 
 exec --no-startup-id picom
 exec --no-startup-id nitrogen --restore &
