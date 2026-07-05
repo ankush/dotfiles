@@ -21,13 +21,23 @@ cleanup() {
 }
 trap cleanup EXIT
 
-sites="$(frappe-cli auth list)"
-guide="$(frappe-cli guide)"
+sites="$(frappe-cli auth list 2>/dev/null)"
+guide="$(frappe-cli guide 2>/dev/null)"
 
 cd "$workdir"
 
+mkdir -p .pi
+cat > .pi/settings.json <<'EOF'
+{
+  "quietStartup": true
+}
+EOF
+
 pi \
-  --name "frappe assistant" \
+  --name "Barista" \
+  --approve \
+  --offline \
+  --no-skills \
   --no-context-files \
   --append-system-prompt "$(cat <<EOF
 You are a Frappe assistant.
