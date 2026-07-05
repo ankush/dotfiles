@@ -12,15 +12,6 @@ if ! command -v frappe-cli >/dev/null 2>&1; then
 fi
 
 workdir="$(mktemp -d -t pi-frappe-assistant.XXXXXX)"
-cleanup() {
-  if [[ "${PI_FRAPPE_KEEP_TMP:-}" != "1" ]]; then
-    rm -rf "$workdir"
-  else
-    echo "Temporary directory kept: $workdir" >&2
-  fi
-}
-trap cleanup EXIT
-
 sites="$(frappe-cli auth list 2>/dev/null)"
 guide="$(frappe-cli guide 2>/dev/null)"
 
@@ -35,6 +26,7 @@ EOF
 
 pi \
   --name "Barista" \
+  --thinking low \
   --approve \
   --offline \
   --no-skills \
